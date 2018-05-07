@@ -25,7 +25,7 @@ class TokenAuthenticatorTest extends \Tests\TestCase
             'password'      => 'slipery-squid-legs',
         ];
 
-        $response = ResponseFactory::authentication();
+        $response = ResponseFactory::response(200, ResponseFactory::authentication());
 
         $client = Mockery::mock(Client::class)
             ->shouldReceive('request')

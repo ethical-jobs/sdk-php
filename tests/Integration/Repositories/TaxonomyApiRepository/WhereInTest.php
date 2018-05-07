@@ -5,7 +5,7 @@ namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 use Mockery;
 use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
-use EthicalJobs\Tests\SDK\Fixtures;
+use Tests\Fixtures\ResponseFactory;
 
 class WhereInTest extends \Tests\TestCase
 {
@@ -32,6 +32,21 @@ class WhereInTest extends \Tests\TestCase
      */
     public function it_can_add_a_whereIn_query()
     {
-        $this->markTestSkipped('N/A for this repository.');
+        $api = Mockery::mock(ApiClient::class)
+            ->shouldReceive('appData')
+            ->withNoArgs()
+            ->andReturn(ResponseFactory::taxonomies())
+            ->getMock();
+
+        $terms = (new TaxonomyApiRepository($api))
+            ->taxonomy('locations')
+            ->whereIn('id', [1,17,14,10])
+            ->find();
+
+        $slugs = $terms->pluck('slug')->toArray();
+
+        $this->assertEquals($slugs, [
+            'VIC','REGSA','REGNT','INTERNATIONAL'
+        ]);
     }    
 }

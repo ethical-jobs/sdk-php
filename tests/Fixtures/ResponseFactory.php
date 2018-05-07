@@ -3,6 +3,7 @@
 namespace Tests\Fixtures;
 
 use EthicalJobs\SDK\Collection;
+use GuzzleHttp\Psr7\Response;
 
 /**
  * Api response factory
@@ -832,4 +833,22 @@ class ResponseFactory
 
 		return new Collection($response);
     }	
+
+	/**
+	 * Mocks a response object with stream
+	 * 
+	 * @param int $status
+	 * @param EthicalJobs\SDK\Collection $data
+	 * @return GuzzleHttp\Psr7\Response
+	 */
+	public static function response(int $status, Collection $data): Response
+	{
+		$encoded = json_encode($data->toArray());
+
+		$stream = \GuzzleHttp\Psr7\stream_for($encoded);
+
+		$headers = ['Content-Type' => 'application/json'];
+
+		return new Response($status, $headers, $stream);
+	}	    
 }
