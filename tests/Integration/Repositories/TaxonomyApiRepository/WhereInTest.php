@@ -6,6 +6,7 @@ use Mockery;
 use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\Tests\SDK\Fixtures;
+use EthicalJobs\SDK\Testing\ResponseFactory;
 
 class WhereInTest extends \Tests\TestCase
 {
@@ -32,6 +33,23 @@ class WhereInTest extends \Tests\TestCase
      */
     public function it_can_add_a_whereIn_query()
     {
-        $this->markTestSkipped('N/A for this repository.');
+        $api = Mockery::mock(ApiClient::class)
+            ->shouldReceive('appData')
+            ->withNoArgs()
+            ->andReturn(ResponseFactory::taxonomies())
+            ->getMock();
+
+        $repository = new TaxonomyApiRepository($api);
+
+        $terms = $repository
+            ->taxonomy('locations')
+            ->whereIn('id', [2,4,6])
+            ->find();
+
+        $slugs = $terms
+            ->pluck('slug')
+            ->toArray();
+
+        $this->assertEquals($slugs, ['REGVIC','REGNSW','REGQLD']);
     }    
 }

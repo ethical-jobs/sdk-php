@@ -5,7 +5,7 @@ namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 use Mockery;
 use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
-use Tests\Fixtures\ResponseFactory;
+use EthicalJobs\SDK\Testing\ResponseFactory;
 
 class WhereTest extends \Tests\TestCase
 {

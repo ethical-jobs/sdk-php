@@ -8,7 +8,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Contracts\Cache\Repository;
 use EthicalJobs\SDK\Authentication\TokenAuthenticator;
-use Tests\Fixtures\ResponseFactory;
+use EthicalJobs\SDK\Testing\ResponseFactory;
 
 class TokenAuthenticatorTest extends \Tests\TestCase
 {
@@ -25,7 +25,7 @@ class TokenAuthenticatorTest extends \Tests\TestCase
             'password'      => 'slipery-squid-legs',
         ];
 
-        $response = ResponseFactory::authentication();
+        $response = ResponseFactory::response(200, ResponseFactory::authentication());
 
         $client = Mockery::mock(Client::class)
             ->shouldReceive('request')
