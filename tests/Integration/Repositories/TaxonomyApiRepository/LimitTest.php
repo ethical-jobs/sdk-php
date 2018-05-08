@@ -6,7 +6,7 @@ use Mockery;
 use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
-use Tests\Fixtures\ResponseFactory;
+use EthicalJobs\SDK\Testing\ResponseFactory;
 
 class LimitTest extends \Tests\TestCase
 {

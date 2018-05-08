@@ -8,7 +8,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Contracts\Cache\Repository;
 use EthicalJobs\SDK\Authentication\TokenAuthenticator;
-use Tests\Fixtures\ResponseFactory;
+use EthicalJobs\SDK\Testing\ResponseFactory;
 
 class TokenAuthenticatorTest extends \Tests\TestCase
 {
