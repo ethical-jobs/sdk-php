@@ -53,3 +53,4 @@ class WhereInTest extends \Tests\TestCase
         $this->assertEquals($slugs, ['REGVIC','REGNSW','REGQLD']);
     }    
 }
+
