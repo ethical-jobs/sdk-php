@@ -1,6 +1,6 @@
 <?php
 
-namespace EthicalJobs\Tests\SDK\Fixtures;
+namespace EthicalJobs\SDK\Testing;
 
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Enumerables;
