@@ -5,12 +5,8 @@ namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 use Mockery;
 use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
-<<<<<<< HEAD
-use Tests\Fixtures\ResponseFactory;
-=======
 use EthicalJobs\Tests\SDK\Fixtures;
 use EthicalJobs\SDK\Testing\ResponseFactory;
->>>>>>> release/v1.2.0
 
 class WhereInTest extends \Tests\TestCase
 {
@@ -43,18 +39,6 @@ class WhereInTest extends \Tests\TestCase
             ->andReturn(ResponseFactory::taxonomies())
             ->getMock();
 
-<<<<<<< HEAD
-        $terms = (new TaxonomyApiRepository($api))
-            ->taxonomy('locations')
-            ->whereIn('id', [1,17,14,10])
-            ->find();
-
-        $slugs = $terms->pluck('slug')->toArray();
-
-        $this->assertEquals($slugs, [
-            'VIC','REGSA','REGNT','INTERNATIONAL'
-        ]);
-=======
         $repository = new TaxonomyApiRepository($api);
 
         $terms = $repository
@@ -67,7 +51,6 @@ class WhereInTest extends \Tests\TestCase
             ->toArray();
 
         $this->assertEquals($slugs, ['REGVIC','REGNSW','REGQLD']);
->>>>>>> release/v1.2.0
     }    
 }
 
