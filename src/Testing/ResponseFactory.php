@@ -30,13 +30,13 @@ class ResponseFactory
 	 */
 	public static function authentication()
 	{
-		$response = (array) json_decode('
+		$response = json_decode('
 			{
 				"token_type": "Bearer",
 				"expires_in": 31536000,
 				"access_token": "'.static::token().'"
 			}
-		');
+		', true);
 
 		return new Collection($response);
 	}
@@ -49,7 +49,7 @@ class ResponseFactory
 	 */
 	public static function user()
 	{
-		$response = (array) json_decode('
+		$response = json_decode('
 			{
 			  "data": {
 			    "entities": {
@@ -106,7 +106,7 @@ class ResponseFactory
 			    "result": 5151
 			  }
 			}
-		');
+		', true);
 
 		return new Collection($response);
 	}			
@@ -119,7 +119,7 @@ class ResponseFactory
 	 */
 	public static function job()
 	{
-		$response = (array) json_decode('
+		$response = json_decode('
 			{
 			  "data": {
 			    "entities": {
@@ -145,7 +145,7 @@ class ResponseFactory
 			    "result": 97954
 			  }
 			}
-		');
+		', true);
 
 		return new Collection($response);
 	}		
@@ -158,7 +158,7 @@ class ResponseFactory
 	 */
 	public static function jobs()
 	{
-		$response = (array) json_decode('
+		$response = json_decode('
 			{
 			  "data": {
 			    "entities": {
@@ -403,7 +403,7 @@ class ResponseFactory
 			    ]
 			  }
 			}
-		');
+		', true);
 
 		return new Collection($response);
 	}
@@ -416,7 +416,7 @@ class ResponseFactory
      */
     public static function taxonomies()
     {
-        $response = (array) json_decode('
+        $response = json_decode('
 			{
 			  "data": {
 			    "taxonomies": {
