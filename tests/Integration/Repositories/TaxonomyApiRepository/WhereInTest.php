@@ -70,3 +70,4 @@ class WhereInTest extends \Tests\TestCase
 >>>>>>> release/v1.2.0
     }    
 }
+
