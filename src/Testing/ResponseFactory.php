@@ -408,6 +408,88 @@ class ResponseFactory
 		return new Collection($response);
 	}
 
+	/**
+	 * Jobs search resource response
+	 *
+	 * @param int $status
+	 * @return GuzzleHttp\Psr7\Response
+	 */
+	public static function jobsSearch()
+	{
+		$response = json_decode('
+			{
+			    "data": {
+			        "entities": {
+			            "jobs": {
+			                "70634": {
+			                    "_score": 46.230198,
+			                    "id": 70634,
+			                    "organisation_id": 6587,
+			                    "status": "APPROVED",
+			                    "title": "Disability Advocate for Adults with Disabilities",
+			                    "featured": false,
+			                    "expired": true,
+			                    "created_at": 1498950701000
+			                },
+			                "107038": {
+			                    "_score": 43.983753,
+			                    "id": 107038,
+			                    "organisation_id": 1045,
+			                    "status": "APPROVED",
+			                    "title": "Disability Support Worker",
+			                    "featured": false,
+			                    "expired": false,
+			                    "created_at": 1525826528000
+			                },
+			                "105246": {
+			                    "_score": 43.637955,
+			                    "id": 105246,
+			                    "organisation_id": 1045,
+			                    "status": "APPROVED",
+			                    "title": "Disability Support Worker",
+			                    "featured": false,
+			                    "expired": false,
+			                    "created_at": 1524020597000
+			                },
+			                "94190": {
+			                    "_score": 42.82801,
+			                    "id": 94190,
+			                    "organisation_id": 1045,
+			                    "status": "APPROVED",
+			                    "title": "Disability Support Worker - Pymble",
+			                    "featured": false,
+			                    "expired": true,
+			                    "created_at": 1515717264000
+			                },
+			                "93991": {
+			                    "_score": 42.82801,
+			                    "id": 93991,
+			                    "organisation_id": 1045,
+			                    "status": "APPROVED",
+			                    "title": "Disability Support Worker - Blacktown",
+			                    "featured": false,
+			                    "expired": true,
+			                    "created_at": 1515562937000
+			                }
+			            }
+			        },
+			        "result": [
+			            70634,
+			            107038,
+			            105246,
+			            94190,
+			            93991
+			        ]
+			    },
+			    "meta": {
+			        "title": "Disability administration Jobs in Melbourne"
+			    }
+			}
+		', true);
+
+		return new Collection($response);
+	}	
+
 
     /**
      * Taxonomy request response
