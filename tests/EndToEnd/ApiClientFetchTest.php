@@ -23,7 +23,6 @@ class ApiClientFetchTest extends \Tests\TestCase
     public function it_can_fetch_unprotected_routes()
     {
         $responseStack = new MockHandler([
-            ResponseFactory::response(200, ResponseFactory::authentication()),
             ResponseFactory::response(200, ResponseFactory::jobs()),
         ]);
 
@@ -42,4 +41,33 @@ class ApiClientFetchTest extends \Tests\TestCase
         
         $this->assertTrue(array_has($results, 'data.entities.jobs'));
     }
+
+    /**
+     * @test
+     * @group Unit
+     */
+    public function it_can_fetch_protected_routes()
+    {
+        $responseStack = new MockHandler([
+            ResponseFactory::response(200, ResponseFactory::authentication()),
+            ResponseFactory::response(200, ResponseFactory::jobs()),
+        ]);
+
+        $guzzle = new Client(['handler' => HandlerStack::create($responseStack)]);
+
+        App::instance(Client::class, $guzzle);
+
+        $apiClient = App::make(ApiClient::class);
+
+        $results = $apiClient
+            ->authenticate()
+            ->get('/jobs', [
+                'status' => 'APPROVED',
+                'limit' => 10,
+            ]);
+
+        $this->assertInstanceOf(Collection::class, $results);
+
+        $this->assertTrue(array_has($results, 'data.entities.jobs'));
+    }    
 }
