@@ -1,3 +1,7 @@
+# v2.1.1
+
+- Addressed issue in jobs.search response json
+
 # v2.1.0
 
 - Added new updated job search response
