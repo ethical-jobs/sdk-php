@@ -1638,6 +1638,9 @@ return '
             109246,
             109095
         ]
+    },
+    "meta": {
+        "title": "Disability worker jobs in regional Victoria"
     }
 }
 ';
