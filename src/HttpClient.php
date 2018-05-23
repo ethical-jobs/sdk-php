@@ -29,7 +29,14 @@ class HttpClient
 	 *
 	 * @var \EthicalJobs\SDK\Authenticator 
 	 */
-	protected $authenticator;	
+	protected $authenticator;
+
+	/**
+	 * Authenticate requests
+	 *
+	 * @var bool
+	 */
+	protected $authenticate = false;		
 
 	/**
 	 * PSR7 request
@@ -59,6 +66,18 @@ class HttpClient
 
 		$this->authenticator = $auth;
 	}
+
+	/**
+	 * Set authentication to true
+	 * 
+	 * @return EthicalJobs\SDK\HttpClient     
+	 */
+	public function authenticate(): HttpClient
+	{
+		$this->authenticate = true;
+
+		return $this;
+	}		
 
 	/**
 	 * Http get request
@@ -186,7 +205,7 @@ class HttpClient
 	 */
 	protected function authenticateRequest(Request $request)
 	{
-		if ($this->authenticator) {
+		if ($this->authenticator && $this->authenticate) {
 			return $this->authenticator->authenticate($request);
 		}
 
