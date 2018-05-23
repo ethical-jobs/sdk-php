@@ -1,3 +1,8 @@
+# v2.1.0
+
+- Added new updated job search response
+- Added tests for ResponseFactory
+
 # v2.0.0
 
 - Breaking Change Version
