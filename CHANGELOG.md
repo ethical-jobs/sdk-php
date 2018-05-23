@@ -1,3 +1,7 @@
+# v2.2.0
+
+- Results function from ResponseSelector service
+
 # v2.1.1
 
 - Addressed issue in jobs.search response json

@@ -102,5 +102,15 @@ class ResponseSelector
 	public function entities(string $entities): array
 	{
 		return array_get($this->response, "data.entities.$entities", []);
+	}
+
+	/**
+	 * Returns response result array
+	 *
+	 * @return array|int
+	 */
+	public function result()
+	{
+		return array_get($this->response, "data.result", []);
 	}		
 }
