@@ -223,12 +223,13 @@ class HttpClient
 	 */
 	protected function createRequest(string $verb, string $route, $body = [], $headers = [])
 	{
-		$request = new Request(
-			$verb, 
-			Router::getRouteUrl($route), 
-			$this->mergeDefaultHeaders($headers), 
-			json_encode($body)
-		);
+		$url = Router::getRouteUrl($route);
+
+		if (strtoupper($verb) === 'GET') {
+			$url .= '?' . http_build_query($body);
+		}
+
+		$request = new Request($verb, $url, $this->mergeDefaultHeaders($headers), json_encode($body));
 
 		$this->setRequest($request);
 

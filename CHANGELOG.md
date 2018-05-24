@@ -1,3 +1,7 @@
+# v2.2.2
+
+- Fixed critical issue with get requests not appending params to query string
+
 # v2.2.1
 
 - Addressed issue in jobs.search response json
