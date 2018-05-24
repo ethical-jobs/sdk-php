@@ -24,5 +24,5 @@ class HttpRequestTest extends \Tests\TestCase
         $actual = $http->getRequest();
 
         $this->assertEquals($expected, $actual);
-    }                   
+    }     
 }
