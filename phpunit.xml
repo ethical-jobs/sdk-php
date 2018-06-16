@@ -12,7 +12,7 @@
          bootstrap="vendor/autoload.php"
 >
     <testsuites>
-        <testsuite name="ethical-jobs-sdk-php Test Suite">
+        <testsuite name="@ethical-jobs/sdk-php Test Suite">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>

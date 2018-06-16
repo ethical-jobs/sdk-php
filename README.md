@@ -1,6 +1,6 @@
 ## Installation
 
-`composer require ethical-jobs/ethical-jobs-sdk`
+`composer require ethical-jobs/@ethical-jobs/sdk`
 
 For Laravel < `5.5.x` include the service provider and facade in you `config/app.php` file `EthicalJobs\SDK\Laravel\ServiceProvider::class`, `'EthicalJobs' => EthicalJobs\SDK\Laravel\ApiFacade::class,`. For Laravel >= `5.5.x` the package will auto-include the service provider and facade.
 
