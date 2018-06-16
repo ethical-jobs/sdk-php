@@ -34,8 +34,14 @@ class RouterTest extends \Tests\TestCase
     {
         App::shouldReceive('environment')->andReturn('production');
 
-        $this->assertEquals('https://api.ethicaljobs.com.au/route/to/jobs', Router::getRouteUrl('route/to/jobs'));
-        $this->assertEquals('https://api.ethicaljobs.com.au/route/to/jobs', Router::getRouteUrl('/route/to/jobs'));
+        $this->assertEquals(
+            'https://api.ethicaljobs.com.au/route/to/jobs', 
+            Router::getRouteUrl('route/to/jobs')
+        );
+        $this->assertEquals(
+            'https://api.ethicaljobs.com.au/route/to/jobs', 
+            Router::getRouteUrl('/route/to/jobs')
+        );
     }
 
     /**
