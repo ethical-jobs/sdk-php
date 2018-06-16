@@ -1,3 +1,7 @@
+# v2.2.3
+
+- Fixed cosmetic issue with job api resource /jobs to jobs
+
 # v2.2.2
 
 - Fixed critical issue with get requests not appending params to query string
