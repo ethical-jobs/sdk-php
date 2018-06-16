@@ -18,6 +18,6 @@ class JobApiRepositoryTest extends \Tests\TestCase
 
         $repository = new JobApiRepository($api);
 
-        $this->assertEquals('/jobs', $repository->getResource());
+        $this->assertEquals('jobs', $repository->getResource());
     }      
 }

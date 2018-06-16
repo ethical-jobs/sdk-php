@@ -20,6 +20,6 @@ class JobApiRepository extends ApiRepository
      */
     public function __construct(ApiClient $api)
     {
-        parent::__construct($api, '/jobs'); 
+        parent::__construct($api, 'jobs'); 
     }          
 }
