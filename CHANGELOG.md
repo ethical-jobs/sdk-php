@@ -1,3 +1,8 @@
+# v2.3.0
+
+- Updating package dependancies
+- Adding new methods to ApiRepositories from ethical-jobs/laravel-storage package
+
 # v2.2.3
 
 - Fixed cosmetic issue with job api resource /jobs to jobs

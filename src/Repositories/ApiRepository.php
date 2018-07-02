@@ -61,7 +61,7 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
      * @param string $resource
      * @return $this
      */
-    public function setResource(string $resource = '/'): Contracts\Repository
+    public function setResource(string $resource = '/') : Contracts\Repository
     {
         $this->resource = $resource;
 
@@ -118,7 +118,7 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     /**
      * {@inheritdoc}
      */
-    public function where(string $field, $operator, $value = null): Contracts\Repository
+    public function where(string $field, $operator, $value = null) : Contracts\Repository
     {
         $this->query[$field] = $value;
 
@@ -128,7 +128,7 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     /**
      * {@inheritdoc}
      */
-    public function whereIn(string $field, array $values): Contracts\Repository
+    public function whereIn(string $field, array $values) : Contracts\Repository
     {
         $this->query[$field] = $values;
 
@@ -138,7 +138,17 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     /**
      * {@inheritdoc}
      */
-    public function orderBy(string $field, string $direction): Contracts\Repository
+    public function whereHasIn(string $field, array $values) : Contracts\Repository
+    {
+        // Not applicable to repository type
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function orderBy(string $field, string $direction) : Contracts\Repository
     {
         $this->query['orderBy'] = $field;
 
@@ -150,7 +160,7 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     /**
      * {@inheritdoc}
      */
-    public function limit(int $limit): Contracts\Repository
+    public function limit(int $limit) : Contracts\Repository
     {
         $this->query['limit'] = $limit;
 
@@ -160,7 +170,17 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     /**
      * {@inheritdoc}
      */
-    public function find(): iterable
+    public function search(string $term = '') : Contracts\Repository
+    {
+        $this->query['q'] = $term;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function find() : iterable
     {
         $this->applyCriteria();
         
