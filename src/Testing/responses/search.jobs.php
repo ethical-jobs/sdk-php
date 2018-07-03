@@ -710,6 +710,9 @@ return '
                    "title":"Generalist and Family Violence Lawyer",
                    "slug":"DarebinCLC\/generalist-and-family-violence-lawyer",
                    "summary":"Darebin Community Legal Centre provides free legal advice and referral to people who live, work or study in the Darebin area. We are looking for a Community Lawyer.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -732,6 +735,9 @@ return '
                    "title":"Project Officer",
                    "slug":"ABV\/project-officer",
                    "summary":"ABV has recently undertaken a strategic shift in direction and is looking for a highly motivated and enthusiastic Project Officer to assist the Program and Projects team with the delivery of projects.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         15
                     ],
@@ -756,6 +762,9 @@ return '
                    "title":"Youth Workers - Mackay",
                    "slug":"LifeWithoutBarriers\/youth-workers---mackay",
                    "summary":"Establish rapport with children and young people and assist them to develop skills for living within the community.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         6
                     ],
@@ -777,6 +786,9 @@ return '
                    "title":"Adoptions Specialist Case Manager",
                    "slug":"taylorcare2017\/adoptions-specialist-case-manager",
                    "summary":"A unique opportunity has now arisen for an experienced Adoptions Specialist - Case Manager to join an reputable NGO in Western Sydney.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -798,6 +810,9 @@ return '
                    "title":"Social Workers \/ Case Workers - Out Of Home Care",
                    "slug":"TBS2021\/social-workers--case-workers---out-of-home-care",
                    "summary":"Be part of the Out of Home Care reforms - Vacancies in Liverpool & Werrington. Be challenged & rewarded when you join our welcoming team.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -820,6 +835,9 @@ return '
                    "title":"Social Workers \/ Case Workers - Out Of Home Care",
                    "slug":"TBS2021\/social-worker--case-worker---out-of-home-care",
                    "summary":"Be part of the Out of Home Care reforms - Vacancies in Liverpool & Werrington. Be challenged and rewarded when you join our welcoming team.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -842,6 +860,9 @@ return '
                    "title":"Family Inclusive Language & Literacy Support Program Officer",
                    "slug":"Maribyrnong_CC\/family-inclusive-language--literacy-support-program-officer",
                    "summary":"You will be working with volunteers and support staff to deliver the program, ensuring student\' s engagement in education and monitoring their learning outcomes .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -867,6 +888,9 @@ return '
                    "title":"Counsellors",
                    "slug":"McArthur \/ counsellors",
                    "summary":"Essentials skills to be considered include extensive counselling experience working with clients individuals, couple and families who have multiple and complex needs .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -889,6 +913,9 @@ return '
                    "title":"Member Liaison Officer",
                    "slug":"SpinalLife \/ member - liaison - officer",
                    "summary":"We are excited to be expanding our support services to Western Australia and looking for a Member Liaison Officer to represent Spinal Life Australia !",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         7
                     ],
@@ -911,6 +938,9 @@ return '
                    "title":"Chief Executive Officer - Connecting Home",
                    "slug":"NGO \/ chief - executive - officer --- connecting - home",
                    "summary":"CEO for Victorian agency supporting survivors of the Stolen Generations across South Eastern Australia .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -933,6 +963,9 @@ return '
                    "title":"Operations Coordinator",
                    "slug":"TravellersAid \/ operations - coordinator",
                    "summary":"Exciting opportunity to work with well respected and forward thinking not for profit .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -954,6 +987,9 @@ return '
                    "title":"Key Worker - Family Violence",
                    "slug":"SVDP \/ key - worker --- family - violence",
                    "summary":"This role will provide information, advocacy, referral and case management support to single women and single women with children who have experienced Family Violence .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -977,6 +1013,9 @@ return '
                    "title":"Human Resources Partner - Ipswich",
                    "slug":"MindAustralia \/ human - resources - partner -- - ipswich",
                    "summary":"Make a difference in the community through supporting mental health recovery . Mind offers you a supportive team environment, flexible work arrangements and career development opportunities .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         5
                     ],
@@ -997,6 +1036,9 @@ return '
                    "title":"Humanitarian Settlement Program Support Worker - Armidale",
                    "slug":"ssi \/ humanitarian - settlement - program - support - worker --- armidale",
                    "summary":"Are you a passionate individual with a Diploma in Community Services or case Management with demonstrated ability to provide support to clients ?",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         4
                     ],
@@ -1020,6 +1062,9 @@ return '
                    "title":"Service Manager - Carer Counselling Program",
                    "slug":"carersvic \/ service - manager -- - carer - counselling - program",
                    "summary":"Provide expert guidance and leadership to the Carers Victoria Counselling Services team and a great opportunity to lead and manage Carers Victoria Counselling carers framework project .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1043,6 +1088,9 @@ return '
                    "title":"Volunteer Mentor Program Coordinator - International Development Intern (voluntary)",
                    "slug":"FutureSense \/ volunteer - mentor - program - coordinator -- - international - development - intern - voluntary",
                    "summary":"In - country based international development position working with FutureSense Foundation, supporting our longterm community development programs and volunteers who work on them .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         17
                     ],
@@ -1064,6 +1112,9 @@ return '
                    "title":"Member Advocate",
                    "slug":"futuresuper \/ member - advocate",
                    "summary":"At Future Super, we do financial services with a difference !In this role you\'ll use your communication and people skills to have an impact on important environmental and social justice issues.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -1088,6 +1139,9 @@ return '
                    "title":"Contact Worker Out Of Home Care - Lithgow Area",
                    "slug":"create58\/contact-worker-out-of-home-care---lithgow-area",
                    "summary":"We are currently seeking suitably qualified staff as casual Contact Workers in the Lithgow and surrounding areas. It is preferable for the applicants to be residing in the area.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         4
                     ],
@@ -1109,6 +1163,9 @@ return '
                    "title":"Senior Analyst",
                    "slug":"ACU\/senior-analyst",
                    "summary":"Undertake research and analysis of quantitative data from a wide range of resources.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -1129,6 +1186,9 @@ return '
                    "title":"Community Liaison Officer",
                    "slug":"AusRedCross\/community-liaison-officer-1",
                    "summary":"Assist clients who access the service with information, support and referral to other services to meet their needs.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         15
                     ],
@@ -1152,6 +1212,9 @@ return '
                    "title":"Media and Public Relations Manager - Sydney \/ Melbourne",
                    "slug":"AusRedCross\/media-and-public-relations-manager---sydney--melbourne-1",
                    "summary":"Utilise your expertise in PR and media with a leading humanitarian organisation.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1174,6 +1237,9 @@ return '
                    "title":"Connectivity Campaigns Manager - Sydney \/ Melbourne",
                    "slug":"AusRedCross\/connectivity-campaigns-manager---sydney--melbourne-1",
                    "summary":"Opportunity to take on a new and challenging role leading our strategic marketing activities.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1197,6 +1263,9 @@ return '
                    "title":"Connectivity Campaigns Manager - Sydney \/ Melbourne",
                    "slug":"AusRedCross\/connectivity-campaigns-manager---sydney--melbourne",
                    "summary":"Opportunity to take on a new and challenging role leading our strategic marketing activities.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -1220,6 +1289,9 @@ return '
                    "title":"Head of Policy and Research",
                    "slug":"VEOHRCDJR\/head-of-policy-and-research",
                    "summary":"The Commission is looking for an experienced professional to lead a dedicated and dynamic policy and research team.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1243,6 +1315,9 @@ return '
                    "title":"Speech Therapist - Early Childhood Intervention Services Key Worker",
                    "slug":"EACHBigSplash\/speech-therapist---early-childhood-intervention-services-key-worker",
                    "summary":"Would you like to work with families where children have a disability or developmental delay, to build their capacity to support their child\'s development ?",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1266,6 +1341,9 @@ return '
                    "title":"Care Coordinator - Out of Home Care - Bunbury",
                    "slug":"LifeWithoutBarriers \/ care - coordinator --- out - of - home - care --- bunbury - 1",
                    "summary":"A fantastic part - time opportunity for someone with experience in Out Of Home Care to join our team in Bunbury .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         8
                     ],
@@ -1290,6 +1368,9 @@ return '
                    "title":"Senior Project Officer",
                    "slug":"AFLSportsReady \/ senior - project - officer - 1",
                    "summary":"We are seeking our new Senior Project Officer\u2013 Aboriginal and Torres Strait Islander Programs . This is a key role for AFL SR and our Warumilang Programs and involves a broad range of responsibility .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1313,6 +1394,9 @@ return '
                    "title":"Upper House Organiser \/ s",
                    "slug":"AGV \/ upper - house - organisers",
                    "summary":"Are you passionate about community organising ? We are looking for an Organiser who can build a team to have meaningful and persuasive conversations with Victorian voters throughout 2018.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1335,6 +1419,9 @@ return '
                    "title":"Administration & Fleet Coordinator",
                    "slug":"ACSOHR \/ administration --fleet - coordinator - 1",
                    "summary":"Join a vibrant, professional team coordinating fleet and administration in this new role, at a national not for profit organisation based in Richmond .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1357,6 +1444,9 @@ return '
                    "title":"Media and public Relations Manager - Sydney \/ Melbourne",
                    "slug":"AusRedCross \/ media - and - public - relations - manager -- - sydney -- melbourne",
                    "summary":"Utilise your expertise in PR and media with a leading humanitarian organisation .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -1379,6 +1469,9 @@ return '
                    "title":"Senior Mobile Software Engineer",
                    "slug":"BDI \/ senior - mobile - software - engineer",
                    "summary":"Mobile app development and problem - solving using cross - platform frameworks, with an emphasis on JavaScript - based technologies .",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -1400,6 +1493,9 @@ return '
                    "title":"Children\'s Services Manager",
                    "slug":"Sylvanvale childrens-services-manager",
                    "summary":"Sylvanvale is seeking an experienced and enthusiastic individual, who can lead the delivery and growth of Mikarie Child Care Centre & Kids Club.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -1423,6 +1519,9 @@ return '
                    "title":"Return to Work & OHS Coordinator",
                    "slug":"anglicarevic\/return-to-work--ohs-coordinator",
                    "summary":"A new exciting opportunity exists for innovative, proactive individual with drive and initiative who has experience within the RTW & OHS field and Community Services Industry.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1444,6 +1543,9 @@ return '
                    "title":"Integrated Team Leaders x2 - Family Services",
                    "slug":"anglicarevic\/integrated-team-leaders-x2---family-services",
                    "summary":"Family Services provides families with support and counselling, within a managed care plan, designed to improve the lives of children.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1467,6 +1569,9 @@ return '
                    "title":"Communications Officer",
                    "slug":"absec\/communications-officer",
                    "summary":"AbSec is the peak Aboriginal organisation in the NSW child and family welfare sector. We are seeking a skilled and qualified person to join our team as Communications Officer.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         3
                     ],
@@ -1490,6 +1595,9 @@ return '
                    "title":"Targeted Care Package Key Workers",
                    "slug":"anglicarevic\/targeted-care-package-key-workers",
                    "summary":"Seeking experienced case managers to work with young people and prevent them from entering the Out of Home Care system.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1512,6 +1620,9 @@ return '
                    "title":"Therapeutic Practitioners - Melbourne \/ Bendigo",
                    "slug":"anglicarevic\/therapeutic-practitioners---melbourne--bendigo",
                    "summary":"An exciting opportunity to join a therapeutic team supporting young people in residential care.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1535,6 +1646,9 @@ return '
                    "title":"Family Services Practitioner",
                    "slug":"anglicarevic\/family-services-practitioner-9",
                    "summary":"An opportunity exists for a creative, motivated and energetic individual to join our supportive and dynamic team in Craigieburn.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
@@ -1557,6 +1671,9 @@ return '
                    "title":"Youth & Family Worker - Bendigo",
                    "slug":"anglicarevic\/youth--family-worker---bendigo",
                    "summary":"Looking for an experienced Youth Worker with a variety of evening and weekend shifts available.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         2
                     ],
@@ -1579,6 +1696,9 @@ return '
                    "title":"Key Coordinator",
                    "slug":"bookedout\/key-coordinator",
                    "summary":"We\'re looking for an admin powerhouse to join our small friendly team at Speaking Out\u2013 a speakers agency for writers, social commentators, and more.",
+                   "created_at": 1530576190000,
+                   "approved_at": 1530576191000,
+                   "expires_at": 1534460400000,                   
                    "locations": [
                         1
                     ],
