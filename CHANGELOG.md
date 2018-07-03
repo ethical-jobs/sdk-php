@@ -1,3 +1,7 @@
+# v2.3.1
+
+- Adding dates to jobs search responses
+
 # v2.3.0
 
 - Updating package dependancies
