@@ -27,11 +27,9 @@ class FindByFieldTest extends \Tests\TestCase
             ->taxonomy('categories')
             ->findByField('title', 'Alcohol and Other Drugs');
 
-        $this->assertEquals($term, [
-            'id'        => 4,
-            'slug'      => 'alcoholandotherdrugs',
-            'title'     => 'Alcohol and Other Drugs',
-            'job_count' => 59,
-        ]);
+        $this->assertEquals($term['id'], 4);
+        $this->assertEquals($term['slug'], 'alcoholandotherdrugs');
+        $this->assertEquals($term['title'], 'Alcohol and Other Drugs');
+        $this->assertTrue(is_numeric($term['job_count']));
     }      
 }
