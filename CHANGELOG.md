@@ -1,6 +1,7 @@
-# v2.3.2
+# v2.3.3
 
 - Adding dates to jobs search responses
+- Response fixture factory refactor
 - Response fixture issues
 
 # v2.3.0

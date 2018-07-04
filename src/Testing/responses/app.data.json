@@ -1,0 +1,851 @@
+{
+	"data": {
+		"creditPacks": {
+			"1": {
+				"id": 1,
+				"price": 120,
+				"savings": 0,
+				"volume": 1,
+				"service_type": "REGULAR",
+				"title": "One job ad credit",
+				"total": 132,
+				"gst": 12
+			},
+			"2": {
+				"id": 2,
+				"price": 145,
+				"savings": 0,
+				"volume": 1,
+				"service_type": "MANAGED",
+				"title": "One job ad credit",
+				"total": 159.5,
+				"gst": 14.5
+			},
+			"3": {
+				"id": 3,
+				"price": 330,
+				"savings": 30,
+				"volume": 3,
+				"service_type": "REGULAR",
+				"title": "Three job ad credits",
+				"total": 363,
+				"gst": 33
+			},
+			"4": {
+				"id": 4,
+				"price": 405,
+				"savings": 30,
+				"volume": 3,
+				"service_type": "MANAGED",
+				"title": "Three job ad credits",
+				"total": 445.5,
+				"gst": 40.5
+			},
+			"5": {
+				"id": 5,
+				"price": 530,
+				"savings": 70,
+				"volume": 5,
+				"service_type": "REGULAR",
+				"title": "Five job ad credits",
+				"total": 583,
+				"gst": 53
+			},
+			"6": {
+				"id": 6,
+				"price": 655,
+				"savings": 70,
+				"volume": 5,
+				"service_type": "MANAGED",
+				"title": "Five job ad credits",
+				"total": 720.5,
+				"gst": 65.5
+			},
+			"7": {
+				"id": 7,
+				"price": 1010,
+				"savings": 190,
+				"volume": 10,
+				"service_type": "REGULAR",
+				"title": "Ten job ad credits",
+				"total": 1111,
+				"gst": 101
+			},
+			"8": {
+				"id": 8,
+				"price": 1260,
+				"savings": 190,
+				"volume": 10,
+				"service_type": "MANAGED",
+				"title": "Ten job ad credits",
+				"total": 1386,
+				"gst": 126
+			},
+			"9": {
+				"id": 9,
+				"price": 2910,
+				"savings": 690,
+				"volume": 30,
+				"service_type": "REGULAR",
+				"title": "Thirty job ad credits",
+				"total": 3201,
+				"gst": 291
+			},
+			"10": {
+				"id": 10,
+				"price": 3660,
+				"savings": 690,
+				"volume": 30,
+				"service_type": "MANAGED",
+				"title": "Thirty job ad credits",
+				"total": 4026,
+				"gst": 366
+			}
+		},
+		"enumerables": {
+			"jobStatus": {
+				"DRAFT": "Draft",
+				"PENDING": "Pending approval",
+				"APPROVED": "Approved"
+			},
+			"jobSource": {
+				"EMPLOYERS": "Employers",
+				"AUTOPOST": "Autopost",
+				"STAFF": "Staff"
+			},
+			"countries": {
+				"AF": "Afghanistan",
+				"AX": "\u00c5land Islands",
+				"AL": "Albania",
+				"DZ": "Algeria",
+				"AS": "American Samoa",
+				"AD": "Andorra",
+				"AO": "Angola",
+				"AI": "Anguilla",
+				"AQ": "Antarctica",
+				"AG": "Antigua & Barbuda",
+				"AR": "Argentina",
+				"AM": "Armenia",
+				"AW": "Aruba",
+				"AC": "Ascension Island",
+				"AU": "Australia",
+				"AT": "Austria",
+				"AZ": "Azerbaijan",
+				"BS": "Bahamas",
+				"BH": "Bahrain",
+				"BD": "Bangladesh",
+				"BB": "Barbados",
+				"BY": "Belarus",
+				"BE": "Belgium",
+				"BZ": "Belize",
+				"BJ": "Benin",
+				"BM": "Bermuda",
+				"BT": "Bhutan",
+				"BO": "Bolivia",
+				"BA": "Bosnia & Herzegovina",
+				"BW": "Botswana",
+				"BR": "Brazil",
+				"IO": "British Indian Ocean Territory",
+				"VG": "British Virgin Islands",
+				"BN": "Brunei",
+				"BG": "Bulgaria",
+				"BF": "Burkina Faso",
+				"BI": "Burundi",
+				"KH": "Cambodia",
+				"CM": "Cameroon",
+				"CA": "Canada",
+				"IC": "Canary Islands",
+				"CV": "Cape Verde",
+				"BQ": "Caribbean Netherlands",
+				"KY": "Cayman Islands",
+				"CF": "Central African Republic",
+				"EA": "Ceuta & Melilla",
+				"TD": "Chad",
+				"CL": "Chile",
+				"CN": "China",
+				"CX": "Christmas Island",
+				"CC": "Cocos (Keeling) Islands",
+				"CO": "Colombia",
+				"KM": "Comoros",
+				"CG": "Congo - Brazzaville",
+				"CD": "Congo - Kinshasa",
+				"CK": "Cook Islands",
+				"CR": "Costa Rica",
+				"CI": "C\u00f4te d\u2019Ivoire",
+				"HR": "Croatia",
+				"CU": "Cuba",
+				"CW": "Cura\u00e7ao",
+				"CY": "Cyprus",
+				"CZ": "Czech Republic",
+				"DK": "Denmark",
+				"DG": "Diego Garcia",
+				"DJ": "Djibouti",
+				"DM": "Dominica",
+				"DO": "Dominican Republic",
+				"EC": "Ecuador",
+				"EG": "Egypt",
+				"SV": "El Salvador",
+				"GQ": "Equatorial Guinea",
+				"ER": "Eritrea",
+				"EE": "Estonia",
+				"ET": "Ethiopia",
+				"FK": "Falkland Islands",
+				"FO": "Faroe Islands",
+				"FJ": "Fiji",
+				"FI": "Finland",
+				"FR": "France",
+				"GF": "French Guiana",
+				"PF": "French Polynesia",
+				"TF": "French Southern Territories",
+				"GA": "Gabon",
+				"GM": "Gambia",
+				"GE": "Georgia",
+				"DE": "Germany",
+				"GH": "Ghana",
+				"GI": "Gibraltar",
+				"GR": "Greece",
+				"GL": "Greenland",
+				"GD": "Grenada",
+				"GP": "Guadeloupe",
+				"GU": "Guam",
+				"GT": "Guatemala",
+				"GG": "Guernsey",
+				"GN": "Guinea",
+				"GW": "Guinea-Bissau",
+				"GY": "Guyana",
+				"HT": "Haiti",
+				"HN": "Honduras",
+				"HK": "Hong Kong SAR China",
+				"HU": "Hungary",
+				"IS": "Iceland",
+				"IN": "India",
+				"ID": "Indonesia",
+				"IR": "Iran",
+				"IQ": "Iraq",
+				"IE": "Ireland",
+				"IM": "Isle of Man",
+				"IL": "Israel",
+				"IT": "Italy",
+				"JM": "Jamaica",
+				"JP": "Japan",
+				"JE": "Jersey",
+				"JO": "Jordan",
+				"KZ": "Kazakhstan",
+				"KE": "Kenya",
+				"KI": "Kiribati",
+				"XK": "Kosovo",
+				"KW": "Kuwait",
+				"KG": "Kyrgyzstan",
+				"LA": "Laos",
+				"LV": "Latvia",
+				"LB": "Lebanon",
+				"LS": "Lesotho",
+				"LR": "Liberia",
+				"LY": "Libya",
+				"LI": "Liechtenstein",
+				"LT": "Lithuania",
+				"LU": "Luxembourg",
+				"MO": "Macau SAR China",
+				"MK": "Macedonia",
+				"MG": "Madagascar",
+				"MW": "Malawi",
+				"MY": "Malaysia",
+				"MV": "Maldives",
+				"ML": "Mali",
+				"MT": "Malta",
+				"MH": "Marshall Islands",
+				"MQ": "Martinique",
+				"MR": "Mauritania",
+				"MU": "Mauritius",
+				"YT": "Mayotte",
+				"MX": "Mexico",
+				"FM": "Micronesia",
+				"MD": "Moldova",
+				"MC": "Monaco",
+				"MN": "Mongolia",
+				"ME": "Montenegro",
+				"MS": "Montserrat",
+				"MA": "Morocco",
+				"MZ": "Mozambique",
+				"MM": "Myanmar (Burma)",
+				"NA": "Namibia",
+				"NR": "Nauru",
+				"NP": "Nepal",
+				"NL": "Netherlands",
+				"NC": "New Caledonia",
+				"NZ": "New Zealand",
+				"NI": "Nicaragua",
+				"NE": "Niger",
+				"NG": "Nigeria",
+				"NU": "Niue",
+				"NF": "Norfolk Island",
+				"KP": "North Korea",
+				"MP": "Northern Mariana Islands",
+				"NO": "Norway",
+				"OM": "Oman",
+				"PK": "Pakistan",
+				"PW": "Palau",
+				"PS": "Palestinian Territories",
+				"PA": "Panama",
+				"PG": "Papua New Guinea",
+				"PY": "Paraguay",
+				"PE": "Peru",
+				"PH": "Philippines",
+				"PN": "Pitcairn Islands",
+				"PL": "Poland",
+				"PT": "Portugal",
+				"PR": "Puerto Rico",
+				"QA": "Qatar",
+				"RE": "R\u00e9union",
+				"RO": "Romania",
+				"RU": "Russia",
+				"RW": "Rwanda",
+				"VC": "Saint Vincent and the Grenadines",
+				"WS": "Samoa",
+				"SM": "San Marino",
+				"ST": "S\u00e3o Tom\u00e9 & Pr\u00edncipe",
+				"SA": "Saudi Arabia",
+				"SN": "Senegal",
+				"RS": "Serbia",
+				"SC": "Seychelles",
+				"SL": "Sierra Leone",
+				"SG": "Singapore",
+				"SX": "Sint Maarten",
+				"SK": "Slovakia",
+				"SI": "Slovenia",
+				"SB": "Solomon Islands",
+				"SO": "Somalia",
+				"ZA": "South Africa",
+				"GS": "South Georgia and the South Sandwich Islands",
+				"KR": "South Korea",
+				"SS": "South Sudan",
+				"ES": "Spain",
+				"LK": "Sri Lanka",
+				"BL": "St. Barth\u00e9lemy",
+				"SH": "St. Helena",
+				"KN": "St. Kitts & Nevis",
+				"LC": "St. Lucia",
+				"MF": "St. Martin",
+				"PM": "St. Pierre & Miquelon",
+				"SD": "Sudan",
+				"SR": "Suriname",
+				"SJ": "Svalbard & Jan Mayen",
+				"SZ": "Swaziland",
+				"SE": "Sweden",
+				"CH": "Switzerland",
+				"SY": "Syria",
+				"TW": "Taiwan",
+				"TJ": "Tajikistan",
+				"TZ": "Tanzania",
+				"TH": "Thailand",
+				"TL": "Timor-Leste",
+				"TG": "Togo",
+				"TK": "Tokelau",
+				"TO": "Tonga",
+				"TT": "Trinidad & Tobago",
+				"TA": "Tristan da Cunha",
+				"TN": "Tunisia",
+				"TR": "Turkey",
+				"TM": "Turkmenistan",
+				"TC": "Turks & Caicos Islands",
+				"TV": "Tuvalu",
+				"UM": "U.S. Minor Outlying Islands",
+				"VI": "U.S. Virgin Islands",
+				"UG": "Uganda",
+				"UA": "Ukraine",
+				"AE": "United Arab Emirates",
+				"GB": "United Kingdom",
+				"US": "United States",
+				"UY": "Uruguay",
+				"UZ": "Uzbekistan",
+				"VU": "Vanuatu",
+				"VA": "Vatican City",
+				"VE": "Venezuela",
+				"VN": "Vietnam",
+				"WF": "Wallis & Futuna",
+				"EH": "Western Sahara",
+				"YE": "Yemen",
+				"ZM": "Zambia",
+				"ZW": "Zimbabwe"
+			}
+		},
+		"taxonomies": {
+			"categories": {
+				"1": {
+					"id": 1,
+					"slug": "administration",
+					"title": "Administration",
+					"job_count": 156
+				},
+				"2": {
+					"id": 2,
+					"slug": "advocacy",
+					"title": "Advocacy and Campaigns",
+					"job_count": 87
+				},
+				"3": {
+					"id": 3,
+					"slug": "agedcare",
+					"title": "Aged Care and Seniors Rights",
+					"job_count": 48
+				},
+				"4": {
+					"id": 4,
+					"slug": "alcoholandotherdrugs",
+					"title": "Alcohol and Other Drugs",
+					"job_count": 53
+				},
+				"5": {
+					"id": 5,
+					"slug": "animalwelfareandprotection",
+					"title": "Animal Welfare and Protection",
+					"job_count": 8
+				},
+				"6": {
+					"id": 6,
+					"slug": "businessdevelopment",
+					"title": "Business Development and Sales",
+					"job_count": 62
+				},
+				"7": {
+					"id": 7,
+					"slug": "careandsupportservices",
+					"title": "Care and Support Work",
+					"job_count": 75
+				},
+				"8": {
+					"id": 8,
+					"slug": "coopsandcreditunions",
+					"title": "Co-ops and Credit Unions",
+					"job_count": 1
+				},
+				"9": {
+					"id": 9,
+					"slug": "communicationsandmarketing",
+					"title": "Communications and Marketing",
+					"job_count": 129
+				},
+				"10": {
+					"id": 10,
+					"slug": "communityanddevelopment",
+					"title": "Community Development",
+					"job_count": 68
+				},
+				"11": {
+					"id": 11,
+					"slug": "conservationandmanagement",
+					"title": "Conservation and Land Management",
+					"job_count": 14
+				},
+				"12": {
+					"id": 12,
+					"slug": "corporatesocialresponsibility",
+					"title": "Corporate Social Responsibility",
+					"job_count": 15
+				},
+				"13": {
+					"id": 13,
+					"slug": "disabilityservices",
+					"title": "Disability Services",
+					"job_count": 185
+				},
+				"14": {
+					"id": 14,
+					"slug": "earlychildhood",
+					"title": "Early Childhood",
+					"job_count": 35
+				},
+				"15": {
+					"id": 15,
+					"slug": "ecotourism",
+					"title": "Eco-Tourism",
+					"job_count": 1
+				},
+				"16": {
+					"id": 16,
+					"slug": "educationandtraining",
+					"title": "Education and Training",
+					"job_count": 130
+				},
+				"17": {
+					"id": 17,
+					"slug": "environmentandsustainability",
+					"title": "Environment and Sustainability",
+					"job_count": 63
+				},
+				"18": {
+					"id": 18,
+					"slug": "executiveseniormanagement",
+					"title": "Executive and Senior Management",
+					"job_count": 81
+				},
+				"19": {
+					"id": 19,
+					"slug": "familyservices",
+					"title": "Family Services",
+					"job_count": 299
+				},
+				"20": {
+					"id": 20,
+					"slug": "fairtradeorganicandecoretail",
+					"title": "FairTrade and Organic",
+					"job_count": 3
+				},
+				"21": {
+					"id": 21,
+					"slug": "financeandaccounting",
+					"title": "Finance and Accounting",
+					"job_count": 47
+				},
+				"22": {
+					"id": 22,
+					"slug": "fundraising",
+					"title": "Fundraising",
+					"job_count": 108
+				},
+				"23": {
+					"id": 23,
+					"slug": "glbt",
+					"title": "GLBTI and Sexual Health",
+					"job_count": 15
+				},
+				"24": {
+					"id": 24,
+					"slug": "greenarchitectureandproperty",
+					"title": "Green Architecture\/Property",
+					"job_count": 7
+				},
+				"25": {
+					"id": 25,
+					"slug": "greenenergy",
+					"title": "Green Energy",
+					"job_count": 6
+				},
+				"26": {
+					"id": 26,
+					"slug": "greenproductsandservices",
+					"title": "Green Products and Services",
+					"job_count": 8
+				},
+				"27": {
+					"id": 27,
+					"slug": "healthcare",
+					"title": "Health Care and Allied Health",
+					"job_count": 112
+				},
+				"28": {
+					"id": 28,
+					"slug": "healthpromotion",
+					"title": "Health Promotion",
+					"job_count": 60
+				},
+				"29": {
+					"id": 29,
+					"slug": "housing",
+					"title": "Housing and Homelessness",
+					"job_count": 78
+				},
+				"30": {
+					"id": 30,
+					"slug": "customerservice",
+					"title": "Retail and Hospitality",
+					"job_count": 16
+				},
+				"31": {
+					"id": 31,
+					"slug": "hrandemploymentservices",
+					"title": "HR and Employment Services",
+					"job_count": 71
+				},
+				"32": {
+					"id": 32,
+					"slug": "indigenous",
+					"title": "Indigenous",
+					"job_count": 149
+				},
+				"33": {
+					"id": 33,
+					"slug": "internationalaidandevelopment",
+					"title": "International Aid and Development",
+					"job_count": 74
+				},
+				"34": {
+					"id": 34,
+					"slug": "itandcommunicationtechnology",
+					"title": "I.T. and Communication Technology",
+					"job_count": 36
+				},
+				"35": {
+					"id": 35,
+					"slug": "legalandhumanrights",
+					"title": "Legal and Human Rights",
+					"job_count": 85
+				},
+				"36": {
+					"id": 36,
+					"slug": "management",
+					"title": "Management",
+					"job_count": 303
+				},
+				"37": {
+					"id": 37,
+					"slug": "mediaartsandentertainment",
+					"title": "Media and Arts",
+					"job_count": 32
+				},
+				"38": {
+					"id": 38,
+					"slug": "medicalresearch",
+					"title": "Medical Research",
+					"job_count": 14
+				},
+				"39": {
+					"id": 39,
+					"slug": "mentalhealthandcounselling",
+					"title": "Mental Health and Counselling",
+					"job_count": 211
+				},
+				"40": {
+					"id": 40,
+					"slug": "multiculturalismdiversity",
+					"title": "Multiculturalism and Diversity",
+					"job_count": 57
+				},
+				"41": {
+					"id": 41,
+					"slug": "nursing",
+					"title": "Nursing",
+					"job_count": 34
+				},
+				"42": {
+					"id": 42,
+					"slug": "operationsriskmanagement",
+					"title": "Operations and Risk Management",
+					"job_count": 62
+				},
+				"43": {
+					"id": 43,
+					"slug": "organicfarmingandgardening",
+					"title": "Organic Farming and Gardening",
+					"job_count": 11
+				},
+				"44": {
+					"id": 44,
+					"slug": "policyandresearch",
+					"title": "Policy and Research",
+					"job_count": 55
+				},
+				"45": {
+					"id": 45,
+					"slug": "projectmanagement",
+					"title": "Project Management",
+					"job_count": 131
+				},
+				"46": {
+					"id": 46,
+					"slug": "recyclingandwastemanagement",
+					"title": "Recycling and Waste Management",
+					"job_count": 3
+				},
+				"47": {
+					"id": 47,
+					"slug": "socialwork",
+					"title": "Social Work",
+					"job_count": 391
+				},
+				"48": {
+					"id": 48,
+					"slug": "sustainabletransport",
+					"title": "Sustainable Transport",
+					"job_count": 6
+				},
+				"49": {
+					"id": 49,
+					"slug": "tradesandservices",
+					"title": "Trades and Services",
+					"job_count": 14
+				},
+				"50": {
+					"id": 50,
+					"slug": "unionsandworkersrights",
+					"title": "Unions and Workers Rights",
+					"job_count": 30
+				},
+				"51": {
+					"id": 51,
+					"slug": "volunteermanagement",
+					"title": "Volunteer Management",
+					"job_count": 22
+				},
+				"52": {
+					"id": 52,
+					"slug": "womensorganisationsandservices",
+					"title": "Womens Organisations and Services",
+					"job_count": 139
+				},
+				"53": {
+					"id": 53,
+					"slug": "youthservices",
+					"title": "Youth",
+					"job_count": 204
+				}
+			},
+			"locations": {
+				"1": {
+					"id": 1,
+					"slug": "VIC",
+					"title": "Melbourne"
+				},
+				"2": {
+					"id": 2,
+					"slug": "REGVIC",
+					"title": "Regional VIC"
+				},
+				"3": {
+					"id": 3,
+					"slug": "NSW",
+					"title": "Sydney"
+				},
+				"4": {
+					"id": 4,
+					"slug": "REGNSW",
+					"title": "Regional NSW"
+				},
+				"5": {
+					"id": 5,
+					"slug": "QLD",
+					"title": "Brisbane & Gold Coast"
+				},
+				"6": {
+					"id": 6,
+					"slug": "REGQLD",
+					"title": "Regional QLD"
+				},
+				"7": {
+					"id": 7,
+					"slug": "WA",
+					"title": "Perth"
+				},
+				"8": {
+					"id": 8,
+					"slug": "REGWA",
+					"title": "Regional WA"
+				},
+				"9": {
+					"id": 9,
+					"slug": "SA",
+					"title": "Adelaide"
+				},
+				"10": {
+					"id": 10,
+					"slug": "REGSA",
+					"title": "Regional SA"
+				},
+				"11": {
+					"id": 11,
+					"slug": "TAS",
+					"title": "Hobart"
+				},
+				"12": {
+					"id": 12,
+					"slug": "REGTAS",
+					"title": "Regional TAS"
+				},
+				"13": {
+					"id": 13,
+					"slug": "NT",
+					"title": "Darwin"
+				},
+				"14": {
+					"id": 14,
+					"slug": "REGNT",
+					"title": "Regional NT"
+				},
+				"15": {
+					"id": 15,
+					"slug": "ACT",
+					"title": "Canberra & ACT"
+				},
+				"16": {
+					"id": 16,
+					"slug": "AUSTRALIAWIDE",
+					"title": "Australia-Wide"
+				},
+				"17": {
+					"id": 17,
+					"slug": "INTERNATIONAL",
+					"title": "International"
+				}
+			},
+			"sectors": {
+				"1": {
+					"id": 1,
+					"slug": "Business and Private Sector",
+					"title": "Business\/Private Sector"
+				},
+				"2": {
+					"id": 2,
+					"slug": "Federal Government",
+					"title": "Federal Government"
+				},
+				"3": {
+					"id": 3,
+					"slug": "Local Government",
+					"title": "Local Government"
+				},
+				"4": {
+					"id": 4,
+					"slug": "Not For Profit (NFP)",
+					"title": "Not For Profit (NFP)"
+				},
+				"5": {
+					"id": 5,
+					"slug": "socialenterprise",
+					"title": "Social Enterprise"
+				},
+				"6": {
+					"id": 6,
+					"slug": "State Government",
+					"title": "State Government"
+				},
+				"7": {
+					"id": 7,
+					"slug": "university",
+					"title": "University & Higher Education"
+				}
+			},
+			"workTypes": {
+				"1": {
+					"id": 1,
+					"slug": "CASUAL",
+					"title": "Casual"
+				},
+				"2": {
+					"id": 2,
+					"slug": "CONTRACT",
+					"title": "Contract"
+				},
+				"3": {
+					"id": 3,
+					"slug": "FULLTIME",
+					"title": "Full Time"
+				},
+				"4": {
+					"id": 4,
+					"slug": "GRADUATE",
+					"title": "Graduate"
+				},
+				"5": {
+					"id": 5,
+					"slug": "PARTTIME",
+					"title": "Part Time"
+				},
+				"6": {
+					"id": 6,
+					"slug": "VOLUNTEER",
+					"title": "Volunteer"
+				}
+			}
+		}
+	}
+}

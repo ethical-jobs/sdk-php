@@ -417,9 +417,9 @@ class ResponseFactory
 	 */
 	public static function jobsSearch()
 	{
-		$jsonString = (include 'responses/search.jobs.php');
+		$string = file_get_contents(__DIR__.'/responses/search.jobs.json');
 
-		$response = json_decode($jsonString, true);
+		$response = json_decode($string, true);
 
 		return new Collection($response);
 	}	
@@ -432,9 +432,9 @@ class ResponseFactory
 	 */
 	public static function taxonomies()
 	{
-        $jsonString = (include 'responses/app.data.php');	
-        
-        $response = json_decode($jsonString, true);	
+		$string = file_get_contents(__DIR__.'/responses/app.data.json');
+
+		$response = json_decode($string, true);
         
 		return new Collection($response);
 	}	
