@@ -11,19 +11,19 @@ class RouterTest extends \Tests\TestCase
      * @test
      * @group Unit
      */
-    public function it_returns_correct_urls_for_environments()
+    public function it_returns_correct_urls_for_host()
     {
+        putenv('API_HOST=api.ethicaljobs.com.au');
         App::shouldReceive('environment')->once()->andReturn('production');
         $this->assertEquals('https://api.ethicaljobs.com.au/jobs', Router::getRouteUrl('jobs'));
 
+        putenv('API_HOST=api.ethicalstaging.com.au');
         App::shouldReceive('environment')->once()->andReturn('staging');
         $this->assertEquals('https://api.ethicalstaging.com.au/jobs', Router::getRouteUrl('jobs'));
 
+        putenv('API_HOST=api.whatever.com.au');
         App::shouldReceive('environment')->once()->andReturn('testing');
-        $this->assertEquals('http://api-app/jobs', Router::getRouteUrl('jobs'));
-
-        App::shouldReceive('environment')->once()->andReturn('development');
-        $this->assertEquals('http://api-app/jobs', Router::getRouteUrl('jobs'));                                
+        $this->assertEquals('http://api.whatever.com.au/jobs', Router::getRouteUrl('jobs'));
     }
 
     /**
