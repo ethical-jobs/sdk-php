@@ -21,20 +21,17 @@ class Router
 	public static function getRouteUrl(string $route)
 	{
 		switch (App::environment()) {
-			case 'staging':
-				$host = 'https://api.ethicalstaging.com.au';
-				break;						
-			case 'development':	
 			case 'testing':
-				$host = 'http://api-app';
+				$scheme = 'http://';
 				break;			
-			case 'production':
 			default:
-				$host = 'https://api.ethicaljobs.com.au';
+				$scheme = 'https://';
 				break;
 		}
 
-		return "{$host}".self::sanitizeRoute($route);
+		$host = env('API_HOST') ?? 'api.ethicaljobs.com.au';
+
+		return $scheme.$host.self::sanitizeRoute($route);
 	}	
 
    	/**
