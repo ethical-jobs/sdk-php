@@ -120,33 +120,9 @@ class ResponseFactory
 	 */
 	public static function job()
 	{
-		$response = json_decode('
-			{
-			  "data": {
-			    "entities": {
-			      "jobs": {
-			        "97954": {
-			          "_score": null,
-			          "id": 97954,
-			          "organisation_id": 4247,
-			          "organisation_uid": "MarrickvilleLC",
-			          "status": "PENDING",
-			          "title": "Paralegal",
-			          "locked": false,
-			          "locked_by_avatar": "",
-			          "expired": false,
-			          "views": 0,
-			          "clicks": "N/A",
-			          "locations": [
-			            3
-			          ],
-			          "created_at": 1518420833000
-			        }
-			    },
-			    "result": 97954
-			  }
-			}
-		', true);
+		$string = file_get_contents(__DIR__.'/responses/job.json');
+
+		$response = json_decode($string, true);
 
 		return new Collection($response);
 	}		

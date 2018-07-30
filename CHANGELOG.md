@@ -1,3 +1,11 @@
+# v2.4.1
+
+- Adding new job response fixture and test
+
+# v2.4.0
+
+- Using API_ENV variable as host / env pivot
+
 # v2.3.3
 
 - Adding dates to jobs search responses

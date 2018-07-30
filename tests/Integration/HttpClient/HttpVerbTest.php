@@ -38,7 +38,7 @@ class HttpVerbTest extends \Tests\TestCase
 
             $expected = new Request(
                 strtoupper($verb), 
-                'http://api-app/jobs', 
+                'http://api.ethicaljobs.com.au/jobs', 
                 [
                     'Content-Type' => 'application/json',
                     'Accept'       => 'application/json',
@@ -80,7 +80,7 @@ class HttpVerbTest extends \Tests\TestCase
 
         $expected = new Request(
             'GET',
-            'http://api-app/repos?username=andrewmclagan&forks=0&repos=1',
+            'http://api.ethicaljobs.com.au/repos?username=andrewmclagan&forks=0&repos=1',
             [
                 'Content-Type'  => 'application/json',
                 'Accept'        => 'application/json',
