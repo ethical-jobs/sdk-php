@@ -1,3 +1,9 @@
+# v2.4.2
+
+- Dependancy updates
+- Added a defined SDK exception message on auth exceptions (401,403)
+- Clearer debugging on auth exceptions.
+
 # v2.4.1
 
 - Adding new job response fixture and test
