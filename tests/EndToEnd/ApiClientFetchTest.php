@@ -18,7 +18,6 @@ class ApiClientFetchTest extends \Tests\TestCase
 {
     /**
      * @test
-     * @group Unit
      */
     public function it_can_fetch_unprotected_routes()
     {
@@ -44,7 +43,6 @@ class ApiClientFetchTest extends \Tests\TestCase
 
     /**
      * @test
-     * @group Unit
      */
     public function it_can_fetch_protected_routes()
     {
