@@ -5,6 +5,8 @@ namespace EthicalJobs\SDK\Authentication;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Contracts\Cache\Repository;
 use EthicalJobs\SDK\Router;
 
@@ -75,7 +77,9 @@ class TokenAuthenticator implements Authenticator
      */	
 	public function authenticate(Request $request)
 	{
-		return $request->withAddedHeader('Authorization', "Bearer {$this->getToken()}");
+		$token = $this->getToken();
+
+		return $request->withAddedHeader('Authorization', "Bearer $token");
 	}	
 
 	/**
@@ -83,7 +87,7 @@ class TokenAuthenticator implements Authenticator
 	 *
 	 * @return string
 	 */
-	public function getToken()
+	public function getToken() : string
 	{
 		return $this->cache->remember($this->tokenKey, $this->tokenTTL, function () {
 		    return $this->fetchToken();
@@ -93,10 +97,10 @@ class TokenAuthenticator implements Authenticator
 	/**
 	 * Sets credentials
 	 *
-	 * @param Array $credentials
+	 * @param array $credentials
 	 * @return $this
 	 */
-	public function setCredentials(Array $credentials)
+	public function setCredentials(array $credentials) : Authenticator
 	{
 		$this->credentials = $credentials;
 
@@ -107,9 +111,9 @@ class TokenAuthenticator implements Authenticator
 	/**
 	 * Fetches an Auth token
 	 * 
-	 * @return String
+	 * @return string 
 	 */
-	protected function fetchToken()
+	protected function fetchToken() : string
 	{	
 		$route = Router::getRouteUrl('/oauth/token');
 
@@ -118,7 +122,7 @@ class TokenAuthenticator implements Authenticator
         	'scope' 		=> '*',			
 		], $this->credentials);
 
-		$response = $this->client->request('POST', $route, ['json' => $json]);
+		$response = $this->tokenRequest($route, $json);
 
 		if ($response->getStatusCode() > 199 && $response->getStatusCode() < 300) {
 			if ($decoded = json_decode($response->getBody())) {
@@ -128,4 +132,28 @@ class TokenAuthenticator implements Authenticator
 
 		return '';
 	}	
+
+	/**
+	 * Fetches an Auth token
+	 * 
+	 * @throws ClientException
+	 * @return Response
+	 */
+	protected function tokenRequest(string $route, array $params) : Response
+	{		
+		try {
+			return $this->client->request('POST', $route, ['json' => $params]);
+		} catch (ClientException $exception) {
+			if (in_array($exception->getResponse()->getStatusCode(), [401, 403])) {
+				throw new ClientException(
+					'Unauthorized SDK Request',
+					$exception->getRequest(),
+					$exception->getResponse(),
+					null,
+					$exception->getHandlerContext()
+				);
+			}
+			throw $exception;
+		}
+	}
 }
