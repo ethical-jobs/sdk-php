@@ -35,7 +35,7 @@ class TokenAuthenticatorTest extends \Tests\TestCase
             ->once()
             ->withArgs([
                 'POST',
-                'http://api.ethicaljobs.com.au/oauth/token',
+                'https://api.ethicaljobs.com.au/oauth/token',
                 [
                     'json' => [
                         'grant_type'    => 'password',
