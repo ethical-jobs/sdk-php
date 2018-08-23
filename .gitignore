@@ -17,3 +17,6 @@ bootstrap/cache/
 !.env.testing
 invoices.csv
 testlog.out
+
+# ides
+.idea
