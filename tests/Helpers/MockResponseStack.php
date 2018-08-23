@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Fixtures;
+namespace Tests\Helpers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;

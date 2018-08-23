@@ -13,26 +13,17 @@ use Illuminate\Support\Facades\App;
 class Router
 {
 	/**
-	 * Returns full URL for a requet route
+	 * Returns full URL for a request route
 	 * 
 	 * @param string $route
 	 * @return string
 	 */
 	public static function getRouteUrl(string $route)
 	{
-		switch (App::environment()) {
-			case 'testing':
-				$scheme = 'http://';
-				break;			
-			default:
-				$scheme = 'https://';
-				break;
-		}
+		$host = env('API_HOST') ?? 'https://api.ethicaljobs.com.au';
 
-		$host = env('API_HOST') ?? 'api.ethicaljobs.com.au';
-
-		return $scheme.$host.self::sanitizeRoute($route);
-	}	
+		return $host.self::sanitizeRoute($route);
+	}
 
    	/**
    	 * Return route to the resource

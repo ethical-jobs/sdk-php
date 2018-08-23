@@ -1,3 +1,19 @@
+# staged
+
+# v2.4.3
+
+- FIX: allow setting custom http scheme
+
+# v2.4.2
+
+- Dependancy updates
+- Added a defined SDK exception message on auth exceptions (401,403)
+- Clearer debugging on auth exceptions.
+
+# v2.4.1
+
+- Adding new job response fixture and test
+
 # v2.4.0
 
 - Using API_ENV variable as host / env pivot

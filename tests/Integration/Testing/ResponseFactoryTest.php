@@ -23,6 +23,18 @@ class ResponseFactoryTest extends \Tests\TestCase
      * @test
      * @group Unit
      */
+    public function it_has_job_response()
+    {
+        $response = ResponseFactory::job();
+
+        $this->assertInstanceOf(Collection::class, $response);
+        $this->assertTrue($response->isNotEmpty());
+    }    
+
+    /**
+     * @test
+     * @group Unit
+     */
     public function it_has_taxonomies_response()
     {
         $response = ResponseFactory::taxonomies();
