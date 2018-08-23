@@ -15,7 +15,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 	{
 	    parent::setUp();
 
-	    putenv('API_HOST=api.ethicaljobs.com.au');
+	    putenv('API_HOST=https://api.ethicaljobs.com.au');
 	}
 
 	/**

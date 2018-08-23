@@ -1,3 +1,9 @@
+# staged
+
+# v2.4.3
+
+- FIX: allow setting custom http scheme
+
 # v2.4.2
 
 - Dependancy updates
