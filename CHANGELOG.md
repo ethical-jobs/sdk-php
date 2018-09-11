@@ -1,5 +1,9 @@
 # staged
 
+# v2.4.4
+
+- Fix: remove scheme from API_HOST
+
 # v2.4.3
 
 - FIX: allow setting custom http scheme
