@@ -20,9 +20,11 @@ class Router
 	 */
 	public static function getRouteUrl(string $route)
 	{
-		$host = env('API_HOST') ?? 'https://api.ethicaljobs.com.au';
+		$host = env('API_HOST') ?? 'api.ethicaljobs.com.au';
 
-		return $host.self::sanitizeRoute($route);
+		$scheme = env('API_SCHEME') ?? 'https';
+
+		return $scheme . '://' . $host . self::sanitizeRoute($route);
 	}
 
    	/**
