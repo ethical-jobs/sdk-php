@@ -1,5 +1,11 @@
 # staged
 
+# v3.0.0
+
+- Refactored mocking behaviour
+- Added updated endpoint response mocks
+- New bindings for guzzle client.
+
 # v2.4.4
 
 - Fix: remove scheme from API_HOST
