@@ -1,0 +1,56 @@
+{
+  "data": {
+    "entities": {
+      "users": {
+        "5151": {
+          "id": 5151,
+          "organisation_id": 4943,
+          "first_name": "Michael",
+          "last_name": "Cebon",
+          "full_name": "Michael Cebon",
+          "bio": " ",
+          "avatar": "https://s3-ap-southeast-2.amazonaws.com/ethical-jobs/statics/staff/andrew-mclagan-avatar.jpg",
+          "email": "michael@ethicaljobs.com.au",
+          "username": "andrewmclagan",
+          "phone": null,
+          "position": "Founder & CEO",
+          "roles": [
+            "admin",
+            "staff-member",
+            "employer-member"
+          ],
+          "last_login": 1519587504000,
+          "created_at": 1471960800000,
+          "updated_at": 1524115239000
+        }
+      },
+      "organisations": {
+        "4943": {
+          "id": 4943,
+          "owner_id": 5152,
+          "admin_id": 0,
+          "uid": "EthicalJobs",
+          "name": "EthicalJobs.com.au",
+          "logo_url": "//d27jjb85n91zzw.cloudfront.net/media/1494829150_331hc_.jpeg",
+          "paid_staff": 0,
+          "volunteers": 0,
+          "phone": "03 9419 7322",
+          "address": "PO Box 2618",
+          "suburb": "Fitzroy",
+          "state": "Victoria",
+          "postcode": "3065",
+          "country": "AU",
+          "credit_balance": 176,
+          "invoice_count": 9,
+          "pending_job_count": 0,
+          "approved_job_count": 0,
+          "expired_job_count": 112,
+          "created_at": 1251258512000,
+          "updated_at": 1481595840000,
+          "deleted_at": null
+        }
+      }
+    },
+    "result": 5151
+  }
+}

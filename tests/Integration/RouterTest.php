@@ -13,17 +13,29 @@ class RouterTest extends \Tests\TestCase
      */
     public function it_returns_correct_urls_for_host()
     {
+        putenv('API_HOST'); // omitting value removes the env var
+        putenv('API_SCHEME');
+        $this->assertEquals('https://api.ethicaljobs.com.au/jobs', Router::getRouteUrl('jobs'));
+
+        putenv('API_HOST');
+        putenv('API_SCHEME=https');
+        $this->assertEquals('https://api.ethicaljobs.com.au/jobs', Router::getRouteUrl('jobs'));
+
         putenv('API_HOST=api.ethicaljobs.com.au');
-        App::shouldReceive('environment')->once()->andReturn('production');
+        putenv('API_SCHEME');
+        $this->assertEquals('https://api.ethicaljobs.com.au/jobs', Router::getRouteUrl('jobs'));
+
+        putenv('API_HOST=api.ethicaljobs.com.au');
+        putenv('API_SCHEME=https');
         $this->assertEquals('https://api.ethicaljobs.com.au/jobs', Router::getRouteUrl('jobs'));
 
         putenv('API_HOST=api.ethicalstaging.com.au');
-        App::shouldReceive('environment')->once()->andReturn('staging');
+        putenv('API_SCHEME=https');
         $this->assertEquals('https://api.ethicalstaging.com.au/jobs', Router::getRouteUrl('jobs'));
 
-        putenv('API_HOST=api.whatever.com.au');
-        App::shouldReceive('environment')->once()->andReturn('testing');
-        $this->assertEquals('http://api.whatever.com.au/jobs', Router::getRouteUrl('jobs'));
+        putenv('API_HOST=api-local');
+        putenv('API_SCHEME=http');
+        $this->assertEquals('http://api-local/jobs', Router::getRouteUrl('jobs'));
     }
 
     /**
@@ -35,11 +47,11 @@ class RouterTest extends \Tests\TestCase
         App::shouldReceive('environment')->andReturn('production');
 
         $this->assertEquals(
-            'https://api.ethicaljobs.com.au/route/to/jobs', 
+            'https://api.ethicalstaging.com.au/route/to/jobs',
             Router::getRouteUrl('route/to/jobs')
         );
         $this->assertEquals(
-            'https://api.ethicaljobs.com.au/route/to/jobs', 
+            'https://api.ethicalstaging.com.au/route/to/jobs',
             Router::getRouteUrl('/route/to/jobs')
         );
     }

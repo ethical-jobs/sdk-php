@@ -4,7 +4,6 @@ namespace EthicalJobs\Tests\SDK;
 
 use Mockery;
 use GuzzleHttp\Psr7\Response;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\HttpClient;
@@ -19,7 +18,7 @@ class ApiClientTest extends \Tests\TestCase
      */
     public function it_has_correct_resource_properties()
     {
-        $api = App::make(ApiClient::class);
+        $api = resolve(ApiClient::class);
 
         $this->assertInstanceOf(Repositories\JobApiRepository::class, $api->jobs);
         
