@@ -2,9 +2,13 @@
 
 namespace EthicalJobs\SDK;
 
+use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Handler\MockHandler;
 use Illuminate\Support\Facades\Cache;
 use EthicalJobs\Storage\Contracts\Repository;
+use EthicalJobs\SDK\Testing\ResponseFactory;
 use EthicalJobs\SDK\Router;
 
 /**
@@ -94,5 +98,24 @@ class ApiClient
     	}
         
         throw new \Exception("Invalid http call '{$name}'");
-    }   	
+	}   	
+	
+    /**
+     * Mocks a response stack into the api client
+     *
+	 * @param array $stack
+     * @return ApiClient
+     */
+    public static function mock(array $stack = []) : ApiClient
+    {
+        $mock = new MockHandler($stack);
+        
+        $handler = HandlerStack::create($mock);
+
+		$client = new Client(['handler' => $handler, 'verify' => false]);
+
+		app()->instance('ej:sdk:guzzle', $client);	
+
+		return resolve(__CLASS__);
+    }  		
 }

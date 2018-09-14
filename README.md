@@ -17,7 +17,7 @@ You will need to set 4 environment variables to enable authentication:
 }
 ```
 
-Authentication is made using `oauth2` and JWT tokens are returned and attached to headers as bearer tokens. The grant type is a `password` grant and thus its attached to a user model and thus the users access rights and roles.
+When using an endpoint that requires authentication you first need to call `EthicalJobs::authenticate()`.
 
 ## Making Requests
 
@@ -45,8 +45,24 @@ EthicalJobs::post('/jobs', ['title' => 'React Developer', 'description' => 'We a
 
 ## Responses
 
-Responses are returned as `Illuminate\Support\Collection`s if there are no results an empty collection is returned.
+Responses are returned as `EthicalJobs\SDK\Collection` that extends `Illuminate\Support\Collection`. If there are no results an empty collection is returned. This class has extended methods for selecting nested response items: `$collection->entities('jobs');`. Also there are 
 
-In the future the results will be returned from an extended `EthicalJobs\SDK\Collection` class with helper functions to select results from our normalized api responses.
+## Testing and mocking
 
-`$collection->entities('jobs');`
+For easy mocking of SDK responses there exists a response stack helper function on the `ApiClient` or `EthicalJobs` facade. This returns a fully mocked instance of the `ApiClient` that you may inject into the Laravel IOC container or use directly.
+
+For mocking actual SDK responses there are also up-to-date mock JSON responses accessible within `EthicalJobs\SDK\Testing\ResponseFactory`.
+
+```php
+// Mocking a set of api calls and their responses
+$api = ApiClient::mock([
+    ResponseFactory::response(204, ResponseFactory::jobs()),
+    ResponseFactory::response(201, ResponseFactory::job()),
+    ResponseFactory::response(200, ResponseFactory::user()),
+]);
+
+// Subsequent calls will return the above responses in order
+$jobs = $api->get('/jobs');
+$job = $api->get('/job/17263');
+$user = $api->get('/user/2827');
+```

@@ -78,7 +78,7 @@ class TokenAuthenticator implements Authenticator
 	public function authenticate(Request $request)
 	{
 		$token = $this->getToken();
-
+		
 		return $request->withAddedHeader('Authorization', "Bearer $token");
 	}	
 

@@ -37,26 +37,30 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register() : void
     {
         $this->bindGuzzle();
 
-        $this->bindAuthenticator();
+        $this->bindAuth();
 
         $this->bindHttpClient();
 
         $this->bindApiClient();
+
+        $this->bindTaxonomyMapper();
     }
 
     /**
      * Bind guzzle client
+     * - Unique instance of guzzle 
+     * - Enables us to mock without effecting other uses of guzzle
      *
-     * @return  Void
+     * @todo Verify SSL certificates 
+     * @return void
      */
-    public function bindGuzzle()
+    public function bindGuzzle() : void
     {
-        // Bind guzzle into the container for testing.
-        $this->app->bind(GuzzleHttp\Client::class, function ($app) {
+        $this->app->bind('ej:sdk:guzzle', function ($app) {
             return new GuzzleHttp\Client(['verify' => false]); // Disable SSL cert verification.
         });        
     }
@@ -64,9 +68,9 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     /**
      * Bind authenticator
      *
-     * @return  Void
+     * @return void
      */
-    public function bindAuthenticator()
+    public function bindAuth() : void
     {    
         $credentials = [
             'client_id'     => env('AUTH_CLIENT_ID'),
@@ -74,23 +78,29 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             'username'      => env('AUTH_SERVICE_USERNAME'),
             'password'      => env('AUTH_SERVICE_PASSWORD'),            
         ];
-
-        $this->app->bind(Authentication\Authenticator::class, function ($app) use ($credentials) {
-            $client = $app->make(GuzzleHttp\Client::class);
+        
+        // Bind token authenticator with its dependancies
+        $this->app->bind(Authentication\TokenAuthenticator::class, function ($app) use ($credentials) {
+            $client = $app->make('ej:sdk:guzzle');
             $cache = $app->make(Repository::class);
             return new Authentication\TokenAuthenticator($client, $cache, $credentials);
+        });        
+
+        // Bind Authenticator contract to token auth as default implementation
+        $this->app->bind(Authentication\Authenticator::class, function ($app) use ($credentials) {
+            return $app->make(Authentication\TokenAuthenticator::class);
         });
     }
 
     /**
      * Bind http client
      *
-     * @return  Void
+     * @return void
      */
-    public function bindHttpClient()
+    public function bindHttpClient() : void
     { 
         $this->app->bind(HttpClient::class, function ($app) {
-            $client = $app->make(GuzzleHttp\Client::class);
+            $client = $app->make('ej:sdk:guzzle');
             $auth = $app->make(Authentication\Authenticator::class);
             return new HttpClient($client, $auth);
         });
@@ -99,9 +109,9 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     /**
      * Bind api client
      *
-     * @return  Void
+     * @return void
      */
-    public function bindApiClient()
+    public function bindApiClient() : void
     {
         $this->app->singleton(ApiClient::class, function ($app) {
             $http = $app->make(HttpClient::class);
@@ -112,9 +122,9 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     /**
      * Bind api client
      *
-     * @return  Void
+     * @return void
      */
-    public function bindTaxonomyMapper()
+    public function bindTaxonomyMapper() : void
     {
         $this->app->bind(TaxonomyMapper::class, function ($app) {
             $api = $app->make(ApiClient::class);
@@ -127,14 +137,15 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides() : array
     {
         return [
-            GuzzleHttp\Client::class,
+            'ej:sdk:guzzle',
+            Authentication\TokenAuthenticator::class,
             Authentication\Authenticator::class,
+            Mappers\TaxonomyMapper::class,
             HttpClient::class,
             ApiClient::class,
-            Mappers\TaxonomyMapper::class,
         ];
     }        
 }
