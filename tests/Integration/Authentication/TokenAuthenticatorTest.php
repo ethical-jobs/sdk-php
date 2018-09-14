@@ -10,9 +10,7 @@ use GuzzleHttp\Exception\ClientException;
 use Illuminate\Contracts\Cache\Repository;
 use EthicalJobs\SDK\Authentication\TokenAuthenticator;
 use EthicalJobs\SDK\Testing\ResponseFactory;
-
-
-use Tests\Helpers\MockResponseStack;
+use EthicalJobs\SDK\ApiClient;
 
 class TokenAuthenticatorTest extends \Tests\TestCase
 {
@@ -107,7 +105,7 @@ class TokenAuthenticatorTest extends \Tests\TestCase
 
         $request = new Request('GET', 'https://github.com/stars');
 
-        MockResponseStack::mock([
+        ApiClient::mock([
             new ClientException('Unauthorized', $request, $response),        
         ]);
 
@@ -132,9 +130,9 @@ class TokenAuthenticatorTest extends \Tests\TestCase
 
         $request = new Request('GET', 'https://github.com/stars');
 
-        MockResponseStack::mock([
+        ApiClient::mock([
             new ClientException('Unauthorized', $request, $response),        
-        ]);
+        ]);        
 
         $middleware = resolve(TokenAuthenticator::class);
 
@@ -157,9 +155,9 @@ class TokenAuthenticatorTest extends \Tests\TestCase
 
         $request = new Request('GET', 'https://github.com/stars');
 
-        MockResponseStack::mock([
+        ApiClient::mock([
             new ClientException('Unauthorized', $request, $response),        
-        ]);
+        ]);  
 
         $middleware = resolve(TokenAuthenticator::class);
 
