@@ -121,12 +121,12 @@ class ResponseFactory
 	 * Mocks a response object with stream
 	 * 
 	 * @param int $status
-	 * @param EthicalJobs\SDK\Collection $data
+	 * @param mixed $data
 	 * @return GuzzleHttp\Psr7\Response
 	 */
-	public static function response(int $status, Collection $data): Response
+	public static function response(int $status, $data): Response
 	{
-		$encoded = json_encode($data->toArray());
+		$encoded = json_encode($data, true);
 
 		$stream = \GuzzleHttp\Psr7\stream_for($encoded);
 

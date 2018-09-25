@@ -1,5 +1,9 @@
 # staged
 
+# v3.0.1
+
+- Removing typing requirement for response helper
+
 # v3.0.0
 
 - Refactored mocking behaviour
