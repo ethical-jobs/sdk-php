@@ -5,7 +5,7 @@ steps:
 
   - name: dependancies
     image: composer
-    commands: ['composer install --prefer-dist --ignore-platform-req']
+    commands: ['composer install --prefer-dist --ignore-platform-reqs']
   
   - name: test
     image: php:7.2-cli-alpine
