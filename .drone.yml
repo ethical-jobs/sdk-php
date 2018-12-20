@@ -4,9 +4,8 @@ name: default
 steps:
 
   - name: dependancies
-    image: composer
+    image: ethicaljobs/composer-prestissimo
     commands: 
-      - 'composer require hirak/prestissimo'
       - 'composer install --prefer-dist --ignore-platform-reqs'
   
   - name: test
@@ -22,6 +21,7 @@ steps:
 
   - name: notify-slack
     image: plugins/slack
-    webhook: https://hooks.slack.com/services/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
-    channel: deployments
+    settings:
+      webhook: https://hooks.slack.com/services/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
+      channel: deployments
 
