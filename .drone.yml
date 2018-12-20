@@ -5,11 +5,11 @@ steps:
 
   - name: dependancies
     image: composer
-    commands: 'composer install --prefer-dist --ignore-platform-req' 
+    commands: ['composer install --prefer-dist --ignore-platform-req']
   
   - name: test
     image: php:7.2-cli-alpine
-    commands: './vendor/bin/phpunit'
+    commands: ['./vendor/bin/phpunit']
 
   - name: publish
     image: byrnedo/alpine-curl
