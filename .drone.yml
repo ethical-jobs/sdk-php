@@ -5,6 +5,7 @@ steps:
 
   - name: dependancies
     image: ethicaljobs/composer-prestissimo
+    pull: always
     commands: 
       - 'composer install --prefer-dist --ignore-platform-reqs'
   
