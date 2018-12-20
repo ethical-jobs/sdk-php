@@ -2,11 +2,14 @@ kind: pipeline
 name: default
 
 steps:
+
+  - name: dependancies
+    image: composer
+    commands: 'composer install --prefer-dist --ignore-platform-req' 
   
   - name: test
-    image: ethicaljobs/aphex:7.2.x
-    pull: true
-    commands: [ 'composer install --prefer-dist', './vendor/bin/phpunit' ]
+    image: php:7.2-cli-alpine
+    commands: './vendor/bin/phpunit'
 
   - name: publish
     image: byrnedo/alpine-curl
