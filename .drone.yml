@@ -5,11 +5,14 @@ steps:
 
   - name: dependancies
     image: composer
-    commands: ['composer require hirak/prestissimo', 'composer install --prefer-dist --ignore-platform-reqs']
+    commands: 
+      - 'composer require hirak/prestissimo'
+      - 'composer install --prefer-dist --ignore-platform-reqs'
   
   - name: test
     image: php:7.2-cli-alpine
-    commands: ['./vendor/bin/phpunit']
+    commands: 
+      - 'php vendor/bin/phpunit'
 
   - name: publish
     image: byrnedo/alpine-curl
