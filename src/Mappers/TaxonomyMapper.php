@@ -31,9 +31,9 @@ class TaxonomyMapper implements MapperInterface
     /**
      * Fetches taxonomy dictionary from the query
      *
-     * @return $this
+     * @return Collection
      */
-    private function fetchTaxonomyDictionary() : Collection
+    private function fetchTaxonomyDictionary(): Collection
     {
         $response = $this->client->appData();
 
@@ -42,7 +42,7 @@ class TaxonomyMapper implements MapperInterface
 
     /**
      * {@inheritdoc}
-     */ 
+     */
     public function map(int $taxonomyId, string $type): string
     {
         return $this->dictionary[$type][$taxonomyId]['title'] ?? '';

@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\ApiRepository;
 
-use Mockery;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Repositories\ApiRepository;
+use Mockery;
+use Tests\TestCase;
 
-class WhereHasInTest extends \Tests\TestCase
+class WhereHasInTest extends TestCase
 {
     /**
      * @test
@@ -19,10 +20,10 @@ class WhereHasInTest extends \Tests\TestCase
 
         $repository = new ApiRepository($api);
 
-        $isFluent = $repository->whereHasIn('categories.id', [22,33,44]);
+        $isFluent = $repository->whereHasIn('categories.id', [22, 33, 44]);
 
         $this->assertInstanceOf(ApiRepository::class, $isFluent);
-    }   
+    }
 
     /**
      * @test
@@ -42,7 +43,7 @@ class WhereHasInTest extends \Tests\TestCase
         $repository = new ApiRepository($api, 'invoices');
 
         $repository
-            ->whereHasIn('categories.id', [22,33,44])
+            ->whereHasIn('categories.id', [22, 33, 44])
             ->find();
-    } 
+    }
 }

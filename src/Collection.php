@@ -7,16 +7,15 @@ namespace EthicalJobs\SDK;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class Collection extends \Illuminate\Support\Collection
 {
-	/**
-	 * Api response selector
-	 *
-	 * @return $this
-	 */
-	public function select(): ResponseSelector
-	{
-		return new ResponseSelector($this);
-	}	
+    /**
+     * Api response selector
+     *
+     * @return ResponseSelector
+     */
+    public function select(): ResponseSelector
+    {
+        return new ResponseSelector($this);
+    }
 }

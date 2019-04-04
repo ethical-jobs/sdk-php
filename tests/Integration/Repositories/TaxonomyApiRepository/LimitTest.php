@@ -2,13 +2,13 @@
 
 namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 
-use Mockery;
-use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
-use EthicalJobs\SDK\Collection;
+use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Mockery;
+use Tests\TestCase;
 
-class LimitTest extends \Tests\TestCase
+class LimitTest extends TestCase
 {
     /**
      * @test
@@ -25,7 +25,7 @@ class LimitTest extends \Tests\TestCase
             ->limit(15);
 
         $this->assertInstanceOf(TaxonomyApiRepository::class, $isFluent);
-    }   
+    }
 
     /**
      * @test
@@ -45,5 +45,5 @@ class LimitTest extends \Tests\TestCase
             ->find();
 
         $this->assertEquals(15, $terms->count());
-    }    
+    }
 }

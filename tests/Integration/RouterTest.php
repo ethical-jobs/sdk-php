@@ -2,10 +2,11 @@
 
 namespace EthicalJobs\Tests\SDK;
 
-use Illuminate\Support\Facades\App;
 use EthicalJobs\SDK\Router;
+use Illuminate\Support\Facades\App;
+use Tests\TestCase;
 
-class RouterTest extends \Tests\TestCase
+class RouterTest extends TestCase
 {
     /**
      * @test
@@ -66,5 +67,5 @@ class RouterTest extends \Tests\TestCase
 
         $this->assertEquals('/invoices/drafts', Router::getResourceRoute('invoices', 'drafts'));
         $this->assertEquals('/invoices/drafts', Router::getResourceRoute('/invoices', '/drafts'));
-    }    
+    }
 }

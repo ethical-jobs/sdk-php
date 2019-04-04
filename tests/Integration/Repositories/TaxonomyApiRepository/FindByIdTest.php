@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 
-use Mockery;
-use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Mockery;
+use Tests\TestCase;
 
-class FindByIdTest extends \Tests\TestCase
+class FindByIdTest extends TestCase
 {
     /**
      * @test
@@ -28,5 +29,5 @@ class FindByIdTest extends \Tests\TestCase
             ->findById(7);
 
         $this->assertEquals($term['id'], 7);
-    }        
+    }
 }

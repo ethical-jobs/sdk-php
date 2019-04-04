@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\ApiRepository;
 
-use Mockery;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Repositories\ApiRepository;
+use Mockery;
+use Tests\TestCase;
 
-class LimitTest extends \Tests\TestCase
+class LimitTest extends TestCase
 {
     /**
      * @test
@@ -22,7 +23,7 @@ class LimitTest extends \Tests\TestCase
         $isFluent = $repository->limit(15);
 
         $this->assertInstanceOf(ApiRepository::class, $isFluent);
-    }   
+    }
 
     /**
      * @test
@@ -31,7 +32,7 @@ class LimitTest extends \Tests\TestCase
     public function it_can_add_a_limit_query()
     {
         $expected = new Collection(['entities' => 'jobs']);
-        
+
         $api = Mockery::mock(ApiClient::class)
             ->shouldReceive('get')
             ->once()
@@ -46,5 +47,5 @@ class LimitTest extends \Tests\TestCase
         $repository
             ->limit(15)
             ->find();
-    }    
+    }
 }

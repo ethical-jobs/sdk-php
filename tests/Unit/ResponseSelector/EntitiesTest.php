@@ -2,10 +2,11 @@
 
 namespace Tests\Unit;
 
-use EthicalJobs\SDK\ResponseSelector;
 use EthicalJobs\SDK\Collection;
+use EthicalJobs\SDK\ResponseSelector;
+use Tests\TestCase;
 
-class EntitiesTest extends \Tests\TestCase
+class EntitiesTest extends TestCase
 {
     /**
      * @test
@@ -15,11 +16,11 @@ class EntitiesTest extends \Tests\TestCase
     {
         $response = new Collection([
             'data' => [
-                'entities'  => [
-                    'jobs'  => [
+                'entities' => [
+                    'jobs' => [
                         827 => ['id' => 827, 'title' => 'Developer'],
                         276 => ['id' => 276, 'title' => 'Engineer'],
-                        98  => ['id' => 98, 'title' => 'Web Designer'],
+                        98 => ['id' => 98, 'title' => 'Web Designer'],
                     ],
                     'users' => [
                         111 => ['id' => 111, 'name' => 'John'],
@@ -34,9 +35,9 @@ class EntitiesTest extends \Tests\TestCase
         $this->assertEquals(ResponseSelector::select($response)->entities('jobs'), [
             827 => ['id' => 827, 'title' => 'Developer'],
             276 => ['id' => 276, 'title' => 'Engineer'],
-            98  => ['id' => 98, 'title' => 'Web Designer'],
+            98 => ['id' => 98, 'title' => 'Web Designer'],
         ]);
-    }        
+    }
 
     /**
      * @test
@@ -46,8 +47,8 @@ class EntitiesTest extends \Tests\TestCase
     {
         $response = new Collection([
             'data' => [
-                'entities'  => [
-                    'jobs'  => [
+                'entities' => [
+                    'jobs' => [
                         827 => ['id' => 827, 'title' => 'Developer'],
                         276 => ['id' => 276, 'title' => 'Engineer'],
                         98 => ['id' => 98, 'title' => 'Web Designer'],
@@ -63,5 +64,5 @@ class EntitiesTest extends \Tests\TestCase
         ]);
 
         $this->assertEquals(ResponseSelector::select($response)->entities('foobar'), []);
-    }           
+    }
 }

@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 
-use Mockery;
-use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Mockery;
+use Tests\TestCase;
 
-class FindByFieldTest extends \Tests\TestCase
+class FindByFieldTest extends TestCase
 {
     /**
      * @test
@@ -31,5 +32,5 @@ class FindByFieldTest extends \Tests\TestCase
         $this->assertEquals($term['slug'], 'alcoholandotherdrugs');
         $this->assertEquals($term['title'], 'Alcohol and Other Drugs');
         $this->assertTrue(is_numeric($term['job_count']));
-    }      
+    }
 }

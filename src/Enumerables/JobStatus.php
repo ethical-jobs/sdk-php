@@ -7,12 +7,11 @@ namespace EthicalJobs\SDK\Enumerables;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class JobStatus extends Enum
 {
-    const DRAFT     = "Draft";
+    const DRAFT = "Draft";
 
-    const PENDING   = "Pending approval";
+    const PENDING = "Pending approval";
 
-    const APPROVED  = "Approved";
+    const APPROVED = "Approved";
 }

@@ -2,20 +2,20 @@
 
 namespace EthicalJobs\SDK\Laravel;
 
+use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Authentication;
+use EthicalJobs\SDK\HttpClient;
+use EthicalJobs\SDK\Mappers;
 use EthicalJobs\SDK\Mappers\TaxonomyMapper;
 use GuzzleHttp;
 use Illuminate\Contracts\Cache\Repository;
-use EthicalJobs\SDK\Authentication;
-use EthicalJobs\SDK\HttpClient;
-use EthicalJobs\SDK\ApiClient;
-use EthicalJobs\SDK\Mappers;
+use Illuminate\Contracts\Foundation\Application;
 
 /**
  * Laravel application service provider
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
@@ -30,14 +30,16 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function boot() {}
+    public function boot()
+    {
+    }
 
     /**
      * Bind Repository interfaces to their appropriate implementations.
      *
      * @return void
      */
-    public function register() : void
+    public function register()
     {
         $this->bindGuzzle();
 
@@ -52,17 +54,17 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
     /**
      * Bind guzzle client
-     * - Unique instance of guzzle 
+     * - Unique instance of guzzle
      * - Enables us to mock without effecting other uses of guzzle
      *
-     * @todo Verify SSL certificates 
      * @return void
+     * @todo Verify SSL certificates
      */
-    public function bindGuzzle() : void
+    public function bindGuzzle()
     {
-        $this->app->bind('ej:sdk:guzzle', function ($app) {
+        $this->app->bind('ej:sdk:guzzle', function () {
             return new GuzzleHttp\Client(['verify' => false]); // Disable SSL cert verification.
-        });        
+        });
     }
 
     /**
@@ -70,24 +72,25 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function bindAuth() : void
-    {    
+    public function bindAuth()
+    {
         $credentials = [
-            'client_id'     => env('AUTH_CLIENT_ID'),
+            'client_id' => env('AUTH_CLIENT_ID'),
             'client_secret' => env('AUTH_CLIENT_SECRET'),
-            'username'      => env('AUTH_SERVICE_USERNAME'),
-            'password'      => env('AUTH_SERVICE_PASSWORD'),            
+            'username' => env('AUTH_SERVICE_USERNAME'),
+            'password' => env('AUTH_SERVICE_PASSWORD'),
         ];
-        
-        // Bind token authenticator with its dependancies
-        $this->app->bind(Authentication\TokenAuthenticator::class, function ($app) use ($credentials) {
+
+        // Bind token authenticator with its dependencies
+        $this->app->bind(Authentication\TokenAuthenticator::class, function (Application $app) use ($credentials) {
             $client = $app->make('ej:sdk:guzzle');
             $cache = $app->make(Repository::class);
+
             return new Authentication\TokenAuthenticator($client, $cache, $credentials);
-        });        
+        });
 
         // Bind Authenticator contract to token auth as default implementation
-        $this->app->bind(Authentication\Authenticator::class, function ($app) use ($credentials) {
+        $this->app->bind(Authentication\Authenticator::class, function (Application $app) use ($credentials) {
             return $app->make(Authentication\TokenAuthenticator::class);
         });
     }
@@ -97,11 +100,12 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function bindHttpClient() : void
-    { 
-        $this->app->bind(HttpClient::class, function ($app) {
+    public function bindHttpClient()
+    {
+        $this->app->bind(HttpClient::class, function (Application $app) {
             $client = $app->make('ej:sdk:guzzle');
             $auth = $app->make(Authentication\Authenticator::class);
+
             return new HttpClient($client, $auth);
         });
     }
@@ -111,10 +115,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function bindApiClient() : void
+    public function bindApiClient()
     {
-        $this->app->singleton(ApiClient::class, function ($app) {
+        $this->app->singleton(ApiClient::class, function (Application $app) {
             $http = $app->make(HttpClient::class);
+
             return new ApiClient($http);
         });
     }
@@ -124,10 +129,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function bindTaxonomyMapper() : void
+    public function bindTaxonomyMapper()
     {
-        $this->app->bind(TaxonomyMapper::class, function ($app) {
+        $this->app->bind(TaxonomyMapper::class, function (Application $app) {
             $api = $app->make(ApiClient::class);
+
             return new TaxonomyMapper($api);
         });
     }
@@ -137,7 +143,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return array
      */
-    public function provides() : array
+    public function provides(): array
     {
         return [
             'ej:sdk:guzzle',
@@ -147,5 +153,5 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             HttpClient::class,
             ApiClient::class,
         ];
-    }        
+    }
 }

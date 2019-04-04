@@ -2,10 +2,12 @@
 
 namespace Tests\Integration\Testing;
 
-use EthicalJobs\SDK\Testing\ResponseFactory;
 use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Testing\ResponseFactory;
+use OutOfBoundsException;
+use Tests\TestCase;
 
-class MockingTest extends \Tests\TestCase
+class MockingTest extends TestCase
 {
     /**
      * @test
@@ -24,13 +26,13 @@ class MockingTest extends \Tests\TestCase
 
         $response = $api->get('/job/1234');
         $this->assertEquals(ResponseFactory::job(), $response);
-        
+
         $response = $api->get('/user/1234');
-        $this->assertEquals(ResponseFactory::user(), $response);        
+        $this->assertEquals(ResponseFactory::user(), $response);
 
         try {
             $response = $api->get('/user/1234');
-        } catch (\OutOfBoundsException $exception) {
+        } catch (OutOfBoundsException $exception) {
             $this->assertEquals('Mock queue is empty', $exception->getMessage());
         }
     }

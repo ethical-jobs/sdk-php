@@ -2,294 +2,297 @@
 
 namespace EthicalJobs\SDK;
 
+use EthicalJobs\SDK\Authentication\Authenticator;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Exception\ClientException;
-use EthicalJobs\SDK\Authentication\Authenticator;
-use EthicalJobs\SDK\Router;
 
 /**
  * Http client
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
-class HttpClient 
+class HttpClient
 {
-	/**
-	 * Guzzle client
-	 *
-	 * @var \GuzzleHttp\Client 
-	 */
-	protected $client;
+    /**
+     * Guzzle client
+     *
+     * @var Client
+     */
+    protected $client;
 
-	/**
-	 * Guzzle client
-	 *
-	 * @var \EthicalJobs\SDK\Authenticator 
-	 */
-	protected $authenticator;
+    /**
+     * Guzzle client
+     *
+     * @var Authenticator
+     */
+    protected $authenticator;
 
-	/**
-	 * Authenticate requests
-	 *
-	 * @var bool
-	 */
-	protected $authenticate = false;		
+    /**
+     * Authenticate requests
+     *
+     * @var bool
+     */
+    protected $authenticate = false;
 
-	/**
-	 * PSR7 request
-	 *
-	 * @var GuzzleHttp\Psr7\Request
-	 */
-	protected $request;	
+    /**
+     * PSR7 request
+     *
+     * @var Request
+     */
+    protected $request;
 
-	/**
-	 * PSR7 response
-	 *
-	 * @var GuzzleHttp\Psr7\Response
-	 */
-	protected $response;		
+    /**
+     * PSR7 response
+     *
+     * @var Response
+     */
+    protected $response;
 
-	/**
-	 * Object constructor
-	 *
-	 * @param \GuzzleHttp\Client $client
-	 * @param \EthicalJobs\SDK\Authenticator $auth
-	 * @param String $environment
-	 * @return Void
-	 */
-	public function __construct(Client $client, Authenticator $auth = null)
-	{
-		$this->client = $client;
+    /**
+     * Object constructor
+     *
+     * @param Client $client
+     * @param Authenticator $auth
+     */
+    public function __construct(Client $client, Authenticator $auth = null)
+    {
+        $this->client = $client;
+        $this->authenticator = $auth;
+    }
 
-		$this->authenticator = $auth;
-	}
+    /**
+     * Set authentication to true
+     *
+     * @return HttpClient
+     */
+    public function authenticate(): HttpClient
+    {
+        $this->authenticate = true;
 
-	/**
-	 * Set authentication to true
-	 * 
-	 * @return EthicalJobs\SDK\HttpClient     
-	 */
-	public function authenticate(): HttpClient
-	{
-		$this->authenticate = true;
+        return $this;
+    }
 
-		return $this;
-	}		
+    /**
+     * Http get request
+     *
+     * @param string $route
+     * @param array $body
+     * @param array $headers
+     * @return Collection
+     * @throws GuzzleException
+     */
+    public function get(string $route, $body = [], $headers = [])
+    {
+        return $this->request('GET', $route, $body, $headers);
+    }
 
-	/**
-	 * Http get request
-	 * 
-	 * @param  string $route   
-	 * @param  array  $body    
-	 * @param  array  $headers 
-	 * @return EthicalJobs\SDK\Collection     
-	 */
-	public function get(string $route, $body = [], $headers = [])
-	{
-		return $this->request('GET', $route, $body, $headers);
-	}	
+    /**
+     * Makes a http request
+     *
+     * @param string $verb
+     * @param string $route
+     * @param array $body
+     * @param array $headers
+     * @return Collection
+     * @throws GuzzleException
+     */
+    public function request(string $verb, string $route, $body = [], $headers = []): Collection
+    {
+        $request = $this->createRequest($verb, $route, $body, $headers);
 
-	/**
-	 * Http post request
-	 * 
-	 * @param  string $route   
-	 * @param  array  $body    
-	 * @param  array  $headers 
-	 * @return EthicalJobs\SDK\Collection      
-	 */
-	public function post(string $route, $body = [], $headers = [])
-	{
-		return $this->request('POST', $route, $body, $headers);
-	}
+        $request = $this->authenticateRequest($request);
 
-	/**
-	 * Http put request
-	 * 
-	 * @param  string $route   
-	 * @param  array  $body    
-	 * @param  array  $headers 
-	 * @return EthicalJobs\SDK\Collection     
-	 */
-	public function put(string $route, $body = [], $headers = [])
-	{
-		return $this->request('PUT', $route, $body, $headers);
-	}
+        $collection = $this->dispatchRequest($request);
 
-	/**
-	 * Http patch request
-	 * 
-	 * @param  string $route   
-	 * @param  array  $body    
-	 * @param  array  $headers 
-	 * @return EthicalJobs\SDK\Collection            
-	 */
-	public function patch(string $route, $body = [], $headers = [])
-	{
-		return $this->request('PATCH', $route, $body, $headers);
-	}
+        return $collection;
+    }
 
-	/**
-	 * Http delete request
-	 * 
-	 * @param  string $route   
-	 * @param  array  $body    
-	 * @param  array  $headers 
-	 * @return EthicalJobs\SDK\Collection  
-	 */
-	public function delete(string $route, $body = [], $headers = [])
-	{
-		return $this->request('DELETE', $route, $body, $headers);
-	}		
+    /**
+     * Creates and sets the request instance
+     *
+     * @param string $verb
+     * @param string $route
+     * @param array $body
+     * @param array $headers
+     * @return Request
+     */
+    protected function createRequest(string $verb, string $route, $body = [], $headers = [])
+    {
+        $url = Router::getRouteUrl($route);
 
-	/**
-	 * Makes a http request
-	 * 
-	 * @param  string $verb    
-	 * @param  string $route   
-	 * @param  array  $body    
-	 * @param  array  $headers 
-	 * @return EthicalJobs\SDK\Collection         
-	 */
-	public function request(string $verb, string $route, $body = [], $headers = []): Collection
-	{
-		$request = $this->createRequest($verb, $route, $body, $headers);
+        if (strtoupper($verb) === 'GET') {
+            $url .= '?' . http_build_query($body);
+        }
 
-		$request = $this->authenticateRequest($request);
+        $request = new Request($verb, $url, $this->mergeDefaultHeaders($headers), json_encode($body));
 
-		$collection = $this->dispatchRequest($request);
+        $this->setRequest($request);
 
-		return $collection;
-	}
+        return $request;
+    }
 
-	/**
-	 * Sets the current request instance
-	 * 
-	 * @param GuzzleHttp\Psr7\Request $request
-	 * @return $this
-	 */
-	public function setRequest(Request $request)
-	{
-		$this->request = $request;
+    /**
+     * Merges degfault headers with user defined headers
+     *
+     * @param array $headers
+     * @return array
+     */
+    protected function mergeDefaultHeaders(array $headers = [])
+    {
+        return array_merge([
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ], $headers);
+    }
 
-		return $this;
-	}
+    /**
+     * Gets the request authenticator
+     *
+     * @param Request $request
+     * @return Request
+     */
+    protected function authenticateRequest(Request $request)
+    {
+        if ($this->authenticator && $this->authenticate) {
+            return $this->authenticator->authenticate($request);
+        }
 
-	/**
-	 * Gets the current request instance
-	 * 
-	 * @return GuzzleHttp\Psr7\Request
-	 */
-	public function getRequest()
-	{
-		return $this->request;
-	}	
+        return $request;
+    }
 
-	/**
-	 * Gets the current response instance
-	 * 
-	 * @return GuzzleHttp\Psr7\Response
-	 */
-	public function getResponse()
-	{
-		return $this->response;
-	}		
+    /**
+     * Dispatches a request and returns a response instance
+     *
+     * @param Request $request
+     * @return Collection
+     * @throws GuzzleException
+     */
+    protected function dispatchRequest(Request $request): Collection
+    {
+        try {
+            $response = $this->client->send($request);
 
-	/**
-	 * Gets the request authenticator
-	 *
-	 * @param GuzzleHttp\Psr7\Request $request
-	 * @return GuzzleHttp\Psr7\Request
-	 */
-	protected function authenticateRequest(Request $request)
-	{
-		if ($this->authenticator && $this->authenticate) {
-			return $this->authenticator->authenticate($request);
-		}
+            $this->response = $response;
 
-		return $request;
-	}			
+            return $this->parseResponse($response);
+        } catch (ClientException $exception) {
 
-	/**
-	 * Creates and sets the request instance
-	 *
-	 * @param  string $verb
-	 * @param  string $route
-	 * @param  array $body
-	 * @param  array $headers
-	 * @return GuzzleHttp\Psr7\Request
-	 */
-	protected function createRequest(string $verb, string $route, $body = [], $headers = [])
-	{
-		$url = Router::getRouteUrl($route);
+            $this->response = $exception->getResponse();
 
-		if (strtoupper($verb) === 'GET') {
-			$url .= '?' . http_build_query($body);
-		}
+            if ($this->response->getStatusCode() === 404) {
+                return new Collection;
+            }
 
-		$request = new Request($verb, $url, $this->mergeDefaultHeaders($headers), json_encode($body));
+            throw $exception;
+        }
+    }
 
-		$this->setRequest($request);
-
-		return $request;
-	}
-
-	/**
-	 * Dispatches a request and returns a response instance
-	 *
-	 * @param GuzzleHttp\Psr7\Request $request
-	 * @return EthicalJobs\SDK\Collection
-	 */
-	protected function dispatchRequest(Request $request): Collection
-	{
-		try {
-			$response = $this->client->send($request);	
-
-			$this->response = $response;
-
-			return $this->parseResponse($response);
-		} catch (ClientException $exception) {
-
-			$this->response = $exception->getResponse();
-
-			if ($this->response->getStatusCode() === 404) {
-				return new Collection;
-			}
-
-			throw $exception;
-		}
-	}
-
-	/**
-	 * Prases a response and returns a collection or item
-	 *
-	 * @param GuzzleHttp\Psr7\Response $response
-	 * @return EthicalJobs\SDK\Collection
-	 */
-	protected function parseResponse(Response $response)
-	{
-		if ($response->getStatusCode() > 199 && $response->getStatusCode() < 299) {
+    /**
+     * Prases a response and returns a collection or item
+     *
+     * @param Response $response
+     * @return Collection
+     */
+    protected function parseResponse(Response $response)
+    {
+        if ($response->getStatusCode() > 199 && $response->getStatusCode() < 299) {
             if ($body = json_decode($response->getBody()->getContents(), 1)) {
-            	return new Collection($body);
-            }			
-		}
-		
-        return new Collection;		
-	}		
+                return new Collection($body);
+            }
+        }
 
-	/**
-	 * Merges degfault headers with user defined headers
-	 * 
-	 * @param Array $headers
-	 * @return Array
-	 */
-	protected function mergeDefaultHeaders(Array $headers = [])
-	{
-		return array_merge([
-			'Content-Type' => 'application/json',
-			'Accept'	   => 'application/json',
-		], $headers);
-	}					
+        return new Collection;
+    }
+
+    /**
+     * Http post request
+     *
+     * @param string $route
+     * @param array $body
+     * @param array $headers
+     * @return Collection
+     * @throws GuzzleException
+     */
+    public function post(string $route, $body = [], $headers = [])
+    {
+        return $this->request('POST', $route, $body, $headers);
+    }
+
+    /**
+     * Http put request
+     *
+     * @param string $route
+     * @param array $body
+     * @param array $headers
+     * @return Collection
+     * @throws GuzzleException
+     */
+    public function put(string $route, $body = [], $headers = [])
+    {
+        return $this->request('PUT', $route, $body, $headers);
+    }
+
+    /**
+     * Http patch request
+     *
+     * @param string $route
+     * @param array $body
+     * @param array $headers
+     * @return Collection
+     * @throws GuzzleException
+     */
+    public function patch(string $route, $body = [], $headers = [])
+    {
+        return $this->request('PATCH', $route, $body, $headers);
+    }
+
+    /**
+     * Http delete request
+     *
+     * @param string $route
+     * @param array $body
+     * @param array $headers
+     * @return Collection
+     * @throws GuzzleException
+     */
+    public function delete(string $route, $body = [], $headers = [])
+    {
+        return $this->request('DELETE', $route, $body, $headers);
+    }
+
+    /**
+     * Gets the current request instance
+     *
+     * @return Request
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    /**
+     * Sets the current request instance
+     *
+     * @param Request $request
+     * @return $this
+     */
+    public function setRequest(Request $request)
+    {
+        $this->request = $request;
+
+        return $this;
+    }
+
+    /**
+     * Gets the current response instance
+     *
+     * @return Response
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
 }

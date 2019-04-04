@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\ApiRepository;
 
-use Mockery;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Repositories\ApiRepository;
+use Mockery;
+use Tests\TestCase;
 
-class WhereTest extends \Tests\TestCase
+class WhereTest extends TestCase
 {
     /**
      * @test
@@ -23,7 +24,7 @@ class WhereTest extends \Tests\TestCase
             ->where('status', '=', 'APPROVED');
 
         $this->assertInstanceOf(ApiRepository::class, $isFluent);
-    }   
+    }
 
     /**
      * @test
@@ -47,7 +48,7 @@ class WhereTest extends \Tests\TestCase
         $repository
             ->where('status', '=', 'APPROVED')
             ->find();
-    } 
+    }
 
     /**
      * @test
@@ -56,7 +57,7 @@ class WhereTest extends \Tests\TestCase
     public function its_where_clause_always_uses_the_equals_operator()
     {
         $expected = new Collection(['entities' => 'jobs']);
-        
+
         $api = Mockery::mock(ApiClient::class)
             ->shouldReceive('get')
             ->once()
@@ -71,5 +72,5 @@ class WhereTest extends \Tests\TestCase
         $repository
             ->where('status', '>=', 'APPROVED')
             ->find();
-    }         
+    }
 }

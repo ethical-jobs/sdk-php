@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 
-use Mockery;
-use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Mockery;
+use Tests\TestCase;
 
-class OrderByTest extends \Tests\TestCase
+class OrderByTest extends TestCase
 {
     /**
      * @test
@@ -24,7 +25,7 @@ class OrderByTest extends \Tests\TestCase
             ->orderBy('approved_at', 'DESC');
 
         $this->assertInstanceOf(TaxonomyApiRepository::class, $isFluent);
-    }   
+    }
 
     /**
      * @test
@@ -62,7 +63,7 @@ class OrderByTest extends \Tests\TestCase
             'AUSTRALIAWIDE',
             'ACT',
         ]);
-    }    
+    }
 
     /**
      * @test
@@ -100,5 +101,5 @@ class OrderByTest extends \Tests\TestCase
             'VIC',
             'WA',
         ]);
-    }        
+    }
 }
