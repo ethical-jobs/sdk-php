@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\ApiRepository;
 
-use Mockery;
 use EthicalJobs\SDK\ApiClient;
-use EthicalJobs\Storage\CriteriaCollection;
 use EthicalJobs\SDK\Repositories\ApiRepository;
+use EthicalJobs\Storage\CriteriaCollection;
+use Mockery;
+use Tests\TestCase;
 
-class CriteriaTest extends \Tests\TestCase
+class CriteriaTest extends TestCase
 {
     /**
      * @test
@@ -18,13 +19,13 @@ class CriteriaTest extends \Tests\TestCase
         $api = Mockery::mock(ApiClient::class);
 
         $repository = new ApiRepository($api);
-        
+
         $criteria = $repository->getCriteriaCollection();
 
         $this->assertInstanceOf(CriteriaCollection::class, $criteria);
 
         $this->assertTrue($criteria->isEmpty());
-    }    
+    }
 
     /**
      * @test
@@ -37,9 +38,9 @@ class CriteriaTest extends \Tests\TestCase
         $repository = new ApiRepository($api);
 
         $collection = new CriteriaCollection(['foo' => 'bar']);
-        
+
         $repository->setCriteriaCollection($collection);
 
         $this->assertEquals($repository->getCriteriaCollection(), $collection);
-    }      
+    }
 }

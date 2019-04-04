@@ -2,18 +2,17 @@
 
 namespace EthicalJobs\SDK\Repositories;
 
+use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Collection;
 use EthicalJobs\Storage\Contracts;
 use EthicalJobs\Storage\CriteriaCollection;
 use EthicalJobs\Storage\HasCriteria;
-use EthicalJobs\SDK\Collection;
-use EthicalJobs\SDK\ApiClient;
 
 /**
  * Api repository
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
 {
     use HasCriteria;
@@ -21,28 +20,28 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     /**
      * Api client instance
      *
-     * @var EthicalJobs\SDK\ApiClient
+     * @var ApiClient
      */
-    protected $api;   
+    protected $api;
 
     /**
      * Resource path
      *
      * @var string
      */
-    protected $resource;       
+    protected $resource;
 
     /**
      * Http query vars
      *
      * @var array
      */
-    protected $query = [];     
+    protected $query = [];
 
     /**
      * Object constructor
      *
-     * @param EthicalJobs\SDK\ApiClient $api
+     * @param ApiClient $api
      * @param string $resource
      * @return void
      */
@@ -52,7 +51,27 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
 
         $this->setResource($resource);
 
-        $this->setStorageEngine($api); 
+        $this->setStorageEngine($api);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setStorageEngine($storage)
+    {
+        $this->api = $storage;
+
+        return $this;
+    }
+
+    /**
+     * Gets the resource path in the API request
+     *
+     * @return string
+     */
+    public function getResource()
+    {
+        return $this->resource;
     }
 
     /**
@@ -61,22 +80,12 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
      * @param string $resource
      * @return $this
      */
-    public function setResource(string $resource = '/') : Contracts\Repository
+    public function setResource(string $resource = '/'): Contracts\Repository
     {
         $this->resource = $resource;
 
         return $this;
     }
-
-    /**
-     * Gets the resource path in the API request
-     *
-     * @return $this
-     */
-    public function getResource()
-    {
-        return $this->resource;
-    }      
 
     /**
      * {@inheritdoc}
@@ -89,20 +98,10 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     /**
      * {@inheritdoc}
      */
-    public function setStorageEngine($storage)
-    {
-        $this->api = $storage;
-
-        return $this;
-    }    
-
-    /**
-     * {@inheritdoc}
-     */
     public function findById($id)
     {
         return $this->api->get("/$this->resource/$id");
-    }     
+    }
 
     /**
      * {@inheritdoc}
@@ -111,34 +110,34 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     {
         return $this->api->get("/$this->resource", [
             'limit' => 1,
-            $field  => $value,
+            $field => $value,
         ]);
-    }        
+    }
 
     /**
      * {@inheritdoc}
      */
-    public function where(string $field, $operator, $value = null) : Contracts\Repository
+    public function where(string $field, $operator, $value = null): Contracts\Repository
     {
         $this->query[$field] = $value;
 
         return $this;
-    }    
+    }
 
     /**
      * {@inheritdoc}
      */
-    public function whereIn(string $field, array $values) : Contracts\Repository
+    public function whereIn(string $field, array $values): Contracts\Repository
     {
         $this->query[$field] = $values;
 
-        return $this;        
-    }    
+        return $this;
+    }
 
     /**
      * {@inheritdoc}
      */
-    public function whereHasIn(string $field, array $values) : Contracts\Repository
+    public function whereHasIn(string $field, array $values): Contracts\Repository
     {
         // Not applicable to repository type
 
@@ -148,29 +147,29 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     /**
      * {@inheritdoc}
      */
-    public function orderBy(string $field, string $direction) : Contracts\Repository
+    public function orderBy(string $field, string $direction): Contracts\Repository
     {
         $this->query['orderBy'] = $field;
 
         $this->query['order'] = $direction;
 
-        return $this;           
-    }            
+        return $this;
+    }
 
     /**
      * {@inheritdoc}
      */
-    public function limit(int $limit) : Contracts\Repository
+    public function limit(int $limit): Contracts\Repository
     {
         $this->query['limit'] = $limit;
 
-        return $this;             
-    }    
+        return $this;
+    }
 
     /**
      * {@inheritdoc}
      */
-    public function search(string $term = '') : Contracts\Repository
+    public function search(string $term = ''): Contracts\Repository
     {
         $this->query['q'] = $term;
 
@@ -180,12 +179,12 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     /**
      * {@inheritdoc}
      */
-    public function find() : iterable
+    public function find(): iterable
     {
         $this->applyCriteria();
-        
+
         return $this->api->get("/$this->resource", $this->query);
-    }     
+    }
 
     /**
      * {@inheritdoc}
@@ -193,14 +192,14 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     public function update($id, array $attributes)
     {
         return $this->api->patch("/$this->resource/$id", $attributes);
-    }        
+    }
 
     /**
      * {@inheritdoc}
      */
     public function updateCollection(iterable $entities)
     {
-        if (! $entities instanceof \Illuminate\Support\Collection) {
+        if (!$entities instanceof \Illuminate\Support\Collection) {
             $entities = new Collection($entities);
         }
 
@@ -215,7 +214,7 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
             $responses = array_merge_recursive($responses, $response->toArray());
         }
 
-        return new Collection($responses);        
+        return new Collection($responses);
     }
 
     /**
@@ -224,5 +223,5 @@ class ApiRepository implements Contracts\Repository, Contracts\HasCriteria
     public function delete($id)
     {
         return $this->api->delete("/$this->resource/$id");
-    }     
+    }
 }

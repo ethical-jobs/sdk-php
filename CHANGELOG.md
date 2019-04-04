@@ -1,5 +1,9 @@
 # staged
 
+# v3.0.2
+
+- PSR code cleanup
+
 # v3.0.1
 
 - Removing typing requirement for response helper

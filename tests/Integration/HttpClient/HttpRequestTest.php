@@ -2,12 +2,12 @@
 
 namespace Tests\Integration\HttpClient;
 
-use Mockery;
+use EthicalJobs\SDK\HttpClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use EthicalJobs\SDK\HttpClient;
+use Tests\TestCase;
 
-class HttpRequestTest extends \Tests\TestCase
+class HttpRequestTest extends TestCase
 {
     /**
      * @test
@@ -24,5 +24,5 @@ class HttpRequestTest extends \Tests\TestCase
         $actual = $http->getRequest();
 
         $this->assertEquals($expected, $actual);
-    }     
+    }
 }

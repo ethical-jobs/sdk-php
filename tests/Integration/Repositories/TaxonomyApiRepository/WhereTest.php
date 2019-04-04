@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 
-use Mockery;
-use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Mockery;
+use Tests\TestCase;
 
-class WhereTest extends \Tests\TestCase
+class WhereTest extends TestCase
 {
     /**
      * @test
@@ -24,7 +25,7 @@ class WhereTest extends \Tests\TestCase
             ->where('status', '=', 'APPROVED');
 
         $this->assertInstanceOf(TaxonomyApiRepository::class, $isFluent);
-    }   
+    }
 
     /**
      * @test
@@ -43,10 +44,10 @@ class WhereTest extends \Tests\TestCase
             ->where('job_count', '=', 50)
             ->find();
 
-        $terms->pluck('job_count')->each(function($jobCount) {
+        $terms->pluck('job_count')->each(function ($jobCount) {
             $this->assertTrue($jobCount == 50);
         });
-    } 
+    }
 
     /**
      * @test
@@ -65,10 +66,10 @@ class WhereTest extends \Tests\TestCase
             ->where('job_count', '!=', 50)
             ->find();
 
-        $terms->pluck('job_count')->each(function($jobCount) {
+        $terms->pluck('job_count')->each(function ($jobCount) {
             $this->assertTrue($jobCount != 50);
         });
-    }     
+    }
 
     /**
      * @test
@@ -87,10 +88,10 @@ class WhereTest extends \Tests\TestCase
             ->where('job_count', '<=', 50)
             ->find();
 
-        $terms->pluck('job_count')->each(function($jobCount) {
+        $terms->pluck('job_count')->each(function ($jobCount) {
             $this->assertTrue($jobCount <= 50);
         });
-    }         
+    }
 
     /**
      * @test
@@ -109,10 +110,10 @@ class WhereTest extends \Tests\TestCase
             ->where('job_count', '>=', 50)
             ->find();
 
-        $terms->pluck('job_count')->each(function($jobCount) {
+        $terms->pluck('job_count')->each(function ($jobCount) {
             $this->assertTrue($jobCount >= 50);
         });
-    }   
+    }
 
     /**
      * @test
@@ -131,10 +132,10 @@ class WhereTest extends \Tests\TestCase
             ->where('job_count', '>', 50)
             ->find();
 
-        $terms->pluck('job_count')->each(function($jobCount) {
+        $terms->pluck('job_count')->each(function ($jobCount) {
             $this->assertTrue($jobCount > 50);
         });
-    }   
+    }
 
     /**
      * @test
@@ -153,8 +154,8 @@ class WhereTest extends \Tests\TestCase
             ->where('job_count', '<', 50)
             ->find();
 
-        $terms->pluck('job_count')->each(function($jobCount) {
+        $terms->pluck('job_count')->each(function ($jobCount) {
             $this->assertTrue($jobCount < 50);
         });
-    }                                
+    }
 }

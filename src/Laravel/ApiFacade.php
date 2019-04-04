@@ -2,8 +2,8 @@
 
 namespace EthicalJobs\SDK\Laravel;
 
-use Illuminate\Support\Facades\Facade;
 use EthicalJobs\SDK\ApiClient;
+use Illuminate\Support\Facades\Facade;
 
 /**
  * Laravel facade accessor
@@ -17,8 +17,8 @@ class ApiFacade extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor() 
-    { 
-    	return ApiClient::class; 
+    protected static function getFacadeAccessor()
+    {
+        return ApiClient::class;
     }
 }

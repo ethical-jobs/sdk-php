@@ -2,16 +2,15 @@
 
 namespace EthicalJobs\SDK;
 
-use Illuminate\Support\Facades\App;
 use EthicalJobs\SDK\Repositories;
 use EthicalJobs\Storage\Contracts\Repository;
+use Illuminate\Support\Facades\App;
 
 /**
  * Api resource collection
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class ResourceCollection extends \Illuminate\Support\Collection
 {
     /**
@@ -22,7 +21,7 @@ class ResourceCollection extends \Illuminate\Support\Collection
     public function __construct()
     {
         parent::__construct(static::resources());
-    }    
+    }
 
     /**
      * Returns api resources
@@ -32,8 +31,8 @@ class ResourceCollection extends \Illuminate\Support\Collection
     protected static function resources(): array
     {
         return [
-            'jobs'          => Repositories\JobApiRepository::class,
-            'taxonomies'    => Repositories\TaxonomyApiRepository::class,
+            'jobs' => Repositories\JobApiRepository::class,
+            'taxonomies' => Repositories\TaxonomyApiRepository::class,
         ];
     }
 
@@ -41,12 +40,12 @@ class ResourceCollection extends \Illuminate\Support\Collection
      * Make a resource repository instance
      *
      * @param string $repository
-     * @return EthicalJobs\SDK\ApiResource
+     * @return Repository
      */
     public static function makeResourceRepository(string $repository): Repository
     {
         $api = App::make(ApiClient::class);
 
         return new $repository($api);
-    }    
+    }
 }

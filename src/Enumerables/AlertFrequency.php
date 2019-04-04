@@ -7,10 +7,9 @@ namespace EthicalJobs\SDK\Enumerables;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class AlertFrequency extends Enum
 {
-    const DAILY 	= "Daily";
+    const DAILY = "Daily";
 
-    const WEEKLY   	= "Weekly";
+    const WEEKLY = "Weekly";
 }

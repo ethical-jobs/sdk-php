@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\ApiRepository;
 
-use Mockery;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Repositories\ApiRepository;
+use Mockery;
+use Tests\TestCase;
 
-class FindTest extends \Tests\TestCase
+class FindTest extends TestCase
 {
     /**
      * @test
@@ -16,7 +17,7 @@ class FindTest extends \Tests\TestCase
     public function it_can_execute_the_query()
     {
         $expected = new Collection(['entities' => 'jobs']);
-        
+
         $api = Mockery::mock(ApiClient::class)
             ->shouldReceive('get')
             ->with('/search/jobs', [])
@@ -28,5 +29,5 @@ class FindTest extends \Tests\TestCase
         $response = $repository->find();
 
         $this->assertEquals($response, $expected);
-    }     
+    }
 }

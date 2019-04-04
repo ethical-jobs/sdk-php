@@ -2,10 +2,11 @@
 
 namespace Tests\Unit;
 
-use EthicalJobs\SDK\ResponseSelector;
 use EthicalJobs\SDK\Collection;
+use EthicalJobs\SDK\ResponseSelector;
+use Tests\TestCase;
 
-class ResultsTest extends \Tests\TestCase
+class ResultsTest extends TestCase
 {
     /**
      * @test
@@ -71,7 +72,7 @@ class ResultsTest extends \Tests\TestCase
             98932,
             1,
         ]);
-    }    
+    }
 
     /**
      * @test

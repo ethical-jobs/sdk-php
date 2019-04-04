@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\ApiRepository;
 
-use Mockery;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Repositories\ApiRepository;
+use Mockery;
+use Tests\TestCase;
 
-class DeleteTest extends \Tests\TestCase
+class DeleteTest extends TestCase
 {
     /**
      * @test
@@ -16,7 +17,7 @@ class DeleteTest extends \Tests\TestCase
     public function it_can_delete_an_entity_and_return_it()
     {
         $expected = new Collection(['entities' => 'invoices']);
-        
+
         $api = Mockery::mock(ApiClient::class)
             ->shouldReceive('delete')
             ->once()
@@ -29,5 +30,5 @@ class DeleteTest extends \Tests\TestCase
         $result = $repository->delete(245);
 
         $this->assertEquals($expected, $result);
-    }    
+    }
 }

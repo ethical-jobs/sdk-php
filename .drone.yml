@@ -1,18 +1,17 @@
 pipeline:
 
+  dependancies:
+    image: ethicaljobs/composer-prestissimo
+    commands: 
+      - 'composer install --prefer-dist --ignore-platform-reqs'
+  
   test:
-    image: ethicaljobs/aphex:7.2.x
-    pull: true
-    commands: [ 'composer install --prefer-dist', './vendor/bin/phpunit' ]
-
-  publish:
-    image: byrnedo/alpine-curl
-    commands: [ 'curl -XPOST -H"content-type:application/json" "https://packagist.org/api/update-package?username=andrewmclagan&apiToken=2cmy6xog4hs0kogk4ccg" -d''{"repository":{"url":"https://github.com/ethical-jobs/sdk-php"}}''' ]
-    when:
-      status: success
-      event: tag
+    image: php:7.2-cli-alpine
+    commands: 
+      - 'php vendor/bin/phpunit'
 
   notify-slack:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
     channel: deployments
+

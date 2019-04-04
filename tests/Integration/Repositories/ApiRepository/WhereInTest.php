@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\ApiRepository;
 
-use Mockery;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Repositories\ApiRepository;
+use Mockery;
+use Tests\TestCase;
 
-class WhereInTest extends \Tests\TestCase
+class WhereInTest extends TestCase
 {
     /**
      * @test
@@ -20,10 +21,10 @@ class WhereInTest extends \Tests\TestCase
         $repository = new ApiRepository($api);
 
         $isFluent = $repository
-            ->whereIn('locations', [1,28,298,23,7]);
+            ->whereIn('locations', [1, 28, 298, 23, 7]);
 
         $this->assertInstanceOf(ApiRepository::class, $isFluent);
-    }   
+    }
 
     /**
      * @test
@@ -32,12 +33,12 @@ class WhereInTest extends \Tests\TestCase
     public function it_can_add_a_whereIn_query()
     {
         $expected = new Collection(['entities' => 'people']);
-        
+
         $api = Mockery::mock(ApiClient::class)
             ->shouldReceive('get')
             ->once()
             ->with('/people', [
-                'status' => ['APPROVED','DRAFT'],
+                'status' => ['APPROVED', 'DRAFT'],
             ])
             ->andReturn($expected)
             ->getMock();
@@ -45,7 +46,7 @@ class WhereInTest extends \Tests\TestCase
         $repository = new ApiRepository($api, 'people');
 
         $repository
-            ->whereIn('status', ['APPROVED','DRAFT'])
+            ->whereIn('status', ['APPROVED', 'DRAFT'])
             ->find();
-    }    
+    }
 }

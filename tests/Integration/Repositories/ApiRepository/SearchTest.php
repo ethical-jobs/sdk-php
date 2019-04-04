@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\ApiRepository;
 
-use Mockery;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Repositories\ApiRepository;
+use Mockery;
+use Tests\TestCase;
 
-class SearchTest extends \Tests\TestCase
+class SearchTest extends TestCase
 {
     /**
      * @test
@@ -22,7 +23,7 @@ class SearchTest extends \Tests\TestCase
         $isFluent = $repository->search('cats and dogs');
 
         $this->assertInstanceOf(ApiRepository::class, $isFluent);
-    }   
+    }
 
     /**
      * @test
@@ -46,5 +47,5 @@ class SearchTest extends \Tests\TestCase
         $repository
             ->search('cats and dogs')
             ->find();
-    } 
+    }
 }

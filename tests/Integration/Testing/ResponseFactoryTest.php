@@ -2,10 +2,11 @@
 
 namespace Tests\Integration\Testing;
 
-use EthicalJobs\SDK\Testing\ResponseFactory;
 use EthicalJobs\SDK\Collection;
+use EthicalJobs\SDK\Testing\ResponseFactory;
+use Tests\TestCase;
 
-class ResponseFactoryTest extends \Tests\TestCase
+class ResponseFactoryTest extends TestCase
 {
     /**
      * @test
@@ -29,7 +30,7 @@ class ResponseFactoryTest extends \Tests\TestCase
 
         $this->assertInstanceOf(Collection::class, $response);
         $this->assertTrue($response->isNotEmpty());
-    }        
+    }
 
     /**
      * @test
@@ -41,7 +42,7 @@ class ResponseFactoryTest extends \Tests\TestCase
 
         $this->assertInstanceOf(Collection::class, $response);
         $this->assertTrue($response->isNotEmpty());
-    }    
+    }
 
     /**
      * @test
@@ -53,7 +54,7 @@ class ResponseFactoryTest extends \Tests\TestCase
 
         $this->assertInstanceOf(Collection::class, $response);
         $this->assertTrue($response->isNotEmpty());
-    }        
+    }
 
     /**
      * @test
@@ -65,5 +66,5 @@ class ResponseFactoryTest extends \Tests\TestCase
 
         $this->assertInstanceOf(Collection::class, $response);
         $this->assertTrue($response->isNotEmpty());
-    }    
+    }
 }

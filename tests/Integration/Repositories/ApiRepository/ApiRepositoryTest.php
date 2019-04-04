@@ -2,11 +2,12 @@
 
 namespace Tests\Integration\Repositories\ApiRepository;
 
-use Mockery;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Repositories\ApiRepository;
+use Mockery;
+use Tests\TestCase;
 
-class ApiRepositoryTest extends \Tests\TestCase
+class ApiRepositoryTest extends TestCase
 {
     /**
      * @test
@@ -18,8 +19,8 @@ class ApiRepositoryTest extends \Tests\TestCase
 
         $repository = new ApiRepository($api);
 
-        $this->assertEquals($repository->getStorageEngine(), $api);             
-    }    
+        $this->assertEquals($repository->getStorageEngine(), $api);
+    }
 
     /**
      * @test
@@ -35,8 +36,8 @@ class ApiRepositoryTest extends \Tests\TestCase
 
         $repository->setStorageEngine($apiTwo);
 
-        $this->assertEquals($repository->getStorageEngine(), $apiTwo);           
-    }        
+        $this->assertEquals($repository->getStorageEngine(), $apiTwo);
+    }
 
     /**
      * @test
@@ -48,12 +49,12 @@ class ApiRepositoryTest extends \Tests\TestCase
 
         $repository = new ApiRepository($api, 'people');
 
-        $this->assertEquals($repository->getResource(), 'people');    
+        $this->assertEquals($repository->getResource(), 'people');
 
         $repository = new ApiRepository($api, 'people');
 
         $repository->setResource('vehicles');
 
-        $this->assertEquals($repository->getResource(), 'vehicles');     
-    }        
+        $this->assertEquals($repository->getResource(), 'vehicles');
+    }
 }

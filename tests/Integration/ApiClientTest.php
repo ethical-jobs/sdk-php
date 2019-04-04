@@ -2,15 +2,15 @@
 
 namespace EthicalJobs\Tests\SDK;
 
-use Mockery;
-use GuzzleHttp\Psr7\Response;
-use Illuminate\Support\Facades\Cache;
+use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\HttpClient;
 use EthicalJobs\SDK\Repositories;
-use EthicalJobs\SDK\ApiClient;
+use Illuminate\Support\Facades\Cache;
+use Mockery;
+use Tests\TestCase;
 
-class ApiClientTest extends \Tests\TestCase
+class ApiClientTest extends TestCase
 {
     /**
      * @test
@@ -21,7 +21,7 @@ class ApiClientTest extends \Tests\TestCase
         $api = resolve(ApiClient::class);
 
         $this->assertInstanceOf(Repositories\JobApiRepository::class, $api->jobs);
-        
+
         // Taxonomy repository has a HTTP call in its constructor.
         Cache::shouldReceive('remember')->once()->andReturn([]);
 
@@ -34,7 +34,7 @@ class ApiClientTest extends \Tests\TestCase
      */
     public function it_has_http_verb_methods()
     {
-        foreach (['get','post','put','patch','delete'] as $verb) {
+        foreach (['get', 'post', 'put', 'patch', 'delete'] as $verb) {
 
             $http = Mockery::mock(HttpClient::class)
                 ->shouldReceive($verb)
@@ -49,7 +49,7 @@ class ApiClientTest extends \Tests\TestCase
 
             $this->assertEquals('success', $result);
         }
-    }      
+    }
 
     /**
      * @test
@@ -71,9 +71,9 @@ class ApiClientTest extends \Tests\TestCase
         $result = $client->request('GET', '/jobs', ['status' => 'APPROVED']);
 
         $this->assertInstanceOf(Collection::class, $result);
-    } 
+    }
 
-   /**
+    /**
      * @test
      * @group Unit
      */
@@ -92,9 +92,9 @@ class ApiClientTest extends \Tests\TestCase
 
         $this->assertInstanceOf(Collection::class, $results);
         $this->assertEquals($results->toArray(), ['data' => []]);
-    }                 
+    }
 
-   /**
+    /**
      * @test
      * @group Unit
      */
@@ -104,6 +104,7 @@ class ApiClientTest extends \Tests\TestCase
 
         $valudateCacheClosure = Mockery::on(function ($colsure) {
             $colsure();
+
             return true;
         });
 
@@ -125,5 +126,5 @@ class ApiClientTest extends \Tests\TestCase
 
         $this->assertInstanceOf(Collection::class, $results);
         $this->assertEquals($results->toArray(), $returnValue->toArray());
-    }       
+    }
 }

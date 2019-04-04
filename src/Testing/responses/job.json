@@ -9,13 +9,14 @@
           "last_name": "McQuaid",
           "full_name": "John McQuaid",
           "bio": null,
-          "avatar":
-            "https://www.gravatar.com/avatar/06d081be703d51d92f282ff5e89b6bc3.jpg?s=200&d=mm",
+          "avatar": "https://www.gravatar.com/avatar/06d081be703d51d92f282ff5e89b6bc3.jpg?s=200&d=mm",
           "email": "john@arriveaustralia.com.au",
           "username": "Arriveaustralia",
           "phone": null,
           "position": "Director",
-          "roles": ["employer-member"],
+          "roles": [
+            "employer-member"
+          ],
           "last_login": null,
           "created_at": 1509419366000,
           "updated_at": 1529891685000
@@ -28,8 +29,7 @@
           "admin_id": 0,
           "uid": "Arriveaustralia",
           "name": "Arrive Australia Migration Services Pty Ltd",
-          "logo_url":
-            "//d27jjb85n91zzw.cloudfront.net/media/1509506379_G1VZy_.jpeg",
+          "logo_url": "//d27jjb85n91zzw.cloudfront.net/media/1509506379_G1VZy_.jpeg",
           "paid_staff": 6,
           "volunteers": 0,
           "phone": "0293692400",
@@ -60,18 +60,13 @@
           "status": "APPROVED",
           "locked": true,
           "locked_by": 6829,
-          "locked_by_avatar":
-            "https://s3-ap-southeast-2.amazonaws.com/ethical-jobs/statics/staff/alex-marsh-avatar.jpg",
+          "locked_by_avatar": "https://s3-ap-southeast-2.amazonaws.com/ethical-jobs/statics/staff/alex-marsh-avatar.jpg",
           "title": "Administration Assistant",
           "slug": "Arriveaustralia/administration-assistant-2",
-          "url":
-            "http://www.ethicaljobs.com.au/Members/Arriveaustralia/administration-assistant-2",
-          "summary":
-            "We strive to make a difference and assist less privileged people to make a better life. 95% of our clients are from low socio-economic backgrounds seeking a better life for their families.",
-          "description":
-            "<p><span>Arrive Australia is a professional migration advice firm based in Bondi junction NSW.</span></p>\n<p><span>We strive to make a difference and assist less privileged people to make a better life. 95% of our clients are from low socio-economic backgrounds seeking a better life for their families.</span></p>\n<p><span>As a company we take pride in our point of difference being a strong commitment to honesty and social equity, providing fair and equal access to the law.</span></p>\n<p><span>Our assessment of clients is always honest and candid at a time when people are vulnerable to false promises for economic gain.</span></p>\n<p><span>Newly arrived persons in Australia are susceptible to the consequences of isolation and financial stress. As such we make a commitment to supporting the migrant community not only through the legal process of immigration but also in building strong and supportive communities once here.</span></p>\n<p><span>We do this through business mentorship programs for newly arrived young people as well as providing pro bono migration advice and financially contributing to community organisations such as the Irish Support Agency and Sydney Queer Irish.</span></p>\n<p><span>We assist individuals and businesses in Australia and overseas, finding legal pathways to achieving our client&rsquo;s future goals in Australia, changing people&rsquo;s futures for the better.</span></p>\n<p><span>Our business is continually growing.</span></p>\n<p><span>We have an immediate full time position for an experienced Administration Assistant to support our team of professionals.</span></p>\n<p><span>In this role you will liaise with clients and undertake case administration and coordination duties.</span></p>\n<p><span>This position requires a person with excellent administration, verbal and written communication skills, a positive outlook, responsible attitude and attention to detail.</span></p>\n<p><span>Hours: 9:00am to 5:00pm Monday to Friday</span></p>\n<h3><strong><span>Selection Criteria</span></strong></h3>\n<ol>\n<li>Business qualification or evidence of complementary skill set</li>\n<li>Strong verbal and written communication skills</li>\n<li>Able to work as part of a team</li>\n<li>Able to take the initiative and manage tasks effectively</li>\n<li>Able to work under pressure to meet deadlines</li>\n<li>Flexible attitude to work</li>\n<li>Excellent organisational skills</li>\n<li>Microsoft Office skills to a highly proficient level</li>\n<li>Experience with general typing, data entry</li>\n</ol>\n<p><span>We offer a modern bright work environment, mentoring and training from senior staff, performance bonus, career advancement opportunities.</span></p>\n<p><span>A competitive salary package is available commensurate with skills and experience.</span></p>",
-          "application":
-            "<p><span>Apply in writing with your resume and covering letter addressing the selection criteria above.</span></p>\n<p><span>Applications can be emailed to: <a href=\"mailto:john@arriveaustralia.com.au?subject=Administration%20Assistant%20application%20via%20EthicalJobs\" target=\"_blank\" rel=\"noopener\">john@arriveaustralia.com.au</a>, using the subject line: <strong>Administration Assistant application via EthicalJobs.</strong></span></p>",
+          "url": "http://www.ethicaljobs.com.au/Members/Arriveaustralia/administration-assistant-2",
+          "summary": "We strive to make a difference and assist less privileged people to make a better life. 95% of our clients are from low socio-economic backgrounds seeking a better life for their families.",
+          "description": "<p><span>Arrive Australia is a professional migration advice firm based in Bondi junction NSW.</span></p>\n<p><span>We strive to make a difference and assist less privileged people to make a better life. 95% of our clients are from low socio-economic backgrounds seeking a better life for their families.</span></p>\n<p><span>As a company we take pride in our point of difference being a strong commitment to honesty and social equity, providing fair and equal access to the law.</span></p>\n<p><span>Our assessment of clients is always honest and candid at a time when people are vulnerable to false promises for economic gain.</span></p>\n<p><span>Newly arrived persons in Australia are susceptible to the consequences of isolation and financial stress. As such we make a commitment to supporting the migrant community not only through the legal process of immigration but also in building strong and supportive communities once here.</span></p>\n<p><span>We do this through business mentorship programs for newly arrived young people as well as providing pro bono migration advice and financially contributing to community organisations such as the Irish Support Agency and Sydney Queer Irish.</span></p>\n<p><span>We assist individuals and businesses in Australia and overseas, finding legal pathways to achieving our client&rsquo;s future goals in Australia, changing people&rsquo;s futures for the better.</span></p>\n<p><span>Our business is continually growing.</span></p>\n<p><span>We have an immediate full time position for an experienced Administration Assistant to support our team of professionals.</span></p>\n<p><span>In this role you will liaise with clients and undertake case administration and coordination duties.</span></p>\n<p><span>This position requires a person with excellent administration, verbal and written communication skills, a positive outlook, responsible attitude and attention to detail.</span></p>\n<p><span>Hours: 9:00am to 5:00pm Monday to Friday</span></p>\n<h3><strong><span>Selection Criteria</span></strong></h3>\n<ol>\n<li>Business qualification or evidence of complementary skill set</li>\n<li>Strong verbal and written communication skills</li>\n<li>Able to work as part of a team</li>\n<li>Able to take the initiative and manage tasks effectively</li>\n<li>Able to work under pressure to meet deadlines</li>\n<li>Flexible attitude to work</li>\n<li>Excellent organisational skills</li>\n<li>Microsoft Office skills to a highly proficient level</li>\n<li>Experience with general typing, data entry</li>\n</ol>\n<p><span>We offer a modern bright work environment, mentoring and training from senior staff, performance bonus, career advancement opportunities.</span></p>\n<p><span>A competitive salary package is available commensurate with skills and experience.</span></p>",
+          "application": "<p><span>Apply in writing with your resume and covering letter addressing the selection criteria above.</span></p>\n<p><span>Applications can be emailed to: <a href=\"mailto:john@arriveaustralia.com.au?subject=Administration%20Assistant%20application%20via%20EthicalJobs\" target=\"_blank\" rel=\"noopener\">john@arriveaustralia.com.au</a>, using the subject line: <strong>Administration Assistant application via EthicalJobs.</strong></span></p>",
           "featured": false,
           "expiration_hidden": true,
           "expired": false,
@@ -79,10 +74,20 @@
           "views": 1059,
           "clicks": 20,
           "attachments": [],
-          "locations": [3],
-          "sectors": [1],
-          "workTypes": [3],
-          "categories": [1, 35, 40],
+          "locations": [
+            3
+          ],
+          "sectors": [
+            1
+          ],
+          "workTypes": [
+            3
+          ],
+          "categories": [
+            1,
+            35,
+            40
+          ],
           "expires_at": 1533538800000,
           "approved_at": 1529538469000,
           "created_at": 1529538349000,

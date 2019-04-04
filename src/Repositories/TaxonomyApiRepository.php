@@ -11,28 +11,41 @@ use EthicalJobs\Storage\Contracts\Repository;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class TaxonomyApiRepository extends ApiRepository
 {
     /**
      * Taxonomies collection
      *
-     * @var EthicalJobs\SDK\Collection
+     * @var Collection
      */
-    protected $taxonomies; 
+    protected $taxonomies;
 
     /**
      * Object constructor
      *
-     * @param EthicalJobs\SDK\ApiClient $api
+     * @param ApiClient $api
      * @return void
      */
     public function __construct(ApiClient $api)
     {
-        parent::__construct($api, '/'); 
+        parent::__construct($api, '/');
 
         $this->fetchTaxonomies();
-    }   
+    }
+
+    /**
+     * Patch a collection of jobs
+     *
+     * @return void
+     */
+    protected function fetchTaxonomies()
+    {
+        $response = $this->api->appData();
+
+        $taxonomies = array_get($response, 'data.taxonomies', []);
+
+        $this->taxonomies = new Collection($taxonomies);
+    }
 
     /**
      * {@inheritdoc}
@@ -40,7 +53,7 @@ class TaxonomyApiRepository extends ApiRepository
     public function findById($id)
     {
         return $this->taxonomies->get($id);
-    }     
+    }
 
     /**
      * {@inheritdoc}
@@ -48,27 +61,33 @@ class TaxonomyApiRepository extends ApiRepository
     public function findByField(string $field, $value)
     {
         return $this->taxonomies->where($field, $value)->first();
-    }        
+    }
 
     /**
      * {@inheritdoc}
      */
     public function where(string $field, $operator, $value = null): Repository
     {
-        $this->taxonomies = $this->taxonomies->filter(function($item) use($field, $operator, $value) {
+        $this->taxonomies = $this->taxonomies->filter(function ($item) use ($field, $operator, $value) {
             switch ($operator) {
-                case '>':   return $item[$field] > $value;
-                case '<':   return $item[$field] < $value;
-                case '>=':  return $item[$field] >= $value;
-                case '<=':  return $item[$field] <= $value;
-                case '!=':  return $item[$field] != $value;
+                case '>':
+                    return $item[$field] > $value;
+                case '<':
+                    return $item[$field] < $value;
+                case '>=':
+                    return $item[$field] >= $value;
+                case '<=':
+                    return $item[$field] <= $value;
+                case '!=':
+                    return $item[$field] != $value;
                 default:
-                case '=':   return $item[$field] == $value;
+                case '=':
+                    return $item[$field] == $value;
             }
-        });        
+        });
 
         return $this;
-    }    
+    }
 
     /**
      * {@inheritdoc}
@@ -77,8 +96,8 @@ class TaxonomyApiRepository extends ApiRepository
     {
         $this->taxonomies = $this->taxonomies->whereIn($field, $values);
 
-        return $this;        
-    }    
+        return $this;
+    }
 
     /**
      * {@inheritdoc}
@@ -89,8 +108,8 @@ class TaxonomyApiRepository extends ApiRepository
             $this->taxonomies->sortByDesc($field) :
             $this->taxonomies->sortBy($field);
 
-        return $this;           
-    }            
+        return $this;
+    }
 
     /**
      * {@inheritdoc}
@@ -99,8 +118,8 @@ class TaxonomyApiRepository extends ApiRepository
     {
         $this->taxonomies = $this->taxonomies->take($limit);
 
-        return $this;             
-    }    
+        return $this;
+    }
 
     /**
      * {@inheritdoc}
@@ -108,7 +127,7 @@ class TaxonomyApiRepository extends ApiRepository
     public function find(): iterable
     {
         return $this->taxonomies;
-    }  
+    }
 
     /**
      * Set the working taxonomy
@@ -123,20 +142,5 @@ class TaxonomyApiRepository extends ApiRepository
         $this->taxonomies = new Collection($taxonomyArr);
 
         return $this;
-    }      
-
-    /**
-     * Patch a collection of jobs
-     *
-     * @param EthicalJobs\SDK\Collection $jobs
-     * @return EthicalJobs\SDK\Collection
-     */     
-    protected function fetchTaxonomies()
-    {
-        $response = $this->api->appData();
-
-        $taxonomies = array_get($response, 'data.taxonomies', []);
-
-        $this->taxonomies = new Collection($taxonomies);
-    }           
+    }
 }
