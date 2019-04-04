@@ -7,12 +7,11 @@ namespace EthicalJobs\SDK\Enumerables;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class JobSource extends Enum
 {
-    const EMPLOYERS     = "Employers";
+    const EMPLOYERS = "Employers";
 
-    const AUTOPOST      = "Autopost";
+    const AUTOPOST = "Autopost";
 
-    const STAFF         = "Staff";
+    const STAFF = "Staff";
 }

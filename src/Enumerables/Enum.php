@@ -2,48 +2,44 @@
 
 namespace EthicalJobs\SDK\Enumerables;
 
+use Exception;
+use ReflectionClass;
+use ReflectionException;
+
 /**
  * Base enumberable class
  *
  * @author Andrew McLagan
  */
-
 abstract class Enum
 {
     /**
-     * Return the constants
-     *
-     * @return Array $keys
-     */
-    public static function all()
-    {
-        return (new \ReflectionClass(get_called_class()))->getConstants();
-    }
-
-    /**
      * Return the constants keys
      *
-     * @return Array
+     * @return array
+     * @throws ReflectionException
      */
     public static function allKeys()
     {
-        return array_keys((new \ReflectionClass(get_called_class()))->getConstants());
-    }    
+        return array_keys((new ReflectionClass(get_called_class()))->getConstants());
+    }
 
     /**
      * Return the constants values
      *
-     * @return Array
+     * @return array
+     * @throws ReflectionException
      */
     public static function allValues()
     {
-        return array_values((new \ReflectionClass(get_called_class()))->getConstants());
-    }       
+        return array_values((new ReflectionClass(get_called_class()))->getConstants());
+    }
 
     /**
      * Return a random constant
      *
-     * @return Array $keys
+     * @return array $keys
+     * @throws ReflectionException
      */
     public static function random()
     {
@@ -51,24 +47,40 @@ abstract class Enum
     }
 
     /**
+     * Return the constants
+     *
+     * @return array $keys
+     * @throws ReflectionException
+     */
+    public static function all()
+    {
+        return (new ReflectionClass(get_called_class()))->getConstants();
+    }
+
+    /**
      * Return a value from a key
      *
-     * @return Array $keys
+     * @param string $enumKey
+     * @return array $keys
+     * @throws ReflectionException
      */
     public static function getValue($enumKey = '')
     {
-        foreach (self::all() as $key => $value ) {
+        foreach (self::all() as $key => $value) {
             if (strtolower($key) == strtolower($enumKey)) {
                 return $value;
             }
         }
+
         return null;
     }
 
     /**
      * Return a key from a value
      *
-     * @return Array $keys
+     * @param string $enumValue
+     * @return array $keys
+     * @throws ReflectionException
      */
     public static function getKey($enumValue = '')
     {
@@ -77,22 +89,27 @@ abstract class Enum
                 return $key;
             }
         }
+
         return null;
     }
 
     /**
      * Returns the name of the enumerable key
      *
-     * @return Array $keys
+     * @param $name
+     * @param $arguments
+     * @return array $keys
+     * @throws ReflectionException
+     * @throws Exception
      */
     public static function __callStatic($name, $arguments)
     {
-        $class = new \ReflectionClass(get_called_class());
+        $class = new ReflectionClass(get_called_class());
 
         if ($class->hasConstant($name)) {
             return $name;
         }
 
-        throw new \Exception('Invalid enumerable: '.$name);
+        throw new Exception('Invalid enumerable: ' . $name);
     }
 }

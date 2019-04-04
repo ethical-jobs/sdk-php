@@ -9,14 +9,13 @@ use GuzzleHttp\Psr7\Request;
  *
  * @author  Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 interface Authenticator
 {
-	/**
-	 * Authenticates a request instance
-	 * 
-	 * @param  GuzzleHttp\Psr7\Request $request
-	 * @return GuzzleHttp\Psr7\Request
-	 */
-	public function authenticate(Request $request);
+    /**
+     * Authenticates a request instance
+     *
+     * @param Request $request
+     * @return Request
+     */
+    public function authenticate(Request $request);
 }

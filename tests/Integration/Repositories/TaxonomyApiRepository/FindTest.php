@@ -2,12 +2,13 @@
 
 namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 
-use Mockery;
-use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Mockery;
+use Tests\TestCase;
 
-class FindTest extends \Tests\TestCase
+class FindTest extends TestCase
 {
     /**
      * @test
@@ -30,5 +31,5 @@ class FindTest extends \Tests\TestCase
         $expected = array_get(ResponseFactory::taxonomies(), 'data.taxonomies.categories');
 
         $this->assertEquals($terms->toArray(), $expected);
-    }     
+    }
 }

@@ -7,22 +7,21 @@ namespace EthicalJobs\SDK\Enumerables;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class States extends Enum
 {
-    const NSW   = "New South Wales";
+    const NSW = "New South Wales";
 
-    const VIC   = "Victoria";
+    const VIC = "Victoria";
 
-    const QLD   = "Queensland";
+    const QLD = "Queensland";
 
-    const SA    = "South Australia";
+    const SA = "South Australia";
 
-    const WA    = "Western Australia";
+    const WA = "Western Australia";
 
-    const NT    = "Northern Territory";
+    const NT = "Northern Territory";
 
-    const TAS   = "Tasmania";
+    const TAS = "Tasmania";
 
-    const ACT   = "Australian Capital Territory";
+    const ACT = "Australian Capital Territory";
 }

@@ -2,13 +2,13 @@
 
 namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 
-use Mockery;
-use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
-use EthicalJobs\Tests\SDK\Fixtures;
+use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Mockery;
+use Tests\TestCase;
 
-class WhereInTest extends \Tests\TestCase
+class WhereInTest extends TestCase
 {
     /**
      * @test
@@ -22,10 +22,10 @@ class WhereInTest extends \Tests\TestCase
         $repository = new TaxonomyApiRepository($api);
 
         $isFluent = $repository
-            ->whereIn('locations', [1,28,298,23,7]);
+            ->whereIn('locations', [1, 28, 298, 23, 7]);
 
         $this->assertInstanceOf(TaxonomyApiRepository::class, $isFluent);
-    }   
+    }
 
     /**
      * @test
@@ -43,14 +43,14 @@ class WhereInTest extends \Tests\TestCase
 
         $terms = $repository
             ->taxonomy('locations')
-            ->whereIn('id', [2,4,6])
+            ->whereIn('id', [2, 4, 6])
             ->find();
 
         $slugs = $terms
             ->pluck('slug')
             ->toArray();
 
-        $this->assertEquals($slugs, ['REGVIC','REGNSW','REGQLD']);
-    }    
+        $this->assertEquals($slugs, ['REGVIC', 'REGNSW', 'REGQLD']);
+    }
 }
 

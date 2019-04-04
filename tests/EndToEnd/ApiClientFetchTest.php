@@ -2,31 +2,29 @@
 
 namespace Tests\EndToEnd;
 
-use Illuminate\Contracts\Cache\Repository;
-use EthicalJobs\SDK\Authentication\TokenAuthenticator;
-use EthicalJobs\SDK\Collection;
-use EthicalJobs\SDK\HttpClient;
 use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Tests\TestCase;
 
-class ApiClientFetchTest extends \Tests\TestCase
+class ApiClientFetchTest extends TestCase
 {
     /**
      * @test
      */
     public function it_can_fetch_unprotected_routes()
-    {    
+    {
         $api = ApiClient::mock([
             ResponseFactory::response(200, ResponseFactory::jobs()),
         ]);
 
         $results = $api->get('/jobs', [
-            'status'    => 'APPROVED',
-            'limit'     => 10,
+            'status' => 'APPROVED',
+            'limit' => 10,
         ]);
 
         $this->assertInstanceOf(Collection::class, $results);
-        
+
         $this->assertTrue(array_has($results, 'data.entities.jobs'));
     }
 
@@ -38,7 +36,7 @@ class ApiClientFetchTest extends \Tests\TestCase
         $api = ApiClient::mock([
             ResponseFactory::response(200, ResponseFactory::authentication()),
             ResponseFactory::response(200, ResponseFactory::jobs()),
-        ]);        
+        ]);
 
         $results = $api
             ->authenticate()
@@ -49,5 +47,5 @@ class ApiClientFetchTest extends \Tests\TestCase
         $this->assertInstanceOf(Collection::class, $results);
 
         $this->assertTrue(array_has($results, 'data.entities.jobs'));
-    }    
+    }
 }

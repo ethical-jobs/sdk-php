@@ -4,8 +4,9 @@ namespace Tests\Unit\Collection;
 
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\ResponseSelector;
+use Tests\TestCase;
 
-class CollectionTest extends \Tests\TestCase
+class CollectionTest extends TestCase
 {
     /**
      * @test
@@ -13,10 +14,10 @@ class CollectionTest extends \Tests\TestCase
      */
     public function its_select_function_returns_a_response_selector()
     {
-        $collection = new Collection([ 'data' => [ 'foo' => 'bar'] ]);
+        $collection = new Collection(['data' => ['foo' => 'bar']]);
 
         $this->assertInstanceOf(ResponseSelector::class, $collection->select());
-    }    
+    }
 
     /**
      * @test
@@ -26,8 +27,8 @@ class CollectionTest extends \Tests\TestCase
     {
         $response = new Collection([
             'data' => [
-                'entities'  => [
-                    'jobs'  => [
+                'entities' => [
+                    'jobs' => [
                         827 => ['id' => 827, 'title' => 'Developer'],
                         276 => ['id' => 276, 'title' => 'Engineer'],
                         98 => ['id' => 98, 'title' => 'Web Designer'],
@@ -45,5 +46,5 @@ class CollectionTest extends \Tests\TestCase
         $user = $response->select()->entityById('users', 276);
 
         $this->assertEquals($user, ['id' => 276, 'name' => 'Andrew']);
-    }       
+    }
 }

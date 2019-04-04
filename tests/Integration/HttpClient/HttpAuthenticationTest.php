@@ -2,14 +2,15 @@
 
 namespace Tests\Integration\HttpClient;
 
-use Mockery;
+use EthicalJobs\SDK\Authentication\NullAuthenticator;
+use EthicalJobs\SDK\HttpClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use EthicalJobs\SDK\Authentication\NullAuthenticator;
-use EthicalJobs\SDK\HttpClient;
+use Mockery;
+use Tests\TestCase;
 
-class HttpAuthenticationTest extends \Tests\TestCase
+class HttpAuthenticationTest extends TestCase
 {
     /**
      * @test
@@ -22,13 +23,13 @@ class HttpAuthenticationTest extends \Tests\TestCase
             ->once()
             ->withAnyArgs()
             ->andReturn(new Response)
-            ->getMock();  
+            ->getMock();
 
         $auth = Mockery::mock(NullAuthenticator::class)
             ->shouldReceive('authenticate')
             ->once()
             ->andReturn(new Request('GET', 'http://github.com'))
-            ->getMock();     
+            ->getMock();
 
         $http = new HttpClient($client, $auth);
 
@@ -75,7 +76,7 @@ class HttpAuthenticationTest extends \Tests\TestCase
             ->shouldReceive('authenticate')
             ->times(3)
             ->andReturn(new Request('GET', 'http://github.com'))
-            ->getMock();     
+            ->getMock();
 
         $http = new HttpClient($client, $auth);
 
@@ -84,5 +85,5 @@ class HttpAuthenticationTest extends \Tests\TestCase
         $http->request('GET', '/jobs');
 
         $http->request('GET', '/jobs');
-    }         
+    }
 }

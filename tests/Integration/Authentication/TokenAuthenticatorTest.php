@@ -2,17 +2,17 @@
 
 namespace Tests\Integration\Authentication;
 
-use Mockery;
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Exception\ClientException;
-use Illuminate\Contracts\Cache\Repository;
+use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Authentication\TokenAuthenticator;
 use EthicalJobs\SDK\Testing\ResponseFactory;
-use EthicalJobs\SDK\ApiClient;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Contracts\Cache\Repository;
+use Mockery;
+use Tests\TestCase;
 
-class TokenAuthenticatorTest extends \Tests\TestCase
+class TokenAuthenticatorTest extends TestCase
 {
     /**
      * @test
@@ -20,10 +20,10 @@ class TokenAuthenticatorTest extends \Tests\TestCase
     public function it_can_set_its_credentials_and_get_its_token_from_cache()
     {
         $credentials = [
-            'client_id'     => '21',
+            'client_id' => '21',
             'client_secret' => 'aksus73j37sh363hsjs83h37sh363hsjksmde',
-            'username'      => 'service-account@ethicaljobs.com.au',
-            'password'      => 'slipery-squid-legs',
+            'username' => 'service-account@ethicaljobs.com.au',
+            'password' => 'slipery-squid-legs',
         ];
 
         $response = ResponseFactory::response(200, ResponseFactory::authentication());
@@ -36,17 +36,17 @@ class TokenAuthenticatorTest extends \Tests\TestCase
                 'https://api.ethicalstaging.com.au/oauth/token',
                 [
                     'json' => [
-                        'grant_type'    => 'password',
-                        'scope'         => '*',       
-                        'client_id'     => $credentials['client_id'],
+                        'grant_type' => 'password',
+                        'scope' => '*',
+                        'client_id' => $credentials['client_id'],
                         'client_secret' => $credentials['client_secret'],
-                        'username'      => $credentials['username'],
-                        'password'      => $credentials['password'],
+                        'username' => $credentials['username'],
+                        'password' => $credentials['password'],
                     ],
                 ],
             ])
             ->andReturn($response)
-            ->getMock();               
+            ->getMock();
 
         $cache = Mockery::mock(Repository::class)
             ->shouldReceive('remember')
@@ -54,18 +54,19 @@ class TokenAuthenticatorTest extends \Tests\TestCase
             ->withArgs([
                 'ej:pkg:sdk:token',
                 1080,
-                Mockery::on(function($callback) {
+                Mockery::on(function ($callback) {
                     $this->assertEquals(ResponseFactory::token(), $callback());
+
                     return true;
                 }),
             ])
             ->andReturn('mock-token-aks-sjs-38w')
-            ->getMock();  
+            ->getMock();
 
         $token = (new TokenAuthenticator($client, $cache, $credentials))->getToken();
 
         $this->assertEquals('mock-token-aks-sjs-38w', $token);
-    }    
+    }
 
     /**
      * @test
@@ -79,7 +80,7 @@ class TokenAuthenticatorTest extends \Tests\TestCase
             ->once()
             ->withAnyArgs()
             ->andReturn('mock-jwt-token')
-            ->getMock(); 
+            ->getMock();
 
         $original = new Request('GET', 'https://github.com/stars');
 
@@ -87,12 +88,12 @@ class TokenAuthenticatorTest extends \Tests\TestCase
             ->authenticate($original);
 
         $expected = [
-            'Host'              => ['github.com'],
-            'Authorization'     => ['Bearer mock-jwt-token'],
+            'Host' => ['github.com'],
+            'Authorization' => ['Bearer mock-jwt-token'],
         ];
 
         $this->assertEquals($expected, $authenticated->getHeaders());
-    }        
+    }
 
     /**
      * @test
@@ -106,7 +107,7 @@ class TokenAuthenticatorTest extends \Tests\TestCase
         $request = new Request('GET', 'https://github.com/stars');
 
         ApiClient::mock([
-            new ClientException('Unauthorized', $request, $response),        
+            new ClientException('Unauthorized', $request, $response),
         ]);
 
         $middleware = resolve(TokenAuthenticator::class);
@@ -117,7 +118,7 @@ class TokenAuthenticatorTest extends \Tests\TestCase
             $this->assertEquals('Unauthorized SDK Request', $exception->getMessage());
             throw $exception; // Dont swallow exceptions in tests - leads to false positives.
         }
-    }      
+    }
 
     /**
      * @test
@@ -131,8 +132,8 @@ class TokenAuthenticatorTest extends \Tests\TestCase
         $request = new Request('GET', 'https://github.com/stars');
 
         ApiClient::mock([
-            new ClientException('Unauthorized', $request, $response),        
-        ]);        
+            new ClientException('Unauthorized', $request, $response),
+        ]);
 
         $middleware = resolve(TokenAuthenticator::class);
 
@@ -142,8 +143,8 @@ class TokenAuthenticatorTest extends \Tests\TestCase
             $this->assertEquals('Unauthorized SDK Request', $exception->getMessage());
             throw $exception; // Dont swallow exceptions in tests - leads to false positives.
         }
-    }    
-    
+    }
+
     /**
      * @test
      */
@@ -156,8 +157,8 @@ class TokenAuthenticatorTest extends \Tests\TestCase
         $request = new Request('GET', 'https://github.com/stars');
 
         ApiClient::mock([
-            new ClientException('Unauthorized', $request, $response),        
-        ]);  
+            new ClientException('Unauthorized', $request, $response),
+        ]);
 
         $middleware = resolve(TokenAuthenticator::class);
 
@@ -167,5 +168,5 @@ class TokenAuthenticatorTest extends \Tests\TestCase
             $this->assertEquals('Unauthorized', $exception->getMessage());
             throw $exception; // Dont swallow exceptions in tests - leads to false positives.
         }
-    }      
+    }
 }

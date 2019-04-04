@@ -7,7 +7,6 @@ namespace EthicalJobs\SDK\Mappers;
  * \
  * @author Sebastian Sibelle <sebastian@ethicaljobs.com.au>
  */
-
 interface MapperInterface
 {
     /**

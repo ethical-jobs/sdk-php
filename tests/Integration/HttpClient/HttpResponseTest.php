@@ -2,13 +2,14 @@
 
 namespace Tests\Integration\HttpClient;
 
-use Mockery;
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\HttpClient;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Response;
+use Mockery;
+use Tests\TestCase;
 
-class HttpResponseTest extends \Tests\TestCase
+class HttpResponseTest extends TestCase
 {
     /**
      * @test
@@ -22,7 +23,7 @@ class HttpResponseTest extends \Tests\TestCase
             ->shouldReceive('send')
             ->once()
             ->andReturn($expected)
-            ->getMock();     
+            ->getMock();
 
         $http = new HttpClient($client);
 
@@ -31,7 +32,7 @@ class HttpResponseTest extends \Tests\TestCase
         $actual = $http->getResponse();
 
         $this->assertEquals($expected, $actual);
-    }    
+    }
 
     /**
      * @test
@@ -45,7 +46,7 @@ class HttpResponseTest extends \Tests\TestCase
             ->shouldReceive('send')
             ->once()
             ->andReturn($expected)
-            ->getMock();     
+            ->getMock();
 
         $http = new HttpClient($client);
 
@@ -54,7 +55,7 @@ class HttpResponseTest extends \Tests\TestCase
         $actual = $http->getResponse();
 
         $this->assertEquals($expected, $actual);
-    }        
+    }
 
     /**
      * @test
@@ -63,8 +64,8 @@ class HttpResponseTest extends \Tests\TestCase
     public function it_always_returns_a_collection_on_success()
     {
         $response = new Response(
-            201, 
-            ['Content-Type' => 'application/json','Accept' => 'application/json',],
+            201,
+            ['Content-Type' => 'application/json', 'Accept' => 'application/json',],
             json_encode(['foo' => 'bar'])
         );
 
@@ -72,7 +73,7 @@ class HttpResponseTest extends \Tests\TestCase
             ->shouldReceive('send')
             ->once()
             ->andReturn($response)
-            ->getMock();     
+            ->getMock();
 
         $http = new HttpClient($client);
 
@@ -80,7 +81,7 @@ class HttpResponseTest extends \Tests\TestCase
 
         $this->assertInstanceOf(Collection::class, $result);
         $this->assertEquals($result->toArray(), ['foo' => 'bar']);
-    }     
+    }
 
     /**
      * @test
@@ -89,15 +90,15 @@ class HttpResponseTest extends \Tests\TestCase
     public function it_always_returns_an_empty_collection_on_404()
     {
         $response = new Response(
-            404, 
-            ['Content-Type' => 'application/json','Accept' => 'application/json',]
+            404,
+            ['Content-Type' => 'application/json', 'Accept' => 'application/json',]
         );
 
         $client = Mockery::mock(Client::class)
             ->shouldReceive('send')
             ->once()
             ->andReturn($response)
-            ->getMock();     
+            ->getMock();
 
         $http = new HttpClient($client);
 
@@ -105,5 +106,5 @@ class HttpResponseTest extends \Tests\TestCase
 
         $this->assertInstanceOf(Collection::class, $result);
         $this->assertTrue($result->isEmpty());
-    }                 
+    }
 }

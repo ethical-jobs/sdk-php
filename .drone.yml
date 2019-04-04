@@ -1,25 +1,16 @@
-kind: pipeline
-name: default
+pipeline:
 
-steps:
-
-  - name: dependancies
+  dependancies:
     image: ethicaljobs/composer-prestissimo
     commands: 
       - 'composer install --prefer-dist --ignore-platform-reqs'
   
-  - name: test
+  test:
     image: php:7.2-cli-alpine
     commands: 
       - 'php vendor/bin/phpunit'
 
-  - name: publish
-    image: byrnedo/alpine-curl
-    commands: [ 'curl -XPOST -H"content-type:application/json" "https://packagist.org/api/update-package?username=andrewmclagan&apiToken=2cmy6xog4hs0kogk4ccg" -d''{"repository":{"url":"https://github.com/ethical-jobs/sdk-php"}}''' ]
-    when:
-      event: [ tag ]
-
-  - name: notify-slack
+  notify-slack:
     image: plugins/slack
     settings:
       webhook: https://hooks.slack.com/services/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

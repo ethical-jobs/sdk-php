@@ -2,14 +2,14 @@
 
 namespace Tests\Integration\HttpClient;
 
-use Mockery;
+use EthicalJobs\SDK\HttpClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use EthicalJobs\SDK\Collection;
-use EthicalJobs\SDK\HttpClient;
+use Mockery;
+use Tests\TestCase;
 
-class HttpVerbTest extends \Tests\TestCase
+class HttpVerbTest extends TestCase
 {
 
     public function setUp()
@@ -23,12 +23,12 @@ class HttpVerbTest extends \Tests\TestCase
      */
     public function it_has_all_http_verb_functions()
     {
-        $verbs = ['get','post','put','patch','delete'];
+        $verbs = ['get', 'post', 'put', 'patch', 'delete'];
 
         $http = new HttpClient(new Client);
 
         foreach ($verbs as $verb) {
-        	$this->assertTrue(method_exists($http, $verb));
+            $this->assertTrue(method_exists($http, $verb));
         }
     }
 
@@ -38,16 +38,16 @@ class HttpVerbTest extends \Tests\TestCase
      */
     public function its_verb_functions_generate_valid_requests()
     {
-        $verbs = ['post','put','patch','delete']; // See below for GET verb
+        $verbs = ['post', 'put', 'patch', 'delete']; // See below for GET verb
 
         foreach ($verbs as $verb) {
 
             $expected = new Request(
-                strtoupper($verb), 
+                strtoupper($verb),
                 'https://api.ethicalstaging.com.au/jobs',
                 [
                     'Content-Type' => 'application/json',
-                    'Accept'       => 'application/json',
+                    'Accept' => 'application/json',
                     'X-Custom' => 'foo',
                 ],
                 json_encode(['foo' => 'bar'])
@@ -57,9 +57,9 @@ class HttpVerbTest extends \Tests\TestCase
                 ->shouldReceive('send')
                 ->once()
                 ->andReturn(new Response)
-                ->getMock();       
+                ->getMock();
 
-            $http = new HttpClient($client); 
+            $http = new HttpClient($client);
 
             $http->$verb('/jobs', ['foo' => 'bar'], ['X-Custom' => 'foo']);
 
@@ -68,7 +68,7 @@ class HttpVerbTest extends \Tests\TestCase
             $this->assertEquals($expected->getMethod(), $actual->getMethod());
             $this->assertEquals($expected->getUri(), $actual->getUri());
             $this->assertEquals($expected->getHeaders(), $actual->getHeaders());
-            $this->assertEquals((string) $expected->getBody(), (string) $actual->getBody());
+            $this->assertEquals((string)$expected->getBody(), (string)$actual->getBody());
         }
     }
 
@@ -80,17 +80,17 @@ class HttpVerbTest extends \Tests\TestCase
     {
         $params = [
             'username' => 'andrewmclagan',
-            'forks'     => 0,
-            'repos'     => 1,
+            'forks' => 0,
+            'repos' => 1,
         ];
 
         $expected = new Request(
             'GET',
             'https://api.ethicalstaging.com.au/repos?username=andrewmclagan&forks=0&repos=1',
             [
-                'Content-Type'  => 'application/json',
-                'Accept'        => 'application/json',
-                'X-Custom'      => 'foo',
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+                'X-Custom' => 'foo',
             ],
             json_encode($params)
         );
@@ -111,5 +111,5 @@ class HttpVerbTest extends \Tests\TestCase
         $this->assertEquals($expected->getUri(), $actual->getUri());
         $this->assertEquals($expected->getHeaders(), $actual->getHeaders());
         $this->assertEquals((string)$expected->getBody(), (string)$actual->getBody());
-    }    
+    }
 }

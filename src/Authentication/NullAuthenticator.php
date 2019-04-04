@@ -9,14 +9,13 @@ use GuzzleHttp\Psr7\Request;
  *
  * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
-
 class NullAuthenticator implements Authenticator
 {
     /**
      * {@inheritdoc}
-     */	
-	public function authenticate(Request $request)
-	{	
-		return $request;
-	}	
+     */
+    public function authenticate(Request $request)
+    {
+        return $request;
+    }
 }

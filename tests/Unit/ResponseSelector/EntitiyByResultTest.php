@@ -2,10 +2,11 @@
 
 namespace Tests\Unit;
 
-use EthicalJobs\SDK\ResponseSelector;
 use EthicalJobs\SDK\Collection;
+use EthicalJobs\SDK\ResponseSelector;
+use Tests\TestCase;
 
-class EntitiyByResultTest extends \Tests\TestCase
+class EntitiyByResultTest extends TestCase
 {
     /**
      * @test
@@ -15,8 +16,8 @@ class EntitiyByResultTest extends \Tests\TestCase
     {
         $response = new Collection([
             'data' => [
-                'entities'  => [
-                    'jobs'  => [
+                'entities' => [
+                    'jobs' => [
                         827 => ['id' => 827, 'title' => 'Developer'],
                         276 => ['id' => 276, 'title' => 'Engineer'],
                         98 => ['id' => 98, 'title' => 'Web Designer'],
@@ -31,8 +32,9 @@ class EntitiyByResultTest extends \Tests\TestCase
             ],
         ]);
 
-        $this->assertEquals(ResponseSelector::select($response)->entityByResult('users'), ['id' => 276, 'name' => 'Andrew']);
-    }        
+        $this->assertEquals(ResponseSelector::select($response)->entityByResult('users'),
+            ['id' => 276, 'name' => 'Andrew']);
+    }
 
     /**
      * @test
@@ -42,8 +44,8 @@ class EntitiyByResultTest extends \Tests\TestCase
     {
         $response = new Collection([
             'data' => [
-                'entities'  => [
-                    'jobs'  => [
+                'entities' => [
+                    'jobs' => [
                         827 => ['id' => 827, 'title' => 'Developer'],
                         276 => ['id' => 276, 'title' => 'Engineer'],
                         98 => ['id' => 98, 'title' => 'Web Designer'],
@@ -63,5 +65,5 @@ class EntitiyByResultTest extends \Tests\TestCase
         $response->put('data.result', 9873678);
 
         $this->assertEquals(ResponseSelector::select($response)->entityByResult('users'), []);
-    }    
+    }
 }
