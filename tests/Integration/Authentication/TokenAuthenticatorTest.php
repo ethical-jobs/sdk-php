@@ -3,6 +3,7 @@
 namespace Tests\Integration\Authentication;
 
 use EthicalJobs\SDK\ApiClient;
+use EthicalJobs\SDK\Authentication\AccessTokenFetcher;
 use EthicalJobs\SDK\Authentication\TokenAuthenticator;
 use EthicalJobs\SDK\Testing\ResponseFactory;
 use GuzzleHttp\Client;
@@ -19,33 +20,10 @@ class TokenAuthenticatorTest extends TestCase
      */
     public function it_can_set_its_credentials_and_get_its_token_from_cache()
     {
-        $credentials = [
-            'client_id' => '21',
-            'client_secret' => 'aksus73j37sh363hsjs83h37sh363hsjksmde',
-            'username' => 'service-account@ethicaljobs.com.au',
-            'password' => 'slipery-squid-legs',
-        ];
-
-        $response = ResponseFactory::response(200, ResponseFactory::authentication());
-
-        $client = Mockery::mock(Client::class)
-            ->shouldReceive('request')
+        $accessTokenFetcher = Mockery::mock(AccessTokenFetcher::class)
+            ->shouldReceive('fetchToken')
             ->once()
-            ->withArgs([
-                'POST',
-                'https://api.ethicalstaging.com.au/oauth/token',
-                [
-                    'json' => [
-                        'grant_type' => 'password',
-                        'scope' => '*',
-                        'client_id' => $credentials['client_id'],
-                        'client_secret' => $credentials['client_secret'],
-                        'username' => $credentials['username'],
-                        'password' => $credentials['password'],
-                    ],
-                ],
-            ])
-            ->andReturn($response)
+            ->andReturn('my token :)')
             ->getMock();
 
         $cache = Mockery::mock(Repository::class)
@@ -55,7 +33,7 @@ class TokenAuthenticatorTest extends TestCase
                 'ej:pkg:sdk:token',
                 1080,
                 Mockery::on(function ($callback) {
-                    $this->assertEquals(ResponseFactory::token(), $callback());
+                    $this->assertEquals('my token :)', $callback());
 
                     return true;
                 }),
@@ -63,7 +41,7 @@ class TokenAuthenticatorTest extends TestCase
             ->andReturn('mock-token-aks-sjs-38w')
             ->getMock();
 
-        $token = (new TokenAuthenticator($client, $cache, $credentials))->getToken();
+        $token = (new TokenAuthenticator($accessTokenFetcher, $cache))->getToken();
 
         $this->assertEquals('mock-token-aks-sjs-38w', $token);
     }
@@ -73,100 +51,25 @@ class TokenAuthenticatorTest extends TestCase
      */
     public function it_sets_an_authorization_bearer_header()
     {
-        $client = Mockery::mock(Client::class);
-
-        $cache = Mockery::mock(Repository::class)
-            ->shouldReceive('remember')
+        $accessTokenFetcher = Mockery::mock(AccessTokenFetcher::class)
+            ->shouldReceive('fetchToken')
             ->once()
-            ->withAnyArgs()
-            ->andReturn('mock-jwt-token')
+            ->andReturn('hi-i-am-a-very-secure-access-token-ok-bye')
             ->getMock();
+
+        $cache = resolve(Repository::class);
 
         $original = new Request('GET', 'https://github.com/stars');
 
-        $authenticated = (new TokenAuthenticator($client, $cache))
+        $authenticated = (new TokenAuthenticator($accessTokenFetcher, $cache))
             ->authenticate($original);
 
         $expected = [
             'Host' => ['github.com'],
-            'Authorization' => ['Bearer mock-jwt-token'],
+            'Authorization' => ['Bearer hi-i-am-a-very-secure-access-token-ok-bye'],
         ];
 
         $this->assertEquals($expected, $authenticated->getHeaders());
     }
 
-    /**
-     * @test
-     */
-    public function it_throws_correct_exception_on_401()
-    {
-        $this->expectException(ClientException::class);
-
-        $response = ResponseFactory::response(401, ResponseFactory::authentication());
-
-        $request = new Request('GET', 'https://github.com/stars');
-
-        ApiClient::mock([
-            new ClientException('Unauthorized', $request, $response),
-        ]);
-
-        $middleware = resolve(TokenAuthenticator::class);
-
-        try {
-            $middleware->authenticate($request);
-        } catch (\Exception $exception) {
-            $this->assertEquals('Unauthorized SDK Request', $exception->getMessage());
-            throw $exception; // Dont swallow exceptions in tests - leads to false positives.
-        }
-    }
-
-    /**
-     * @test
-     */
-    public function it_throws_correct_exception_on_403()
-    {
-        $this->expectException(ClientException::class);
-
-        $response = ResponseFactory::response(403, ResponseFactory::authentication());
-
-        $request = new Request('GET', 'https://github.com/stars');
-
-        ApiClient::mock([
-            new ClientException('Unauthorized', $request, $response),
-        ]);
-
-        $middleware = resolve(TokenAuthenticator::class);
-
-        try {
-            $middleware->authenticate($request);
-        } catch (\Exception $exception) {
-            $this->assertEquals('Unauthorized SDK Request', $exception->getMessage());
-            throw $exception; // Dont swallow exceptions in tests - leads to false positives.
-        }
-    }
-
-    /**
-     * @test
-     */
-    public function it_does_not_modify_non_auth_exceptions()
-    {
-        $this->expectException(ClientException::class);
-
-        $response = ResponseFactory::response(404, ResponseFactory::authentication());
-
-        $request = new Request('GET', 'https://github.com/stars');
-
-        ApiClient::mock([
-            new ClientException('Unauthorized', $request, $response),
-        ]);
-
-        $middleware = resolve(TokenAuthenticator::class);
-
-        try {
-            $middleware->authenticate($request);
-        } catch (\Exception $exception) {
-            $this->assertEquals('Unauthorized', $exception->getMessage());
-            throw $exception; // Dont swallow exceptions in tests - leads to false positives.
-        }
-    }
 }
