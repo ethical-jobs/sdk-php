@@ -31,7 +31,7 @@ class TokenAuthenticatorTest extends TestCase
             ->once()
             ->withArgs([
                 'ej:pkg:sdk:token',
-                1080,
+                45,
                 Mockery::on(function ($callback) {
                     $this->assertEquals('my token :)', $callback());
 

@@ -24,7 +24,7 @@ class TokenAuthenticator implements Authenticator
      *
      * @var string
      */
-    protected $tokenTTL = 1080; // refresh the token once a week
+    protected $tokenTTL = 45; // refresh the token every 45 minutes (accounts for token expiring after 1 hour)
 
     /**
      * @var AccessTokenFetcher $accessTokenFetcher
