@@ -27,11 +27,10 @@ class TokenAuthenticatorTest extends TestCase
             ->getMock();
 
         $cache = Mockery::mock(Repository::class)
-            ->shouldReceive('remember')
+            ->shouldReceive('rememberForever')
             ->once()
             ->withArgs([
                 'ej:pkg:sdk:token',
-                45,
                 Mockery::on(function ($callback) {
                     $this->assertEquals('my token :)', $callback());
 

@@ -118,13 +118,4 @@ class AccessTokenFetcherTest extends TestCase
 
         $accessTokenFetcher->fetchToken();
     }
-
-    protected function createClientException($statusCode, $message) {
-        $request = new Request('GET', 'https://github.com/stars');
-
-        $response = ResponseFactory::response($statusCode, '');
-
-        return new ClientException($message, $request, $response);
-    }
-
 }

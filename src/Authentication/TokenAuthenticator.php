@@ -20,13 +20,6 @@ class TokenAuthenticator implements Authenticator
     protected $tokenKey = 'ej:pkg:sdk:token';
 
     /**
-     * Auth token cache lifespan (minutes)
-     *
-     * @var string
-     */
-    protected $tokenTTL = 45; // refresh the token every 45 minutes (accounts for token expiring after 1 hour)
-
-    /**
      * @var AccessTokenFetcher $accessTokenFetcher
      */
     protected $accessTokenFetcher;
@@ -68,9 +61,16 @@ class TokenAuthenticator implements Authenticator
      */
     public function getToken(): string
     {
-        return $this->cache->remember($this->tokenKey, $this->tokenTTL, function () {
+        return $this->cache->rememberForever($this->tokenKey, function () {
             return $this->accessTokenFetcher->fetchToken();
         });
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function reset()
+    {
+        $this->cache->forget($this->tokenKey);
+    }
 }
