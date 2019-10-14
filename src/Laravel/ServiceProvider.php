@@ -81,12 +81,18 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             'password' => env('AUTH_SERVICE_PASSWORD'),
         ];
 
+        $this->app->bind(Authentication\AccessTokenFetcher::class, function (Application $app) use ($credentials) {
+            $client = $app->make('ej:sdk:guzzle');
+
+            return new Authentication\AccessTokenFetcher($client, $credentials);
+        });
+
         // Bind token authenticator with its dependencies
         $this->app->bind(Authentication\TokenAuthenticator::class, function (Application $app) use ($credentials) {
-            $client = $app->make('ej:sdk:guzzle');
+            $accessTokenFetcher = $app->make(Authentication\AccessTokenFetcher::class);
             $cache = $app->make(Repository::class);
 
-            return new Authentication\TokenAuthenticator($client, $cache, $credentials);
+            return new Authentication\TokenAuthenticator($accessTokenFetcher, $cache);
         });
 
         // Bind Authenticator contract to token auth as default implementation
@@ -147,6 +153,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         return [
             'ej:sdk:guzzle',
+            Authentication\AccessTokenFetcher::class,
             Authentication\TokenAuthenticator::class,
             Authentication\Authenticator::class,
             Mappers\TaxonomyMapper::class,

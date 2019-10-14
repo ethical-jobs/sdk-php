@@ -1,17 +1,20 @@
-pipeline:
+kind: pipeline
+name: default
+steps:
 
-  dependancies:
+  - name: dependancies
     image: ethicaljobs/composer-prestissimo
     commands: 
       - 'composer install --prefer-dist --ignore-platform-reqs'
   
-  test:
+  - name: test
     image: php:7.2-cli-alpine
     commands: 
       - 'php vendor/bin/phpunit'
 
-  notify-slack:
+  - name: notify-slack
     image: plugins/slack
-    webhook: https://hooks.slack.com/services/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
-    channel: deployments
-
+    settings:
+      webhook:
+        from_secret: slack_webhook
+      channel: deployments

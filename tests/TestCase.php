@@ -3,6 +3,9 @@
 namespace Tests;
 
 use EthicalJobs\SDK\Laravel\ServiceProvider;
+use EthicalJobs\SDK\Testing\ResponseFactory;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Contracts\Foundation\Application;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
@@ -31,5 +34,13 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         return [
             ServiceProvider::class,
         ];
+    }
+
+    protected function createClientException($statusCode, $message) {
+        $request = new Request('GET', 'https://github.com/stars');
+
+        $response = ResponseFactory::response($statusCode, '');
+
+        return new ClientException($message, $request, $response);
     }
 }

@@ -18,4 +18,10 @@ interface Authenticator
      * @return Request
      */
     public function authenticate(Request $request);
+
+    /**
+     * Forgets cached auth token
+     *
+     */
+    public function reset();
 }
