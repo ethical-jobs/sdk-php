@@ -1,5 +1,9 @@
 # staged
 
+# v3.1.0
+
+- ATS-81 Update PHP SDK for new shorter lived access tokens
+
 # v3.0.2
 
 - PSR code cleanup

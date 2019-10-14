@@ -18,4 +18,9 @@ class NullAuthenticator implements Authenticator
     {
         return $request;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function reset() {}
 }

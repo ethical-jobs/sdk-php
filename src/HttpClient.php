@@ -105,7 +105,7 @@ class HttpClient
 
         $request = $this->authenticateRequest($request);
 
-        $collection = $this->dispatchRequest($request);
+        $collection = $this->handleRequest($request);
 
         return $collection;
     }
@@ -164,6 +164,34 @@ class HttpClient
     }
 
     /**
+     * Handles expired access token case by fetching new one and subsequently replays original request
+     *
+     * @param Request $request
+     * @return Collection
+     * @throws GuzzleException
+     */
+    protected function handleRequest(Request $request): Collection
+    {
+        try {
+            return $this->dispatchRequest($request);
+        } catch (ClientException $exception) {
+
+            $this->response = $exception->getResponse();
+
+            if (
+                $this->authenticate &&
+                ($this->response->getStatusCode() === 401 || $this->response->getStatusCode() === 403)
+            ) {
+                $this->authenticator->reset();
+                $request = $this->authenticateRequest($request);
+                return $this->dispatchRequest($request);
+            }
+
+            throw $exception;
+        }
+    }
+
+    /**
      * Dispatches a request and returns a response instance
      *
      * @param Request $request
@@ -179,7 +207,6 @@ class HttpClient
 
             return $this->parseResponse($response);
         } catch (ClientException $exception) {
-
             $this->response = $exception->getResponse();
 
             if ($this->response->getStatusCode() === 404) {
