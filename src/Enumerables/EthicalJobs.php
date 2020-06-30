@@ -4,8 +4,6 @@ namespace EthicalJobs\SDK\Enumerables;
 
 /**
  * EthcialJobs information
- *
- * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
 class EthicalJobs extends Enum
 {
