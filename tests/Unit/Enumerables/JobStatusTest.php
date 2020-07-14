@@ -14,6 +14,8 @@ class JobStatusTest extends TestCase
     public function testFunctionOutputMatchesConst()
     {
       $this->assertEquals(JobStatus::DRAFT, JobStatus::DRAFT());
+      $this->assertEquals(JobStatus::PENDING, JobStatus::PENDING());
+      $this->assertEquals(JobStatus::APPROVED, JobStatus::APPROVED());
     }
 
     /**
