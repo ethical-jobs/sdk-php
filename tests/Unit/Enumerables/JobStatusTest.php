@@ -13,19 +13,33 @@ class JobStatusTest extends TestCase
      */
     public function testFunctionOutputMatchesConst()
     {
-      $this->assertEquals(JobStatus::DRAFT, JobStatus::DRAFT());
-      $this->assertEquals(JobStatus::PENDING, JobStatus::PENDING());
-      $this->assertEquals(JobStatus::APPROVED, JobStatus::APPROVED());
+      $this->assertSame(JobStatus::DRAFT, JobStatus::DRAFT());
+      $this->assertSame(JobStatus::PENDING, JobStatus::PENDING());
+      $this->assertSame(JobStatus::APPROVED, JobStatus::APPROVED());
     }
 
     /**
      * @test
      * @group Unit
      */
-    public function testCanItterateOverConst()
+    public function testValuesAreCorrect()
     {
-      foreach(JobStatus::all() as $value) {
-        $this->assertContains($value, JobStatus::allValues());
-      }
+      $this->assertSame(JobStatus::DRAFT, 'DRAFT');
+      $this->assertSame(JobStatus::PENDING, 'PENDING');
+      $this->assertSame(JobStatus::APPROVED, 'APPROVED');
+    }
+
+    /**
+     * @test
+     * @group Unit
+     */
+    public function testCanGetAnIterableList()
+    {
+      $expected = [
+        'DRAFT' => 'DRAFT',
+        'PENDING' => 'PENDING',
+        'APPROVED' => 'APPROVED',
+      ];
+      $this->assertSame(JobStatus::all(), $expected);
     }
 }
