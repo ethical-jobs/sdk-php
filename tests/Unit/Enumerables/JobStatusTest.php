@@ -24,9 +24,9 @@ class JobStatusTest extends TestCase
      */
     public function testValuesAreCorrect()
     {
-      $this->assertSame(JobStatus::DRAFT, 'DRAFT');
-      $this->assertSame(JobStatus::PENDING, 'PENDING');
-      $this->assertSame(JobStatus::APPROVED, 'APPROVED');
+      $this->assertSame('DRAFT', JobStatus::DRAFT);
+      $this->assertSame('PENDING', JobStatus::PENDING);
+      $this->assertSame('APPROVED', JobStatus::APPROVED);
     }
 
     /**
@@ -40,6 +40,6 @@ class JobStatusTest extends TestCase
         'PENDING' => 'PENDING',
         'APPROVED' => 'APPROVED',
       ];
-      $this->assertSame(JobStatus::all(), $expected);
+      $this->assertSame($expected, JobStatus::all());
     }
 }
