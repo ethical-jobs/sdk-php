@@ -24,7 +24,7 @@ jobs:
       matrix:
         php: [ 7.2, 7.3 ]
 
-    name: PHP ${{ matrix.php }}
+    name: PHPUnit (PHP ${{ matrix.php }})
 
     steps:
       - name: Checkout code
