@@ -19,14 +19,17 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": "^7.0",
     "guzzlehttp/guzzle": "~6.0",
     "ethical-jobs/laravel-storage": "~1.6",
     "ext-json": "*"
   },
   "require-dev": {
-    "orchestra/testbench": "~3.0",
-    "illuminate/support": "^5.4"
+    "phpunit/phpunit": "~6.5",
+    "mockery/mockery": "1.0.*",
+    "codedungeon/phpunit-result-printer": "^0.19",
+    "illuminate/support": "^5.4",
+    "orchestra/testbench": "~3.4"
   },
   "autoload": {
     "psr-4": {
