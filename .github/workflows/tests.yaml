@@ -1,0 +1,49 @@
+name: PHPUnit suite
+
+on:
+  push:
+    branches: [ feature/gha ]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'phpunit.xml'
+      - 'composer.*'
+  pull_request:
+    branches: [ feature/gha ]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'phpunit.xml'
+      - 'composer.*'
+
+jobs:
+  phpunit-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [ 7.2, 7.3 ]
+
+    name: PHPUnit (PHP ${{ matrix.php }})
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip
+          tools: composer:v2
+          coverage: none
+
+      - name: Install dependencies
+        run: |
+          composer install --no-plugins --no-scripts --no-interaction --no-progress --prefer-dist
+
+      - name: Configure matchers
+        uses: mheap/phpunit-matcher-action@v1
+
+      - name: Execute tests
+        run: vendor/bin/phpunit --teamcity
