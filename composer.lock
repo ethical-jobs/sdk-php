@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a22621299c9a6261cd766f057cd2796",
+    "content-hash": "02d7b02fed9eb15efe41adba88e15bcd",
     "packages": [
         {
             "name": "ethical-jobs/laravel-storage",
@@ -4548,7 +4548,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3",
+        "php": "^7.2",
         "ext-json": "*"
     },
     "platform-dev": [],
