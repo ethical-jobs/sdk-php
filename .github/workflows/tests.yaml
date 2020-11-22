@@ -2,14 +2,14 @@ name: PHPUnit suite
 
 on:
   push:
-    branches: [ feature/gha ]
+    branches: [ master ]
     paths:
       - 'src/**'
       - 'tests/**'
       - 'phpunit.xml'
       - 'composer.*'
   pull_request:
-    branches: [ feature/gha ]
+    branches: [ master ]
     paths:
       - 'src/**'
       - 'tests/**'
