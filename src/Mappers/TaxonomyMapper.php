@@ -37,7 +37,7 @@ class TaxonomyMapper implements MapperInterface
     {
         $response = $this->client->appData();
 
-        return new Collection(array_get($response, 'data.taxonomies')) ?? new Collection;
+        return new Collection(Arr::get($response, 'data.taxonomies')) ?? new Collection;
     }
 
     /**

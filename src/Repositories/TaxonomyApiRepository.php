@@ -5,6 +5,7 @@ namespace EthicalJobs\SDK\Repositories;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\Storage\Contracts\Repository;
+use Illuminate\Support\Arr;
 
 /**
  * Api resource repository
@@ -42,7 +43,7 @@ class TaxonomyApiRepository extends ApiRepository
     {
         $response = $this->api->appData();
 
-        $taxonomies = array_get($response, 'data.taxonomies', []);
+        $taxonomies = Arr::get($response, 'data.taxonomies', []);
 
         $this->taxonomies = new Collection($taxonomies);
     }

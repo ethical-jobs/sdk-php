@@ -5,6 +5,7 @@ namespace Tests\EndToEnd;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Illuminate\Support\Arr;
 use Tests\TestCase;
 
 class ApiClientFetchTest extends TestCase
@@ -25,7 +26,7 @@ class ApiClientFetchTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $results);
 
-        $this->assertTrue(array_has($results, 'data.entities.jobs'));
+        $this->assertTrue(Arr::has($results, 'data.entities.jobs'));
     }
 
     /**
@@ -46,6 +47,6 @@ class ApiClientFetchTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $results);
 
-        $this->assertTrue(array_has($results, 'data.entities.jobs'));
+        $this->assertTrue(Arr::has($results, 'data.entities.jobs'));
     }
 }
