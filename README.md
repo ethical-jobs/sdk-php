@@ -1,3 +1,8 @@
+## Compatibility
+
+ - `v4.*` - Laravel 8 or higher
+ - `v3.*` - Laravel 7 or lower (possibly only 5.6 to 5.9)
+
 ## Installation
 
 `composer require ethical-jobs/@ethical-jobs/sdk`
