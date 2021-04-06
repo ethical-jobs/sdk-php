@@ -5,6 +5,7 @@ namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Repositories\TaxonomyApiRepository;
 use EthicalJobs\SDK\Testing\ResponseFactory;
+use Illuminate\Support\Arr;
 use Mockery;
 use Tests\TestCase;
 
@@ -28,7 +29,7 @@ class FindTest extends TestCase
             ->taxonomy('categories')
             ->find();
 
-        $expected = array_get(ResponseFactory::taxonomies(), 'data.taxonomies.categories');
+        $expected = Arr::get(ResponseFactory::taxonomies(), 'data.taxonomies.categories');
 
         $this->assertEquals($terms->toArray(), $expected);
     }

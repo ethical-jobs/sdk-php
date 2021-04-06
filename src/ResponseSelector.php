@@ -2,6 +2,8 @@
 
 namespace EthicalJobs\SDK;
 
+use Illuminate\Support\Arr;
+
 /**
  * Response selector - selects items from response collection
  *
@@ -73,9 +75,9 @@ class ResponseSelector
      */
     public function entityByResult(string $entity): array
     {
-        $result = array_get($this->response, "data.result", '');
+        $result = Arr::get($this->response, "data.result", '');
 
-        return array_get($this->response, "data.entities.$entity.$result", []);
+        return Arr::get($this->response, "data.entities.$entity.$result", []);
     }
 
     /**
@@ -87,7 +89,7 @@ class ResponseSelector
      */
     public function entityById(string $entity, int $id): array
     {
-        return array_get($this->response, "data.entities.$entity.$id", []);
+        return Arr::get($this->response, "data.entities.$entity.$id", []);
     }
 
     /**
@@ -98,7 +100,7 @@ class ResponseSelector
      */
     public function entities(string $entities): array
     {
-        return array_get($this->response, "data.entities.$entities", []);
+        return Arr::get($this->response, "data.entities.$entities", []);
     }
 
     /**
@@ -108,6 +110,6 @@ class ResponseSelector
      */
     public function result()
     {
-        return array_get($this->response, "data.result", []);
+        return Arr::get($this->response, "data.result", []);
     }
 }

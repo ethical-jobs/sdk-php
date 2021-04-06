@@ -1,3 +1,7 @@
+## Deprecation warning
+
+All current EJ packages will be taken offline by mid-2021 in order to re-released under a single package.
+
 ## Compatibility
 
  - `v4.*` - Laravel 8 or higher
