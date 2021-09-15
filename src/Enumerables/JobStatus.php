@@ -4,14 +4,17 @@ namespace EthicalJobs\SDK\Enumerables;
 
 /**
  * Job status
- *
- * @author Andrew McLagan <andrew@ethicaljobs.com.au>
  */
 class JobStatus extends Enum
 {
-    const DRAFT = "Draft";
+    /**
+     * The Enum base class has a __callStatic method defined which returns the const variable name if invoked.
+     * So renaming the variable to get consistent value when using constant directly
+     *
+     */
+    const DRAFT = "DRAFT";
 
-    const PENDING = "Pending approval";
+    const PENDING = "PENDING";
 
-    const APPROVED = "Approved";
+    const APPROVED = "APPROVED";
 }
