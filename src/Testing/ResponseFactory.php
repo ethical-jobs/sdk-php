@@ -5,7 +5,6 @@ namespace EthicalJobs\SDK\Testing;
 use EthicalJobs\SDK\Collection;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Utils as Psr7Utils;
-use GuzzleHttp\Utils as GuzzleUtils;
 
 /**
  * Api response factory
@@ -123,7 +122,7 @@ class ResponseFactory
      */
     public static function response(int $status, $data): Response
     {
-        $encoded = GuzzleUtils::jsonEncode($data, true);
+        $encoded = json_encode($data, true);
 
         $stream = Psr7Utils::streamFor($encoded);
 
