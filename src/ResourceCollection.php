@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK;
 
 use EthicalJobs\SDK\Repositories;
-use EthicalJobs\Storage\Contracts\Repository;
+use EthicalJobs\SDK\Storage\Contracts\Repository;
 use Illuminate\Support\Facades\App;
 
 /**

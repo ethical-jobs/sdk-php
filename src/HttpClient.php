@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK;
 
 use EthicalJobs\SDK\Authentication\Authenticator;
@@ -16,51 +18,12 @@ use GuzzleHttp\Psr7\Response;
  */
 class HttpClient
 {
-    /**
-     * Guzzle client
-     *
-     * @var Client
-     */
-    protected $client;
+    protected bool $authenticate = false;
+    protected Request $request;
+    protected Response $response;
 
-    /**
-     * Guzzle client
-     *
-     * @var Authenticator
-     */
-    protected $authenticator;
-
-    /**
-     * Authenticate requests
-     *
-     * @var bool
-     */
-    protected $authenticate = false;
-
-    /**
-     * PSR7 request
-     *
-     * @var Request
-     */
-    protected $request;
-
-    /**
-     * PSR7 response
-     *
-     * @var Response
-     */
-    protected $response;
-
-    /**
-     * Object constructor
-     *
-     * @param Client $client
-     * @param Authenticator $auth
-     */
-    public function __construct(Client $client, Authenticator $auth = null)
+    public function __construct(protected Client $client, protected ?Authenticator $authenticator = null)
     {
-        $this->client = $client;
-        $this->authenticator = $auth;
     }
 
     /**
@@ -225,8 +188,9 @@ class HttpClient
      */
     protected function parseResponse(Response $response)
     {
-        if ($response->getStatusCode() > 199 && $response->getStatusCode() < 299) {
-            if ($body = json_decode($response->getBody()->getContents(), 1)) {
+        $status = $response->getStatusCode();
+        if ($status > 199 && $status < 299) {
+            if ($body = json_decode($response->getBody()->getContents(), true)) {
                 return new Collection($body);
             }
         }

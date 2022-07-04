@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK;
 
-use EthicalJobs\Storage\Contracts\Repository;
+use EthicalJobs\SDK\Storage\Contracts\Repository;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;

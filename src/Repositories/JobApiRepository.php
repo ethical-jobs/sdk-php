@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK\Repositories;
 
 use EthicalJobs\SDK\ApiClient;

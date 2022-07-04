@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK\Authentication;
 
 use GuzzleHttp\Client;
@@ -55,7 +57,7 @@ class AccessTokenFetcher
         $response = $this->tokenRequest($route, $json);
 
         if ($response->getStatusCode() > 199 && $response->getStatusCode() < 300) {
-            if ($decoded = json_decode($response->getBody())) {
+            if ($decoded = json_decode((string)$response->getBody())) {
                 return $decoded->access_token ?? '';
             }
         }
