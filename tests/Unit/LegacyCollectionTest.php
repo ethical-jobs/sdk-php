@@ -7,7 +7,7 @@ use Tests\Fixtures\Collections;
 use Tests\Fixtures\Models;
 use Tests\TestCase;
 
-class CollectionTest extends TestCase
+class LegacyCollectionTest extends TestCase
 {
     /**
      * @test

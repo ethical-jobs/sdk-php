@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Integration\ParameterQuery;
+namespace Tests\Integration\Storage\ParameterQuery;
 
 use Tests\Fixtures\ModelMock;
 use Tests\Fixtures\Models;
 use Tests\Fixtures\ParameterQueries\PersonParameterQuery;
 use Tests\Fixtures\Repositories\PersonDatabaseRepository;
-use Tests\TestCase;
+use Tests\StorageTestCase;
 
-class LimitTest extends TestCase
+class LimitTest extends StorageTestCase
 {
     /**
      * @test

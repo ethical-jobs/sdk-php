@@ -2,8 +2,8 @@
 
 namespace Tests\Fixtures\Criteria;
 
-use EthicalJobs\Storage\Contracts\Criteria;
-use EthicalJobs\Storage\Contracts\Repository;
+use EthicalJobs\SDK\Storage\Contracts\Criteria;
+use EthicalJobs\SDK\Storage\Contracts\Repository;
 
 class Males implements Criteria
 {

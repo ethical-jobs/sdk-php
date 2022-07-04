@@ -1,13 +1,12 @@
 <?php
 
-namespace Tests\Integration;
+namespace Tests\Integration\Storage;
 
-use EthicalJobs\Storage\CriteriaCollection;
+use EthicalJobs\SDK\Storage\CriteriaCollection;
 use Tests\Fixtures\Criteria;
-use Tests\Fixtures\Criteria\OverFifty;
-use Tests\TestCase;
+use Tests\StorageTestCase;
 
-class CriteriaCollectionTest extends TestCase
+class CriteriaCollectionTest extends StorageTestCase
 {
     /**
      * @test

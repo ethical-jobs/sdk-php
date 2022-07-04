@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Integration\Repositories\Database;
+namespace Tests\Integration\Storage\DatabaseRepository;
 
 use Illuminate\Support\Collection;
 use Tests\Fixtures\ModelMock;
 use Tests\Fixtures\Models;
 use Tests\Fixtures\Repositories\PersonDatabaseRepository;
-use Tests\TestCase;
+use Tests\StorageTestCase;
 
-class UpdateCollectionTest extends TestCase
+class UpdateCollectionTest extends StorageTestCase
 {
     /**
      * @test

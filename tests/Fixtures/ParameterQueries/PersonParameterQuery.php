@@ -2,7 +2,7 @@
 
 namespace Tests\Fixtures\ParameterQueries;
 
-use EthicalJobs\Storage\ParameterQuery;
+use EthicalJobs\SDK\Storage\ParameterQuery;
 
 class PersonParameterQuery extends ParameterQuery
 {

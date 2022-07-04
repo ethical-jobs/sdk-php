@@ -2,9 +2,9 @@
 
 namespace Tests\Fixtures\Repositories;
 
-use EthicalJobs\Storage\Contracts\Repository;
-use EthicalJobs\Storage\CriteriaCollection;
-use EthicalJobs\Storage\DatabaseRepository;
+use EthicalJobs\SDK\Storage\Contracts\Repository;
+use EthicalJobs\SDK\Storage\CriteriaCollection;
+use EthicalJobs\SDK\Storage\DatabaseRepository;
 use Tests\Fixtures\Models;
 
 class PersonDatabaseRepository extends DatabaseRepository

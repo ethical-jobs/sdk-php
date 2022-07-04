@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Integration\Repositories\Database;
+namespace Tests\Integration\Storage\DatabaseRepository;
 
 use Tests\Fixtures\ModelMock;
 use Tests\Fixtures\Models;
 use Tests\Fixtures\Repositories\PersonDatabaseRepository;
-use Tests\TestCase;
+use Tests\StorageTestCase;
 
-class FindTest extends TestCase
+class FindTest extends StorageTestCase
 {
     /**
      * @test

@@ -2,10 +2,10 @@
 
 namespace Tests\Fixtures\Collections;
 
-use EthicalJobs\Storage\Collection;
+use EthicalJobs\SDK\Storage\LegacyCollection;
 use Tests\Fixtures\Models;
 
-class BackWardsCompatible extends Collection
+class BackWardsCompatible extends LegacyCollection
 {
     /**
      * Create a new collection.

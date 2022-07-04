@@ -1,15 +1,15 @@
 <?php
 
-namespace Tests\Integration\ParameterQuery;
+namespace Tests\Integration\Storage\ParameterQuery;
 
 use Carbon\Carbon;
 use Tests\Fixtures\ModelMock;
 use Tests\Fixtures\Models;
 use Tests\Fixtures\ParameterQueries\PersonParameterQuery;
 use Tests\Fixtures\Repositories\PersonDatabaseRepository;
-use Tests\TestCase;
+use Tests\StorageTestCase;
 
-class DateToTest extends TestCase
+class DateToTest extends StorageTestCase
 {
     /**
      * @test

@@ -1,15 +1,15 @@
 <?php
 
-namespace Tests\Integration\Repositories\Database;
+namespace Tests\Integration\Storage\DatabaseRepository;
 
-use EthicalJobs\Storage\CriteriaCollection;
+use EthicalJobs\SDK\Storage\CriteriaCollection;
 use Tests\Fixtures\Criteria;
 use Tests\Fixtures\ModelMock;
 use Tests\Fixtures\Models;
 use Tests\Fixtures\Repositories\PersonDatabaseRepository;
-use Tests\TestCase;
+use Tests\StorageTestCase;
 
-class CriteriaTest extends TestCase
+class CriteriaTest extends StorageTestCase
 {
     /**
      * @test

@@ -30,7 +30,6 @@ class ModelMock
         $this->model->forceFill($data);
 
         $this->model->save();
-
         return $this->model;
     }
 
