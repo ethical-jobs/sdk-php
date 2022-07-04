@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests;
 
 use EthicalJobs\SDK\Laravel\ServiceProvider;
@@ -19,8 +21,8 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         parent::setUp();
 
-        putenv('API_HOST=api.ethicalstaging.com.au'); // don't use production in case a test mutates data
-        putenv('API_SCHEME=https');
+        putenv('API_HOST=fail-connection-plox'); // don't rely on live external services for tests
+        putenv('API_SCHEME=http');
     }
 
     /**

@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Integration\Repositories\ApiRepository;
 
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Repositories\ApiRepository;
-use EthicalJobs\Storage\CriteriaCollection;
+use EthicalJobs\SDK\Storage\CriteriaCollection;
 use Mockery;
 use Tests\TestCase;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Integration\Authentication;
 
 use EthicalJobs\SDK\ApiClient;
@@ -34,7 +36,7 @@ class AccessTokenFetcherTest extends TestCase
             ->once()
             ->withArgs([
                 'POST',
-                'https://api.ethicalstaging.com.au/oauth/token',
+                'http://fail-connection-plox/oauth/token',
                 [
                     'json' => [
                         'grant_type' => 'password',
