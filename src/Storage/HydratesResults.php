@@ -1,29 +1,18 @@
 <?php
 
-namespace EthicalJobs\Storage;
+namespace EthicalJobs\SDK\Storage;
 
-use EthicalJobs\Storage\Contracts\Hydrator;
+use EthicalJobs\SDK\Storage\Contracts\Hydrator;
 
 trait HydratesResults
 {
-    /**
-     * Hydrator instance
-     *
-     * @var Hydrator
-     */
-    protected $hydrator;
+    protected Hydrator $hydrator;
 
-    /**
-     * {@inheritdoc}
-     */
     public function getHydrator(): Hydrator
     {
         return $this->hydrator;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setHydrator(Hydrator $hydrator)
     {
         $this->hydrator = $hydrator;

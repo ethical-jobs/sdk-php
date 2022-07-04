@@ -1,8 +1,8 @@
 <?php
 
-namespace EthicalJobs\Storage\Contracts;
+namespace EthicalJobs\SDK\Storage\Contracts;
 
-use EthicalJobs\Storage\CriteriaCollection;
+use EthicalJobs\SDK\Storage\CriteriaCollection;
 
 interface HasCriteria
 {

@@ -1,9 +1,8 @@
 <?php
 
-namespace EthicalJobs\Storage;
+namespace EthicalJobs\SDK\Storage;
 
-use EthicalJobs\Storage\Contracts;
-use EthicalJobs\Storage\HasCriteria;
+use EthicalJobs\SDK\Storage\Contracts;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -13,25 +12,10 @@ abstract class DatabaseRepository implements Contracts\Repository, Contracts\Has
 {
     use HasCriteria;
 
-    /**
-     * Eloquent model
-     *
-     * @var Model
-     */
-    protected $model;
+    protected Model $model;
 
-    /**
-     * Eloquent model query builder
-     *
-     * @var Builder
-     */
-    protected $query;
+    protected Builder $query;
 
-    /**
-     * Object constructor
-     *
-     * @param Model $model
-     */
     public function __construct(Model $model)
     {
         $this->model = $model;
@@ -64,7 +48,7 @@ abstract class DatabaseRepository implements Contracts\Repository, Contracts\Has
      */
     public function findByField(string $field, $value)
     {
-        $results = $this->model->where($field, '=', $value)->get();
+        $results = $this->model->newQuery()->where($field, '=', $value)->get();
 
         if ($results->isNotEmpty()) {
             return $results->first();
@@ -191,7 +175,7 @@ abstract class DatabaseRepository implements Contracts\Repository, Contracts\Has
             return $id;
         }
 
-        if ($entity = $this->model->find($id)) {
+        if ($entity = $this->model->newQuery()->find($id)) {
             return $entity;
         }
 

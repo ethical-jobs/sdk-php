@@ -1,6 +1,6 @@
 <?php
 
-namespace EthicalJobs\Storage\Contracts;
+namespace EthicalJobs\SDK\Storage\Contracts;
 
 interface Criteria
 {

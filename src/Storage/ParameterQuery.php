@@ -1,21 +1,15 @@
 <?php
 
-namespace EthicalJobs\Storage;
+namespace EthicalJobs\SDK\Storage;
 
 use Carbon\Carbon;
-use EthicalJobs\Storage\Contracts\QueriesByParameters;
-use EthicalJobs\Storage\Contracts\Repository;
-use EthicalJobs\Utilities\Timestamp;
+use EthicalJobs\SDK\Storage\Contracts\QueriesByParameters;
+use EthicalJobs\SDK\Storage\Contracts\Repository;
 use Illuminate\Support\Str;
 
 abstract class ParameterQuery implements QueriesByParameters
 {
-    /**
-     * Repository instance
-     *
-     * @var Repository
-     */
-    protected $repository;
+    protected Repository $repository;
 
     /**
      * Object constructor
@@ -39,10 +33,8 @@ abstract class ParameterQuery implements QueriesByParameters
 
             if (method_exists($this, $parameter)) {
                 $this->$parameter($value);
-            } else {
-                if (method_exists($this, $snakeCased)) {
-                    $this->$snakeCased($value);
-                }
+            } elseif (method_exists($this, $snakeCased)) {
+                $this->$snakeCased($value);
             }
         }
 
