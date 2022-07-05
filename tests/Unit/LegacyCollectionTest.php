@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration\Repositories\Database;
+namespace Tests\Unit;
 
 use Illuminate\Support\Collection;
 use Tests\Fixtures\Collections;
