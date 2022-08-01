@@ -29,9 +29,9 @@ class HttpClient
     /**
      * Set authentication to true
      *
-     * @return HttpClient
+     * @return $this
      */
-    public function authenticate(): HttpClient
+    public function authenticate(): self
     {
         $this->authenticate = true;
 
@@ -43,11 +43,11 @@ class HttpClient
      *
      * @param string $route
      * @param array $body
-     * @param array $headers
+     * @param array<string, string> $headers
      * @return Collection
      * @throws GuzzleException
      */
-    public function get(string $route, $body = [], $headers = [])
+    public function get(string $route, array $body = [], array $headers = [])
     {
         return $this->request('GET', $route, $body, $headers);
     }
@@ -58,11 +58,11 @@ class HttpClient
      * @param string $verb
      * @param string $route
      * @param array $body
-     * @param array $headers
+     * @param array<string, string> $headers
      * @return Collection
      * @throws GuzzleException
      */
-    public function request(string $verb, string $route, $body = [], $headers = []): Collection
+    public function request(string $verb, string $route, array $body = [], array $headers = []): Collection
     {
         $request = $this->createRequest($verb, $route, $body, $headers);
 
@@ -79,10 +79,10 @@ class HttpClient
      * @param string $verb
      * @param string $route
      * @param array $body
-     * @param array $headers
+     * @param array<string, string> $headers
      * @return Request
      */
-    protected function createRequest(string $verb, string $route, $body = [], $headers = [])
+    protected function createRequest(string $verb, string $route, array $body = [], array $headers = [])
     {
         $url = Router::getRouteUrl($route);
 
@@ -98,12 +98,12 @@ class HttpClient
     }
 
     /**
-     * Merges degfault headers with user defined headers
+     * Merges default headers with user defined headers
      *
-     * @param array $headers
-     * @return array
+     * @param array<string, string> $headers
+     * @return array<string, string>
      */
-    protected function mergeDefaultHeaders(array $headers = [])
+    protected function mergeDefaultHeaders(array $headers = []): array
     {
         return array_merge([
             'Content-Type' => 'application/json',
@@ -181,7 +181,7 @@ class HttpClient
     }
 
     /**
-     * Prases a response and returns a collection or item
+     * Parses a response and returns a collection or item
      *
      * @param Response $response
      * @return Collection
@@ -203,11 +203,11 @@ class HttpClient
      *
      * @param string $route
      * @param array $body
-     * @param array $headers
+     * @param array<string, string> $headers
      * @return Collection
      * @throws GuzzleException
      */
-    public function post(string $route, $body = [], $headers = [])
+    public function post(string $route, array $body = [], array $headers = [])
     {
         return $this->request('POST', $route, $body, $headers);
     }
@@ -217,11 +217,11 @@ class HttpClient
      *
      * @param string $route
      * @param array $body
-     * @param array $headers
+     * @param array<string, string> $headers
      * @return Collection
      * @throws GuzzleException
      */
-    public function put(string $route, $body = [], $headers = [])
+    public function put(string $route, array $body = [], array $headers = [])
     {
         return $this->request('PUT', $route, $body, $headers);
     }
@@ -231,11 +231,11 @@ class HttpClient
      *
      * @param string $route
      * @param array $body
-     * @param array $headers
+     * @param array<string, string> $headers
      * @return Collection
      * @throws GuzzleException
      */
-    public function patch(string $route, $body = [], $headers = [])
+    public function patch(string $route, array $body = [], array $headers = [])
     {
         return $this->request('PATCH', $route, $body, $headers);
     }
@@ -245,11 +245,11 @@ class HttpClient
      *
      * @param string $route
      * @param array $body
-     * @param array $headers
+     * @param array<string, string> $headers
      * @return Collection
      * @throws GuzzleException
      */
-    public function delete(string $route, $body = [], $headers = [])
+    public function delete(string $route, array $body = [], array $headers = [])
     {
         return $this->request('DELETE', $route, $body, $headers);
     }
@@ -259,7 +259,7 @@ class HttpClient
      *
      * @return Request
      */
-    public function getRequest()
+    public function getRequest(): Request
     {
         return $this->request;
     }
@@ -282,7 +282,7 @@ class HttpClient
      *
      * @return Response
      */
-    public function getResponse()
+    public function getResponse(): Response
     {
         return $this->response;
     }
