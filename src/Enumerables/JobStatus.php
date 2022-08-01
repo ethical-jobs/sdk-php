@@ -6,6 +6,13 @@ namespace EthicalJobs\SDK\Enumerables;
 
 /**
  * Job status
+ *
+ * @method static string DRAFT()
+ * @phpstan-method static "DRAFT" DRAFT()
+ * @method static string PENDING()
+ * @phpstan-method static "PENDING" PENDING()
+ * @method static string APPROVED()
+ * @phpstan-method static "APPROVED" APPROVED()
  */
 class JobStatus extends Enum
 {
