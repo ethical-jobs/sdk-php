@@ -9,7 +9,7 @@ use ReflectionClass;
 use ReflectionException;
 
 /**
- * Base enumberable class
+ * Base enumeration class
  *
  * @author Andrew McLagan
  */
@@ -18,32 +18,27 @@ abstract class Enum
     /**
      * Return the constants keys
      *
-     * @return array
-     * @throws ReflectionException
+     * @return array<int, string>
      */
-    public static function allKeys()
+    public static function allKeys(): array
     {
-        return array_keys((new ReflectionClass(get_called_class()))->getConstants());
+        return array_keys(static::all());
     }
 
     /**
      * Return the constants values
      *
-     * @return array
-     * @throws ReflectionException
+     * @return array<int, string>
      */
-    public static function allValues()
+    public static function allValues(): array
     {
-        return array_values((new ReflectionClass(get_called_class()))->getConstants());
+        return array_values(static::all());
     }
 
     /**
      * Return a random constant
-     *
-     * @return array $keys
-     * @throws ReflectionException
      */
-    public static function random()
+    public static function random(): string
     {
         return array_rand(static::all());
     }
@@ -51,25 +46,20 @@ abstract class Enum
     /**
      * Return the constants
      *
-     * @return array $keys
-     * @throws ReflectionException
+     * @return array<string, string>
      */
-    public static function all()
+    public static function all(): array
     {
-        return (new ReflectionClass(get_called_class()))->getConstants();
+        return (new ReflectionClass(static::class))->getConstants();
     }
 
     /**
      * Return a value from a key
-     *
-     * @param string $enumKey
-     * @return array $keys
-     * @throws ReflectionException
      */
-    public static function getValue($enumKey = '')
+    public static function getValue(string $enumKey = ''): ?string
     {
-        foreach (self::all() as $key => $value) {
-            if (strtolower($key) == strtolower($enumKey)) {
+        foreach (static::all() as $key => $value) {
+            if (strtolower($key) === strtolower($enumKey)) {
                 return $value;
             }
         }
@@ -79,15 +69,11 @@ abstract class Enum
 
     /**
      * Return a key from a value
-     *
-     * @param string $enumValue
-     * @return array $keys
-     * @throws ReflectionException
      */
-    public static function getKey($enumValue = '')
+    public static function getKey(string $enumValue = ''): ?string
     {
-        foreach (self::all() as $key => $value) {
-            if (strtolower($value) == strtolower($enumValue)) {
+        foreach (static::all() as $key => $value) {
+            if (strtolower($value) === strtolower($enumValue)) {
                 return $key;
             }
         }
@@ -98,20 +84,18 @@ abstract class Enum
     /**
      * Returns the name of the enumerable key
      *
-     * @param $name
-     * @param $arguments
-     * @return array $keys
-     * @throws ReflectionException
+     * @param string $name
+     * @param array<int|string, mixed> $arguments
      * @throws Exception
      */
-    public static function __callStatic($name, $arguments)
+    public static function __callStatic(string $name, array $arguments): string
     {
-        $class = new ReflectionClass(get_called_class());
+        $class = new ReflectionClass(static::class);
 
         if ($class->hasConstant($name)) {
             return $name;
         }
 
-        throw new Exception('Invalid enumerable: ' . $name);
+        throw new Exception('Invalid enumeration key: ' . $name);
     }
 }
