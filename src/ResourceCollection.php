@@ -28,7 +28,7 @@ class ResourceCollection extends \Illuminate\Support\Collection
     /**
      * Returns api resources
      *
-     * @return array
+     * @return array<string, class-string<\EthicalJobs\SDK\Repositories\ApiRepository>>
      */
     protected static function resources(): array
     {
@@ -41,7 +41,7 @@ class ResourceCollection extends \Illuminate\Support\Collection
     /**
      * Make a resource repository instance
      *
-     * @param string $repository
+     * @param class-string<Repository> $repository
      * @return Repository
      */
     public static function makeResourceRepository(string $repository): Repository
