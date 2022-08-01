@@ -23,7 +23,7 @@ class AccessTokenFetcher
     /**
      * Http credentials
      *
-     * @var array
+     * @var array{client_id: string, client_secret: string, username: string, password: string}
      */
     protected $credentials = [
         'client_id' => '',
@@ -32,7 +32,11 @@ class AccessTokenFetcher
         'password' => '',
     ];
 
-    public function __construct(Client $client, Array $credentials = [])
+    /**
+     * @param \GuzzleHttp\Client $client
+     * @param array{client_id: string, client_secret: string, username: string, password: string} $credentials
+     */
+    public function __construct(Client $client, array $credentials = [])
     {
         $this->client = $client;
 
