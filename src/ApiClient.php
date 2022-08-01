@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\Cache;
  * @method getRequest()
  * @method setRequest(Request $request)
  * @method getResponse()
+ *
+ * @mixin \EthicalJobs\SDK\HttpClient
  */
 class ApiClient
 {
@@ -118,12 +120,12 @@ class ApiClient
     /**
      * Dynamic http verb methods
      *
-     * @param String $name
-     * @param array $arguments
+     * @param string $name
+     * @param array<int|string, mixed> $arguments
      * @return Mixed
      * @throws Exception
      */
-    public function __call($name, $arguments)
+    public function __call(string $name, array $arguments)
     {
         if (method_exists($this->http, $name)) {
             return $this->http->$name(...$arguments);
