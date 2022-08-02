@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK\Mappers;
 
 use EthicalJobs\SDK\ApiClient;

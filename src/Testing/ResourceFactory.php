@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK\Testing;
 
 use EthicalJobs\SDK\Collection;

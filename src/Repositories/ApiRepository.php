@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK\Repositories;
 
 use EthicalJobs\SDK\ApiClient;
 use EthicalJobs\SDK\Collection;
-use EthicalJobs\Storage\Contracts;
-use EthicalJobs\Storage\CriteriaCollection;
-use EthicalJobs\Storage\HasCriteria;
+use EthicalJobs\SDK\Storage\Contracts;
+use EthicalJobs\SDK\Storage\CriteriaCollection;
+use EthicalJobs\SDK\Storage\HasCriteria;
 
 /**
  * Api repository

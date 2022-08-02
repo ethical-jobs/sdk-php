@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK;
 
 /**
@@ -15,7 +17,7 @@ class Router
      * @param string $route
      * @return string
      */
-    public static function getRouteUrl(string $route)
+    public static function getRouteUrl(string $route): string
     {
         $host = env('API_HOST') ?? 'api.ethicaljobs.com.au';
 
@@ -27,10 +29,10 @@ class Router
     /**
      * Sanitizes a route into acceptable format
      *
-     * @param String $route
-     * @return String
+     * @param string $route
+     * @return string
      */
-    protected static function sanitizeRoute($route = '')
+    protected static function sanitizeRoute(string $route = ''): string
     {
         return '/' . ltrim($route, '/');
     }
@@ -38,11 +40,11 @@ class Router
     /**
      * Return route to the resource
      *
-     * @param String $resource
-     * @param String $route
-     * @return String
+     * @param string $resource
+     * @param string $route
+     * @return string
      */
-    public static function getResourceRoute($resource, $route = '')
+    public static function getResourceRoute(string $resource, string $route = ''): string
     {
         return static::sanitizeRoute($resource) . static::sanitizeRoute($route);
     }

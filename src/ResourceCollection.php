@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK;
 
 use EthicalJobs\SDK\Repositories;
-use EthicalJobs\Storage\Contracts\Repository;
+use EthicalJobs\SDK\Storage\Contracts\Repository;
 use Illuminate\Support\Facades\App;
 
 /**
@@ -26,7 +28,7 @@ class ResourceCollection extends \Illuminate\Support\Collection
     /**
      * Returns api resources
      *
-     * @return array
+     * @return array<string, class-string<\EthicalJobs\SDK\Repositories\ApiRepository>>
      */
     protected static function resources(): array
     {
@@ -39,7 +41,7 @@ class ResourceCollection extends \Illuminate\Support\Collection
     /**
      * Make a resource repository instance
      *
-     * @param string $repository
+     * @param class-string<Repository> $repository
      * @return Repository
      */
     public static function makeResourceRepository(string $repository): Repository

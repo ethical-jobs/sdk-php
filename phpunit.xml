@@ -9,7 +9,8 @@
          stopOnFailure="false"
          bootstrap="vendor/autoload.php"
          cacheResult="false"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         cacheResultFile="/tmp/.sdk-php.phpunit.result.cache"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
   <coverage>
     <include>

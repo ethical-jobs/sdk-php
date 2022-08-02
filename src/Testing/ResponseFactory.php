@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK\Testing;
 
 use EthicalJobs\SDK\Collection;
@@ -122,7 +124,7 @@ class ResponseFactory
      */
     public static function response(int $status, $data): Response
     {
-        $encoded = json_encode($data, true);
+        $encoded = json_encode($data);
 
         $stream = Psr7Utils::streamFor($encoded);
 

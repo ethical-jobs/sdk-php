@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace EthicalJobs\SDK\Authentication;
 
 use GuzzleHttp\Client;
@@ -21,7 +23,7 @@ class AccessTokenFetcher
     /**
      * Http credentials
      *
-     * @var array
+     * @var array{client_id: string, client_secret: string, username: string, password: string}
      */
     protected $credentials = [
         'client_id' => '',
@@ -30,7 +32,11 @@ class AccessTokenFetcher
         'password' => '',
     ];
 
-    public function __construct(Client $client, Array $credentials = [])
+    /**
+     * @param \GuzzleHttp\Client $client
+     * @param array{client_id: string, client_secret: string, username: string, password: string} $credentials
+     */
+    public function __construct(Client $client, array $credentials = [])
     {
         $this->client = $client;
 
@@ -55,7 +61,7 @@ class AccessTokenFetcher
         $response = $this->tokenRequest($route, $json);
 
         if ($response->getStatusCode() > 199 && $response->getStatusCode() < 300) {
-            if ($decoded = json_decode($response->getBody())) {
+            if ($decoded = json_decode((string)$response->getBody())) {
                 return $decoded->access_token ?? '';
             }
         }

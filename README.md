@@ -4,7 +4,8 @@ All current EJ packages will be taken offline by mid-2021 in order to re-release
 
 ## Compatibility
 
- - `v4.*` - Laravel 8 or higher
+ - `v8.*` - Laravel 8 or higher, PHP >8.x,<9.x
+ - `v4.*` - Laravel 8 or higher, PHP 7.3
  - `v3.*` - Laravel 7 or lower (possibly only 5.6 to 5.9)
 
 ## Installation

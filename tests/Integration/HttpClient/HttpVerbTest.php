@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Integration\HttpClient;
 
 use EthicalJobs\SDK\HttpClient;
@@ -44,7 +46,7 @@ class HttpVerbTest extends TestCase
 
             $expected = new Request(
                 strtoupper($verb),
-                'https://api.ethicalstaging.com.au/jobs',
+                'http://fail-connection-plox/jobs',
                 [
                     'Content-Type' => 'application/json',
                     'Accept' => 'application/json',
@@ -86,7 +88,7 @@ class HttpVerbTest extends TestCase
 
         $expected = new Request(
             'GET',
-            'https://api.ethicalstaging.com.au/repos?username=andrewmclagan&forks=0&repos=1',
+            'http://fail-connection-plox/repos?username=andrewmclagan&forks=0&repos=1',
             [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',

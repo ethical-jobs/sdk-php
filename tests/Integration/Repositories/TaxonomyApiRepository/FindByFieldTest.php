@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Integration\Repositories\TaxonomyApiRepository;
 
 use EthicalJobs\SDK\ApiClient;
