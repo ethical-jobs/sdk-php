@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Integration\HttpClient;
 
 use EthicalJobs\SDK\HttpClient;
@@ -11,17 +13,8 @@ use Tests\TestCase;
 
 class HttpVerbTest extends TestCase
 {
-
-    public function setUp(): void
-    {
-        parent::setUp();
-    }
-
-    /**
-     * @test
-     * @group Unit
-     */
-    public function it_has_all_http_verb_functions()
+    /** @group Unit */
+    public function testProvidesMethodsForExpectedHttpVerbs(): void
     {
         $verbs = ['get', 'post', 'put', 'patch', 'delete'];
 
@@ -32,13 +25,10 @@ class HttpVerbTest extends TestCase
         }
     }
 
-    /**
-     * @test
-     * @group Unit
-     */
-    public function its_verb_functions_generate_valid_requests()
+    /** @group Unit */
+    public function testVerbMethodsGenerateValidRequestsWithJsonBody(): void
     {
-        $verbs = ['post', 'put', 'patch', 'delete']; // See below for GET verb
+        $verbs = ['post', 'put', 'patch'];
 
         foreach ($verbs as $verb) {
 
@@ -50,7 +40,7 @@ class HttpVerbTest extends TestCase
                     'Accept' => 'application/json',
                     'X-Custom' => 'foo',
                 ],
-                json_encode(['foo' => 'bar'])
+                json_encode(['foo' => 'bar'], JSON_THROW_ON_ERROR)
             );
 
             $client = Mockery::mock(Client::class)
@@ -72,11 +62,45 @@ class HttpVerbTest extends TestCase
         }
     }
 
-    /**
-     * @test
-     * @group Unit
-     */
-    public function its_GET_verb_function_generate_valid_requests()
+    /** @group Unit */
+    public function testDeleteMethodGeneratesValidRequestWithNoBody(): void
+    {
+        $params = [
+            'username' => 'andrewmclagan',
+            'forks' => 18,
+            'repos' => 6,
+        ];
+
+        $expected = new Request(
+            'DELETE',
+            'https://api.ethicalstaging.com.au/jobs/33?username=andrewmclagan&forks=18&repos=6',
+            [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json',
+                'X-Custom' => 'foo',
+            ]
+        );
+
+        $client = Mockery::mock(Client::class)
+            ->shouldReceive('send')
+            ->once()
+            ->andReturn(new Response)
+            ->getMock();
+
+        $http = new HttpClient($client);
+
+        $http->delete('/jobs/33', $params, ['X-Custom' => 'foo']);
+
+        $actual = $http->getRequest();
+
+        self::assertSame($expected->getMethod(), $actual->getMethod());
+        self::assertEquals($expected->getUri(), $actual->getUri());
+        self::assertSame($expected->getHeaders(), $actual->getHeaders());
+        self::assertSame((string)$expected->getBody(), (string)$actual->getBody());
+    }
+
+    /** @group Unit */
+    public function testGetMethodGeneratesValidRequestWithNoBody(): void
     {
         $params = [
             'username' => 'andrewmclagan',
@@ -91,8 +115,7 @@ class HttpVerbTest extends TestCase
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
                 'X-Custom' => 'foo',
-            ],
-            json_encode($params)
+            ]
         );
 
         $client = Mockery::mock(Client::class)
