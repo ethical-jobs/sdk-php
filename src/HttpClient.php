@@ -8,6 +8,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Uri;
 
 /**
  * Http client
@@ -121,13 +122,17 @@ class HttpClient
      */
     protected function createRequest(string $verb, string $route, $body = [], $headers = [])
     {
-        $url = Router::getRouteUrl($route);
+        $verb = strtoupper($verb);
+        $url = new Uri(Router::getRouteUrl($route));
 
-        if (strtoupper($verb) === 'GET') {
-            $url .= '?' . http_build_query($body);
+        if (in_array($verb, ['POST', 'PUT', 'PATCH'])) {
+            $body = json_encode($body, JSON_THROW_ON_ERROR);
+        } else {
+            $url = $url->withQuery(http_build_query($body));
+            $body = null;
         }
 
-        $request = new Request($verb, $url, $this->mergeDefaultHeaders($headers), json_encode($body));
+        $request = new Request($verb, $url, $this->mergeDefaultHeaders($headers), $body);
 
         $this->setRequest($request);
 
