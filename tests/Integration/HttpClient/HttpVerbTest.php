@@ -73,7 +73,7 @@ class HttpVerbTest extends TestCase
 
         $expected = new Request(
             'DELETE',
-            'https://api.ethicalstaging.com.au/jobs/33?username=andrewmclagan&forks=18&repos=6',
+            'http://fail-connection-plox/jobs/33?username=andrewmclagan&forks=18&repos=6',
             [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
