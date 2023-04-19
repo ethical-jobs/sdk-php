@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Integration\HttpClient;
 
 use EthicalJobs\SDK\HttpClient;
@@ -11,11 +13,8 @@ use Tests\TestCase;
 
 class HttpVerbTest extends TestCase
 {
-    /**
-     * @test
-     * @group Unit
-     */
-    public function it_has_all_http_verb_functions()
+    /** @group Unit */
+    public function testProvidesMethodsForExpectedHttpVerbs(): void
     {
         $verbs = ['get', 'post', 'put', 'patch', 'delete'];
 
