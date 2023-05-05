@@ -43,11 +43,11 @@ class WhereTest extends TestCase
 
         $terms = (new TaxonomyApiRepository($api))
             ->taxonomy('categories')
-            ->where('job_count', '=', 50)
+            ->where('job_count', '=', 185)
             ->find();
 
         $terms->pluck('job_count')->each(function ($jobCount) {
-            $this->assertTrue($jobCount == 50);
+            $this->assertTrue($jobCount == 185);
         });
     }
 

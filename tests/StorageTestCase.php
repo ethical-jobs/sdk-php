@@ -4,7 +4,6 @@ namespace Tests;
 
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
-use Orchestra\Database\ConsoleServiceProvider;
 use Tests\Fixtures\Models;
 
 abstract class StorageTestCase extends \Orchestra\Testbench\TestCase
@@ -57,7 +56,6 @@ abstract class StorageTestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageProviders($app)
     {
         return [
-            ConsoleServiceProvider::class,
         ];
     }
 }
