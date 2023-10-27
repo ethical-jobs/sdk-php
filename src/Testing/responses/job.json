@@ -1,102 +1,83 @@
 {
   "data": {
-    "entities": {
-      "users": {
-        "7131": {
-          "id": 7131,
-          "organisation_id": 7113,
-          "first_name": "John",
-          "last_name": "McQuaid",
-          "full_name": "John McQuaid",
-          "bio": null,
-          "avatar": "https://www.gravatar.com/avatar/06d081be703d51d92f282ff5e89b6bc3.jpg?s=200&d=mm",
-          "email": "john@arriveaustralia.com.au",
-          "username": "Arriveaustralia",
-          "phone": null,
-          "position": "Director",
-          "roles": [
-            "employer-member"
-          ],
-          "last_login": null,
-          "created_at": 1509419366000,
-          "updated_at": 1529891685000
-        }
+      "entities": {
+          "organisations": {
+              "14650": {
+                  "id": 14650,
+                  "name": "Telstra Health",
+                  "logo_url": "https:\/\/static.ethicaljobs.com.au\/media\/1646948656_Zqxwq_.png",
+                  "logo_variant_urls": {
+                      "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1646948656_Zqxwq_.png",
+                      "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1646948656_Zqxwq_.png",
+                      "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1646948656_Zqxwq_.png",
+                      "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1646948656_Zqxwq_.png",
+                      "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1646948656_Zqxwq_.png"
+                  }
+              }
+          },
+          "localities": {
+              "e10e365f-1269-4e41-b7d9-7445fd13fdf2": {
+                  "id": "e10e365f-1269-4e41-b7d9-7445fd13fdf2",
+                  "name": "CBD, Inner West & Eastern Suburbs Sydney",
+                  "type": "REGION",
+                  "location_id": 3
+              }
+          },
+          "jobs": {
+              "448455": {
+                  "id": 448455,
+                  "organisation_id": 14650,
+                  "location_id": 3,
+                  "locality_id": "e10e365f-1269-4e41-b7d9-7445fd13fdf2",
+                  "locations": [
+                      3
+                  ],
+                  "mlj_locations": [
+                      {
+                          "location_id": 3,
+                          "locality_id": "e10e365f-1269-4e41-b7d9-7445fd13fdf2"
+                      }
+                  ],
+                  "status": "APPROVED",
+                  "title": "1800RESPECT Counsellors",
+                  "slug": "TelstraHealth\/1800respect-counsellors",
+                  "url": "https:\/\/www.ethicaljobs.com.au\/members\/TelstraHealth\/1800respect-counsellors",
+                  "summary": "Maximum term openings for First Response Counsellors who will provide telephone and online counselling as part of the national 1800RESPECT service. Morning, Afternoon and Evening shifts available.",
+                  "description": "<ul>\n<li><strong>Multiple First Response Counsellor positions (full-time and part-time)<\/strong><\/li>\n<li><strong>Work with a team that fosters an environment of collaboration and inclusivity<\/strong><\/li>\n<li><strong>Work from the comfort of your home. IT equipment provided<\/strong><\/li>\n<li><strong>We are a flexible workforce and will work with you on suitable shifts across our 24\/7 roster to complement your lifestyle<\/strong><\/li>\n<li><strong>Virtual paid training provided (Two Weeks: Monday &ndash; Friday, 9am &ndash; 5pm)<\/strong><\/li>\n<li><strong>Coaching and supervision to complement your own resilience and self-care skills<\/strong><\/li>\n<li><strong>Morning, Afternoon and Evening shifts available.<\/strong><\/li>\n<\/ul>\n<p>Make a lasting impact working for 1800RESPECT, the national front door for people seeking support for domestic, family and sexual violence in Australia.<\/p>\n<p>Telstra Health is proud to work collaboratively with the Australian Government and specialist organisations to deliver 1800RESPECT, as the national front door for people affected by domestic, family and sexual violence and workplace sexual harassment.<\/p>\n<p>Our purpose is to provide an accessible, high quality, clinically-informed and evidence-based service that meets the diverse needs and complex considerations of individuals seeking support.<\/p>\n<h3>Why join Telstra Health:<\/h3>\n<ul>\n<li>We have a flexible work environment so you can work from the comfort of your own home.<\/li>\n<li>Embrace the freedom and flexibility to tailor your working hours to fit your personal needs and ambitions across our 24\/7 roster.<\/li>\n<li>Avenues for growth and stepping into other roles.<\/li>\n<li>30% discount on Telstra services including home broadband and post-paid mobiles.<\/li>\n<li>Free 24\/7 professional and confidential support for you and your family through EAP<\/li>\n<li>Employee rewards program that includes discounts on shopping, gym memberships, movie tickets, health insurance and more<\/li>\n<li>Multiple leave options including 16 weeks gender-equal paid parental, family and domestic violence leave, cultural, volunteer, study leave, as well as the option to purchase additional leave.<\/li>\n<\/ul>\n<h3>About the role:<\/h3>\n<p>We have a number of maximum term openings (through to June 2027) for First Response Counsellors(full-time and part time) who will provide telephone and online counselling and use their skills to assess the unique needs of individuals seeking support as part of the national 1800RESPECT service. As a First Response Counsellor, you will help achieve sustained reduction in the prevalence and impacts of domestic, family and sexual violence.<\/p>\n<p>You will have the flexibility to work from home (attend office when required) and we will work with you on suitable shifts to complement your lifestyle (minimum of 19 hours per week). Shifts are negotiated across a 24\/7 roster, based on the service requirements which is based around demand for support, your preferences, and the preferences of other team members. You will receive shift penalty rates based on the shifts occurring across the evening, overnight, weekend and public holidays.<\/p>\n<h3>About you:<\/h3>\n<p>You must be able to meet the following criteria:<\/p>\n<ul>\n<li>A minimum three-year bachelor's qualification which meets the requirements of the Peak Body Registration.<\/li>\n<li>Be eligible to register (or) hold current registration with one of the Professional Bodies at the required level: PACFA - Clinical, ACA - Lvl3 or above, Full - AASW or General Registration with AHPRA as a Psychologist.<\/li>\n<li>At least two years full time counselling experience (Case Management not acceptable).<\/li>\n<li>Demonstrated experience in brief, outcome-focused counselling (preferably telephone counselling) or equivalent experience in specialised domestic, family and sexual violence counselling, mental health services, crisis services, homelessness etc.<\/li>\n<li>Demonstrated authentic, compassionate, empathetic responses in front line service delivery\/ counselling role.<\/li>\n<li>Experience working across telephone counselling\/ intake\/ assessment roles.<\/li>\n<li>Capacity to work and support self and team in a complex and often demanding work environment.<\/li>\n<\/ul>\n<h3>Additional requirements:<\/h3>\n<ul>\n<li>Holder of a current working with children check\/vulnerable people check relevant to your State, or proof of application prior to interview<\/li>\n<li>A private room\/space which can be used for your home office set up<\/li>\n<li>Reliable internet connection<\/li>\n<li>Strong computer skills (experience with using systems, MS Word, excel, outlook and internet)<\/li>\n<\/ul>\n<p>At Telstra Health, we are passionate about creating an environment that's inclusive and supportive - a place where everyone can truly be themselves. We are committed to providing our people with a working environment that promotes and fosters positive health and wellness.<\/p>\n<p>We encourage applications from Aboriginal and Torres Strait Islander people, those from culturally and linguistically diverse backgrounds, workers of all ages, people with disabilities, people who identify as LGBTQIA+ across all locations across Australia to apply.<\/p>\n<h3>What&rsquo;s next?<\/h3>\n<p>If this sounds like the role for you, then click on the apply button now. Our selection process involves:<\/p>\n<ul>\n<li>Application review<\/li>\n<li>Screening for shortlisted candidates<\/li>\n<li>Detailed roster conversation with us<\/li>\n<li>A 30-minute virtual interview with our Clinical team<\/li>\n<li>Online assessments (Computer skills) and Pre-employment checks*<\/li>\n<\/ul>\n<p>*Preferred candidates will be required to undertake pre-employment screening, including Tertiary Qualification and Professional Body Registration verification or evidence of eligibility where applicable, a National Police Check, Working with Children Check, reference checks and a right to work in Australia check.<\/p>\n<p>If you would like more information about the position, please email us on <a href=\"mailto:recruitment@health.telstra.com?subject=1800RESPECT%20Counsellors%20enquiry%20via%20EthicalJobs\" target=\"_blank\" rel=\"noopener\">recruitment@health.telstra.com<\/a> using the subject line: <strong>1800RESPECT Counsellors enquiry via EthicalJobs<\/strong>. Applications will be assessed and shortlisted as they are received so apply today!<\/p>\n<p><strong>We are a Circle Back Initiative Employer &ndash; we commit to respond to every applicant.<\/strong><\/p>",
+                  "application": "",
+                  "featured": true,
+                  "video_url": "",
+                  "apply_button": "https:\/\/www.livehire.com\/careers\/th-1800respect\/job\/GNKHR\/UGGJGFOVUS\/1800respect-first-response-counsellor?useBrowserBack=true",
+                  "apply_method": "button",
+                  "attachments": [],
+                  "sectors": [
+                      1
+                  ],
+                  "workTypes": [
+                      2,
+                      3,
+                      5,
+                      8
+                  ],
+                  "categories": [
+                      39,
+                      54,
+                      19,
+                      47
+                  ],
+                  "questions": [],
+                  "application_validation_rules": [],
+                  "salary": null,
+                  "expiration_hidden": false,
+                  "expired": false,
+                  "expires_at": 1701064800000,
+                  "approved_at": 1698367289000,
+                  "created_at": 1698361599000,
+                  "updated_at": 1698367289000,
+                  "deleted_at": null
+              }
+          }
       },
-      "organisations": {
-        "7113": {
-          "id": 7113,
-          "owner_id": 7131,
-          "admin_id": 0,
-          "uid": "Arriveaustralia",
-          "name": "Arrive Australia Migration Services Pty Ltd",
-          "logo_url": "//d27jjb85n91zzw.cloudfront.net/media/1509506379_G1VZy_.jpeg",
-          "paid_staff": 6,
-          "volunteers": 0,
-          "phone": "0293692400",
-          "address": "level 25 , WestField Tower 2. 101 Grafton Street ",
-          "suburb": "Bondi Junction",
-          "state": "New South Wales",
-          "postcode": "2022",
-          "country": "AU",
-          "credit_balance": 0,
-          "invoice_count": 3,
-          "pending_job_count": 0,
-          "approved_job_count": 1,
-          "expired_job_count": 2,
-          "created_at": 1509419366000,
-          "updated_at": 1509419475000,
-          "deleted_at": null
-        }
-      },
-      "jobs": {
-        "112239": {
-          "id": 112239,
-          "author_id": 6829,
-          "organisation_id": 7113,
-          "location_id": 3,
-          "source": "EMPLOYERS",
-          "source_id": null,
-          "source_provider": null,
-          "status": "APPROVED",
-          "locked": true,
-          "locked_by": 6829,
-          "locked_by_avatar": "https://s3-ap-southeast-2.amazonaws.com/ethical-jobs/statics/staff/alex-marsh-avatar.jpg",
-          "title": "Administration Assistant",
-          "slug": "Arriveaustralia/administration-assistant-2",
-          "url": "http://www.ethicaljobs.com.au/Members/Arriveaustralia/administration-assistant-2",
-          "summary": "We strive to make a difference and assist less privileged people to make a better life. 95% of our clients are from low socio-economic backgrounds seeking a better life for their families.",
-          "description": "<p><span>Arrive Australia is a professional migration advice firm based in Bondi junction NSW.</span></p>\n<p><span>We strive to make a difference and assist less privileged people to make a better life. 95% of our clients are from low socio-economic backgrounds seeking a better life for their families.</span></p>\n<p><span>As a company we take pride in our point of difference being a strong commitment to honesty and social equity, providing fair and equal access to the law.</span></p>\n<p><span>Our assessment of clients is always honest and candid at a time when people are vulnerable to false promises for economic gain.</span></p>\n<p><span>Newly arrived persons in Australia are susceptible to the consequences of isolation and financial stress. As such we make a commitment to supporting the migrant community not only through the legal process of immigration but also in building strong and supportive communities once here.</span></p>\n<p><span>We do this through business mentorship programs for newly arrived young people as well as providing pro bono migration advice and financially contributing to community organisations such as the Irish Support Agency and Sydney Queer Irish.</span></p>\n<p><span>We assist individuals and businesses in Australia and overseas, finding legal pathways to achieving our client&rsquo;s future goals in Australia, changing people&rsquo;s futures for the better.</span></p>\n<p><span>Our business is continually growing.</span></p>\n<p><span>We have an immediate full time position for an experienced Administration Assistant to support our team of professionals.</span></p>\n<p><span>In this role you will liaise with clients and undertake case administration and coordination duties.</span></p>\n<p><span>This position requires a person with excellent administration, verbal and written communication skills, a positive outlook, responsible attitude and attention to detail.</span></p>\n<p><span>Hours: 9:00am to 5:00pm Monday to Friday</span></p>\n<h3><strong><span>Selection Criteria</span></strong></h3>\n<ol>\n<li>Business qualification or evidence of complementary skill set</li>\n<li>Strong verbal and written communication skills</li>\n<li>Able to work as part of a team</li>\n<li>Able to take the initiative and manage tasks effectively</li>\n<li>Able to work under pressure to meet deadlines</li>\n<li>Flexible attitude to work</li>\n<li>Excellent organisational skills</li>\n<li>Microsoft Office skills to a highly proficient level</li>\n<li>Experience with general typing, data entry</li>\n</ol>\n<p><span>We offer a modern bright work environment, mentoring and training from senior staff, performance bonus, career advancement opportunities.</span></p>\n<p><span>A competitive salary package is available commensurate with skills and experience.</span></p>",
-          "application": "<p><span>Apply in writing with your resume and covering letter addressing the selection criteria above.</span></p>\n<p><span>Applications can be emailed to: <a href=\"mailto:john@arriveaustralia.com.au?subject=Administration%20Assistant%20application%20via%20EthicalJobs\" target=\"_blank\" rel=\"noopener\">john@arriveaustralia.com.au</a>, using the subject line: <strong>Administration Assistant application via EthicalJobs.</strong></span></p>",
-          "featured": false,
-          "expiration_hidden": true,
-          "expired": false,
-          "dispatched": true,
-          "views": 1059,
-          "clicks": 20,
-          "attachments": [],
-          "locations": [
-            3
-          ],
-          "sectors": [
-            1
-          ],
-          "workTypes": [
-            3
-          ],
-          "categories": [
-            1,
-            35,
-            40
-          ],
-          "expires_at": 1533538800000,
-          "approved_at": 1529538469000,
-          "created_at": 1529538349000,
-          "updated_at": 1532934331000,
-          "deleted_at": null
-        }
-      }
-    },
-    "result": 112239
+      "result": 448455
   }
 }
-  

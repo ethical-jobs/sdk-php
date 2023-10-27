@@ -1,851 +1,1890 @@
 {
   "data": {
-    "creditPacks": {
-      "1": {
-        "id": 1,
-        "price": 120,
-        "savings": 0,
-        "volume": 1,
-        "service_type": "REGULAR",
-        "title": "One job ad credit",
-        "total": 132,
-        "gst": 12
+      "creditPacks": {
+          "1": {
+              "id": 1,
+              "price": 160,
+              "savings": 0,
+              "volume": 1,
+              "service_type": "REGULAR",
+              "title": "One job ad credit",
+              "total": 176,
+              "gst": 16
+          },
+          "2": {
+              "id": 2,
+              "price": 185,
+              "savings": 0,
+              "volume": 1,
+              "service_type": "MANAGED",
+              "title": "One job ad credit",
+              "total": 203.5,
+              "gst": 18.5
+          },
+          "3": {
+              "id": 3,
+              "price": 430,
+              "savings": 50,
+              "volume": 3,
+              "service_type": "REGULAR",
+              "title": "Three job ad credits",
+              "total": 473,
+              "gst": 43
+          },
+          "4": {
+              "id": 4,
+              "price": 505,
+              "savings": 50,
+              "volume": 3,
+              "service_type": "MANAGED",
+              "title": "Three job ad credits",
+              "total": 555.5,
+              "gst": 50.5
+          },
+          "5": {
+              "id": 5,
+              "price": 670,
+              "savings": 130,
+              "volume": 5,
+              "service_type": "REGULAR",
+              "title": "Five job ad credits",
+              "total": 737,
+              "gst": 67
+          },
+          "6": {
+              "id": 6,
+              "price": 795,
+              "savings": 130,
+              "volume": 5,
+              "service_type": "MANAGED",
+              "title": "Five job ad credits",
+              "total": 874.5,
+              "gst": 79.5
+          },
+          "7": {
+              "id": 7,
+              "price": 1300,
+              "savings": 300,
+              "volume": 10,
+              "service_type": "REGULAR",
+              "title": "Ten job ad credits",
+              "total": 1430,
+              "gst": 130
+          },
+          "8": {
+              "id": 8,
+              "price": 1550,
+              "savings": 300,
+              "volume": 10,
+              "service_type": "MANAGED",
+              "title": "Ten job ad credits",
+              "total": 1705,
+              "gst": 155
+          },
+          "9": {
+              "id": 9,
+              "price": 3700,
+              "savings": 1100,
+              "volume": 30,
+              "service_type": "REGULAR",
+              "title": "Thirty job ad credits",
+              "total": 4070,
+              "gst": 370
+          },
+          "10": {
+              "id": 10,
+              "price": 4450,
+              "savings": 1100,
+              "volume": 30,
+              "service_type": "MANAGED",
+              "title": "Thirty job ad credits",
+              "total": 4895,
+              "gst": 445
+          },
+          "11": {
+              "id": 11,
+              "price": 5900,
+              "savings": 2100,
+              "volume": 50,
+              "service_type": "REGULAR",
+              "title": "Fifty job ad credits",
+              "total": 6490,
+              "gst": 590
+          },
+          "12": {
+              "id": 12,
+              "price": 7150,
+              "savings": 2100,
+              "volume": 50,
+              "service_type": "MANAGED",
+              "title": "Fifty job ad credits",
+              "total": 7865,
+              "gst": 715
+          }
       },
-      "2": {
-        "id": 2,
-        "price": 145,
-        "savings": 0,
-        "volume": 1,
-        "service_type": "MANAGED",
-        "title": "One job ad credit",
-        "total": 159.5,
-        "gst": 14.5
+      "enumerables": {
+          "jobStatus": {
+              "DRAFT": "Draft",
+              "PENDING": "Pending approval",
+              "APPROVED": "Approved"
+          },
+          "jobSource": {
+              "EMPLOYERS": "Employers",
+              "AUTOPOST": "Autopost",
+              "STAFF": "Staff"
+          },
+          "countries": {
+              "AF": "Afghanistan",
+              "AX": "\u00c5land Islands",
+              "AL": "Albania",
+              "DZ": "Algeria",
+              "AS": "American Samoa",
+              "AD": "Andorra",
+              "AO": "Angola",
+              "AI": "Anguilla",
+              "AQ": "Antarctica",
+              "AG": "Antigua & Barbuda",
+              "AR": "Argentina",
+              "AM": "Armenia",
+              "AW": "Aruba",
+              "AC": "Ascension Island",
+              "AU": "Australia",
+              "AT": "Austria",
+              "AZ": "Azerbaijan",
+              "BS": "Bahamas",
+              "BH": "Bahrain",
+              "BD": "Bangladesh",
+              "BB": "Barbados",
+              "BY": "Belarus",
+              "BE": "Belgium",
+              "BZ": "Belize",
+              "BJ": "Benin",
+              "BM": "Bermuda",
+              "BT": "Bhutan",
+              "BO": "Bolivia",
+              "BA": "Bosnia & Herzegovina",
+              "BW": "Botswana",
+              "BR": "Brazil",
+              "IO": "British Indian Ocean Territory",
+              "VG": "British Virgin Islands",
+              "BN": "Brunei",
+              "BG": "Bulgaria",
+              "BF": "Burkina Faso",
+              "BI": "Burundi",
+              "KH": "Cambodia",
+              "CM": "Cameroon",
+              "CA": "Canada",
+              "IC": "Canary Islands",
+              "CV": "Cape Verde",
+              "BQ": "Caribbean Netherlands",
+              "KY": "Cayman Islands",
+              "CF": "Central African Republic",
+              "EA": "Ceuta & Melilla",
+              "TD": "Chad",
+              "CL": "Chile",
+              "CN": "China",
+              "CX": "Christmas Island",
+              "CC": "Cocos (Keeling) Islands",
+              "CO": "Colombia",
+              "KM": "Comoros",
+              "CG": "Congo - Brazzaville",
+              "CD": "Congo - Kinshasa",
+              "CK": "Cook Islands",
+              "CR": "Costa Rica",
+              "CI": "C\u00f4te d\u2019Ivoire",
+              "HR": "Croatia",
+              "CU": "Cuba",
+              "CW": "Cura\u00e7ao",
+              "CY": "Cyprus",
+              "CZ": "Czech Republic",
+              "DK": "Denmark",
+              "DG": "Diego Garcia",
+              "DJ": "Djibouti",
+              "DM": "Dominica",
+              "DO": "Dominican Republic",
+              "EC": "Ecuador",
+              "EG": "Egypt",
+              "SV": "El Salvador",
+              "GQ": "Equatorial Guinea",
+              "ER": "Eritrea",
+              "EE": "Estonia",
+              "ET": "Ethiopia",
+              "FK": "Falkland Islands",
+              "FO": "Faroe Islands",
+              "FJ": "Fiji",
+              "FI": "Finland",
+              "FR": "France",
+              "GF": "French Guiana",
+              "PF": "French Polynesia",
+              "TF": "French Southern Territories",
+              "GA": "Gabon",
+              "GM": "Gambia",
+              "GE": "Georgia",
+              "DE": "Germany",
+              "GH": "Ghana",
+              "GI": "Gibraltar",
+              "GR": "Greece",
+              "GL": "Greenland",
+              "GD": "Grenada",
+              "GP": "Guadeloupe",
+              "GU": "Guam",
+              "GT": "Guatemala",
+              "GG": "Guernsey",
+              "GN": "Guinea",
+              "GW": "Guinea-Bissau",
+              "GY": "Guyana",
+              "HT": "Haiti",
+              "HN": "Honduras",
+              "HK": "Hong Kong SAR China",
+              "HU": "Hungary",
+              "IS": "Iceland",
+              "IN": "India",
+              "ID": "Indonesia",
+              "IR": "Iran",
+              "IQ": "Iraq",
+              "IE": "Ireland",
+              "IM": "Isle of Man",
+              "IL": "Israel",
+              "IT": "Italy",
+              "JM": "Jamaica",
+              "JP": "Japan",
+              "JE": "Jersey",
+              "JO": "Jordan",
+              "KZ": "Kazakhstan",
+              "KE": "Kenya",
+              "KI": "Kiribati",
+              "XK": "Kosovo",
+              "KW": "Kuwait",
+              "KG": "Kyrgyzstan",
+              "LA": "Laos",
+              "LV": "Latvia",
+              "LB": "Lebanon",
+              "LS": "Lesotho",
+              "LR": "Liberia",
+              "LY": "Libya",
+              "LI": "Liechtenstein",
+              "LT": "Lithuania",
+              "LU": "Luxembourg",
+              "MO": "Macau SAR China",
+              "MK": "Macedonia",
+              "MG": "Madagascar",
+              "MW": "Malawi",
+              "MY": "Malaysia",
+              "MV": "Maldives",
+              "ML": "Mali",
+              "MT": "Malta",
+              "MH": "Marshall Islands",
+              "MQ": "Martinique",
+              "MR": "Mauritania",
+              "MU": "Mauritius",
+              "YT": "Mayotte",
+              "MX": "Mexico",
+              "FM": "Micronesia",
+              "MD": "Moldova",
+              "MC": "Monaco",
+              "MN": "Mongolia",
+              "ME": "Montenegro",
+              "MS": "Montserrat",
+              "MA": "Morocco",
+              "MZ": "Mozambique",
+              "MM": "Myanmar (Burma)",
+              "NA": "Namibia",
+              "NR": "Nauru",
+              "NP": "Nepal",
+              "NL": "Netherlands",
+              "NC": "New Caledonia",
+              "NZ": "New Zealand",
+              "NI": "Nicaragua",
+              "NE": "Niger",
+              "NG": "Nigeria",
+              "NU": "Niue",
+              "NF": "Norfolk Island",
+              "KP": "North Korea",
+              "MP": "Northern Mariana Islands",
+              "NO": "Norway",
+              "OM": "Oman",
+              "PK": "Pakistan",
+              "PW": "Palau",
+              "PS": "Palestinian Territories",
+              "PA": "Panama",
+              "PG": "Papua New Guinea",
+              "PY": "Paraguay",
+              "PE": "Peru",
+              "PH": "Philippines",
+              "PN": "Pitcairn Islands",
+              "PL": "Poland",
+              "PT": "Portugal",
+              "PR": "Puerto Rico",
+              "QA": "Qatar",
+              "RE": "R\u00e9union",
+              "RO": "Romania",
+              "RU": "Russia",
+              "RW": "Rwanda",
+              "VC": "Saint Vincent and the Grenadines",
+              "WS": "Samoa",
+              "SM": "San Marino",
+              "ST": "S\u00e3o Tom\u00e9 & Pr\u00edncipe",
+              "SA": "Saudi Arabia",
+              "SN": "Senegal",
+              "RS": "Serbia",
+              "SC": "Seychelles",
+              "SL": "Sierra Leone",
+              "SG": "Singapore",
+              "SX": "Sint Maarten",
+              "SK": "Slovakia",
+              "SI": "Slovenia",
+              "SB": "Solomon Islands",
+              "SO": "Somalia",
+              "ZA": "South Africa",
+              "GS": "South Georgia and the South Sandwich Islands",
+              "KR": "South Korea",
+              "SS": "South Sudan",
+              "ES": "Spain",
+              "LK": "Sri Lanka",
+              "BL": "St. Barth\u00e9lemy",
+              "SH": "St. Helena",
+              "KN": "St. Kitts & Nevis",
+              "LC": "St. Lucia",
+              "MF": "St. Martin",
+              "PM": "St. Pierre & Miquelon",
+              "SD": "Sudan",
+              "SR": "Suriname",
+              "SJ": "Svalbard & Jan Mayen",
+              "SZ": "Swaziland",
+              "SE": "Sweden",
+              "CH": "Switzerland",
+              "SY": "Syria",
+              "TW": "Taiwan",
+              "TJ": "Tajikistan",
+              "TZ": "Tanzania",
+              "TH": "Thailand",
+              "TL": "Timor-Leste",
+              "TG": "Togo",
+              "TK": "Tokelau",
+              "TO": "Tonga",
+              "TT": "Trinidad & Tobago",
+              "TA": "Tristan da Cunha",
+              "TN": "Tunisia",
+              "TR": "Turkey",
+              "TM": "Turkmenistan",
+              "TC": "Turks & Caicos Islands",
+              "TV": "Tuvalu",
+              "UM": "U.S. Minor Outlying Islands",
+              "VI": "U.S. Virgin Islands",
+              "UG": "Uganda",
+              "UA": "Ukraine",
+              "AE": "United Arab Emirates",
+              "GB": "United Kingdom",
+              "US": "United States",
+              "UY": "Uruguay",
+              "UZ": "Uzbekistan",
+              "VU": "Vanuatu",
+              "VA": "Vatican City",
+              "VE": "Venezuela",
+              "VN": "Vietnam",
+              "WF": "Wallis & Futuna",
+              "EH": "Western Sahara",
+              "YE": "Yemen",
+              "ZM": "Zambia",
+              "ZW": "Zimbabwe"
+          }
       },
-      "3": {
-        "id": 3,
-        "price": 330,
-        "savings": 30,
-        "volume": 3,
-        "service_type": "REGULAR",
-        "title": "Three job ad credits",
-        "total": 363,
-        "gst": 33
+      "taxonomies": {
+          "categories": {
+              "1": {
+                  "id": 1,
+                  "slug": "administration",
+                  "title": "Administration",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Administration.jpeg",
+                  "job_count": 268
+              },
+              "2": {
+                  "id": 2,
+                  "slug": "advocacy",
+                  "title": "Advocacy and Campaigns",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Advocacy+%26+Campaigns.jpeg",
+                  "job_count": 92
+              },
+              "3": {
+                  "id": 3,
+                  "slug": "agedcare",
+                  "title": "Aged Care and Seniors Rights",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Aged+Care.jpeg",
+                  "job_count": 299
+              },
+              "4": {
+                  "id": 4,
+                  "slug": "alcoholandotherdrugs",
+                  "title": "Alcohol and Other Drugs",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Alcohol+%26+Other+Drugs.jpeg",
+                  "job_count": 67
+              },
+              "5": {
+                  "id": 5,
+                  "slug": "animalwelfareandprotection",
+                  "title": "Animal Welfare and Protection",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Animal+Welfare.jpeg",
+                  "job_count": 35
+              },
+              "6": {
+                  "id": 6,
+                  "slug": "businessdevelopment",
+                  "title": "Business Development and Sales",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Business+Development.jpeg",
+                  "job_count": 99
+              },
+              "7": {
+                  "id": 7,
+                  "slug": "careandsupportservices",
+                  "title": "Care and Support Work",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Care+%26+Support+Work.jpeg",
+                  "job_count": 178
+              },
+              "8": {
+                  "id": 8,
+                  "slug": "coopsandcreditunions",
+                  "title": "Co-ops and Credit Unions",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Coops_&_Credit_Unions.jpg",
+                  "job_count": 3
+              },
+              "9": {
+                  "id": 9,
+                  "slug": "communicationsandmarketing",
+                  "title": "Communications and Marketing",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Comms_&_Marketing.jpg",
+                  "job_count": 160
+              },
+              "10": {
+                  "id": 10,
+                  "slug": "communityanddevelopment",
+                  "title": "Community Development",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Community_Development.jpeg.jpg",
+                  "job_count": 191
+              },
+              "11": {
+                  "id": 11,
+                  "slug": "conservationandmanagement",
+                  "title": "Conservation and Land Management",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Conservation_&_Land_Management.jpg",
+                  "job_count": 54
+              },
+              "12": {
+                  "id": 12,
+                  "slug": "corporatesocialresponsibility",
+                  "title": "Corporate Social Responsibility",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Corporate+Social+Responsibility.jpeg",
+                  "job_count": 7
+              },
+              "13": {
+                  "id": 13,
+                  "slug": "disabilityservices",
+                  "title": "Disability Services",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Disability+Services.jpeg",
+                  "job_count": 275
+              },
+              "14": {
+                  "id": 14,
+                  "slug": "earlychildhood",
+                  "title": "Early Childhood",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Early_Childhood.jpg",
+                  "job_count": 97
+              },
+              "15": {
+                  "id": 15,
+                  "slug": "ecotourism",
+                  "title": "Eco-Tourism",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Eco+Tourism.jpeg",
+                  "job_count": 4
+              },
+              "16": {
+                  "id": 16,
+                  "slug": "educationandtraining",
+                  "title": "Education and Training",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Education+%26+Training.jpeg",
+                  "job_count": 214
+              },
+              "17": {
+                  "id": 17,
+                  "slug": "environmentandsustainability",
+                  "title": "Environment and Sustainability",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Environmental+Sustainability.jpeg",
+                  "job_count": 149
+              },
+              "18": {
+                  "id": 18,
+                  "slug": "executiveseniormanagement",
+                  "title": "Executive and Senior Management",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Executive+Senior+Management.jpeg",
+                  "job_count": 108
+              },
+              "19": {
+                  "id": 19,
+                  "slug": "familyservices",
+                  "title": "Family Services",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Family_Services.jpg",
+                  "job_count": 330
+              },
+              "20": {
+                  "id": 20,
+                  "slug": "fairtradeorganicandecoretail",
+                  "title": "FairTrade and Organic",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Fairtrade_&_Organic.jpg",
+                  "job_count": 0
+              },
+              "21": {
+                  "id": 21,
+                  "slug": "financeandaccounting",
+                  "title": "Finance and Accounting",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Finance+and+Accounting.jpeg",
+                  "job_count": 91
+              },
+              "22": {
+                  "id": 22,
+                  "slug": "fundraising",
+                  "title": "Fundraising",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Fundraising.jpg",
+                  "job_count": 142
+              },
+              "23": {
+                  "id": 23,
+                  "slug": "glbt",
+                  "title": "LGBTQIA+",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/GLBTI+%26+Sexual+Health.jpeg",
+                  "job_count": 28
+              },
+              "24": {
+                  "id": 24,
+                  "slug": "greenarchitectureandproperty",
+                  "title": "Green Architecture\/Property",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Green+Architecture.jpeg",
+                  "job_count": 2
+              },
+              "25": {
+                  "id": 25,
+                  "slug": "greenenergy",
+                  "title": "Green Energy",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Green+Energy.jpeg",
+                  "job_count": 10
+              },
+              "26": {
+                  "id": 26,
+                  "slug": "greenproductsandservices",
+                  "title": "Green Products and Services",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Green_Products_&_Services.jpg",
+                  "job_count": 8
+              },
+              "27": {
+                  "id": 27,
+                  "slug": "healthcare",
+                  "title": "Health Care and Allied Health",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Health+Care+%26+Allied+Health.jpeg",
+                  "job_count": 386
+              },
+              "28": {
+                  "id": 28,
+                  "slug": "healthpromotion",
+                  "title": "Health Promotion",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Health_Promotion.jpg",
+                  "job_count": 79
+              },
+              "29": {
+                  "id": 29,
+                  "slug": "housing",
+                  "title": "Housing and Homelessness",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Housing_&_Homelessness.jpg",
+                  "job_count": 152
+              },
+              "30": {
+                  "id": 30,
+                  "slug": "retailandhospitality",
+                  "title": "Retail and Hospitality",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Retail_&_Hospitality.jpg",
+                  "job_count": 64
+              },
+              "31": {
+                  "id": 31,
+                  "slug": "hrandemploymentservices",
+                  "title": "HR and Employment Services",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/HR+%26+Employment+Services.jpeg",
+                  "job_count": 118
+              },
+              "32": {
+                  "id": 32,
+                  "slug": "indigenous",
+                  "title": "Indigenous",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Indigenous.jpeg",
+                  "job_count": 279
+              },
+              "33": {
+                  "id": 33,
+                  "slug": "internationalaidandevelopment",
+                  "title": "International Aid and Development",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/International+Development.jpeg",
+                  "job_count": 53
+              },
+              "34": {
+                  "id": 34,
+                  "slug": "itandcommunicationtechnology",
+                  "title": "Information Technology & Digital",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/IT+%26+Comms+Technology.jpeg",
+                  "job_count": 59
+              },
+              "35": {
+                  "id": 35,
+                  "slug": "legalandhumanrights",
+                  "title": "Legal and Human Rights",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Legal_&_Human_Rights.jpg",
+                  "job_count": 164
+              },
+              "36": {
+                  "id": 36,
+                  "slug": "management",
+                  "title": "Management",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Management.jpeg",
+                  "job_count": 428
+              },
+              "37": {
+                  "id": 37,
+                  "slug": "mediaartsandentertainment",
+                  "title": "Media and Arts",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Media+%26+Arts.jpeg",
+                  "job_count": 51
+              },
+              "38": {
+                  "id": 38,
+                  "slug": "medicalresearch",
+                  "title": "Medical Research",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Medical+Research.jpeg",
+                  "job_count": 32
+              },
+              "39": {
+                  "id": 39,
+                  "slug": "mentalhealthandcounselling",
+                  "title": "Mental Health and Counselling",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Mental+Health+%26+Counselling.jpg",
+                  "job_count": 446
+              },
+              "40": {
+                  "id": 40,
+                  "slug": "multiculturalismdiversity",
+                  "title": "Multiculturalism and Diversity",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Multiculturalism+%26+Diversity.jpeg",
+                  "job_count": 64
+              },
+              "41": {
+                  "id": 41,
+                  "slug": "nursing",
+                  "title": "Nursing",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Nursing.jpeg",
+                  "job_count": 146
+              },
+              "42": {
+                  "id": 42,
+                  "slug": "operationsriskmanagement",
+                  "title": "Operations and Risk Management",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Operations+%26+Risk+Managament.jpeg",
+                  "job_count": 206
+              },
+              "43": {
+                  "id": 43,
+                  "slug": "organicfarmingandgardening",
+                  "title": "Organic Farming and Gardening",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Organic_Farming_&_Gardening.jpg",
+                  "job_count": 12
+              },
+              "44": {
+                  "id": 44,
+                  "slug": "policyandresearch",
+                  "title": "Policy and Research",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Policy+%26+Research.jpeg",
+                  "job_count": 131
+              },
+              "45": {
+                  "id": 45,
+                  "slug": "projectmanagement",
+                  "title": "Project Management",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Project+Management.jpeg",
+                  "job_count": 312
+              },
+              "46": {
+                  "id": 46,
+                  "slug": "recyclingandwastemanagement",
+                  "title": "Recycling and Waste Management",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Recycling-Waste-Management.jpg",
+                  "job_count": 17
+              },
+              "47": {
+                  "id": 47,
+                  "slug": "socialwork",
+                  "title": "Social Work",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Social_Work.jpg",
+                  "job_count": 510
+              },
+              "48": {
+                  "id": 48,
+                  "slug": "sustainabletransport",
+                  "title": "Sustainable Transport",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Sustainable+Transport.jpeg",
+                  "job_count": 3
+              },
+              "49": {
+                  "id": 49,
+                  "slug": "tradesandservices",
+                  "title": "Trades and Services",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Trades+%26+Services.jpeg",
+                  "job_count": 32
+              },
+              "50": {
+                  "id": 50,
+                  "slug": "unionsandworkersrights",
+                  "title": "Unions and Workers Rights",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Unions_&_Workers_Rights.jpg",
+                  "job_count": 29
+              },
+              "51": {
+                  "id": 51,
+                  "slug": "volunteermanagement",
+                  "title": "Volunteer Management",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Volunteer-Management.jpg",
+                  "job_count": 40
+              },
+              "52": {
+                  "id": 52,
+                  "slug": "womensorganisationsandservices",
+                  "title": "Womens Organisations and Services",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Women's+Organisations+%26+Services.jpeg",
+                  "job_count": 120
+              },
+              "53": {
+                  "id": 53,
+                  "slug": "youthservices",
+                  "title": "Youth",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Youth.jpeg",
+                  "job_count": 336
+              },
+              "54": {
+                  "id": 54,
+                  "slug": "domesticfamilyviolence",
+                  "title": "Domestic & Family Violence",
+                  "archived": false,
+                  "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Domestic_and_Family_Violence.jpg",
+                  "job_count": 135
+              },
+              "55": {
+                  "id": 55,
+                  "slug": "events",
+                  "title": "Events Management",
+                  "archived": false,
+                  "image_url": "https:\/\/static.ethicaljobs.com.au\/assets\/web-responsive\/categories\/Events_Management.jpg",
+                  "job_count": 32
+              }
+          },
+          "locations": {
+              "1": {
+                  "id": 1,
+                  "slug": "VIC",
+                  "title": "Melbourne",
+                  "archived": false
+              },
+              "2": {
+                  "id": 2,
+                  "slug": "REGVIC",
+                  "title": "Regional VIC",
+                  "archived": false
+              },
+              "3": {
+                  "id": 3,
+                  "slug": "NSW",
+                  "title": "Sydney",
+                  "archived": false
+              },
+              "4": {
+                  "id": 4,
+                  "slug": "REGNSW",
+                  "title": "Regional NSW",
+                  "archived": false
+              },
+              "5": {
+                  "id": 5,
+                  "slug": "QLD",
+                  "title": "Brisbane & Gold Coast",
+                  "archived": false
+              },
+              "6": {
+                  "id": 6,
+                  "slug": "REGQLD",
+                  "title": "Regional QLD",
+                  "archived": false
+              },
+              "7": {
+                  "id": 7,
+                  "slug": "WA",
+                  "title": "Perth",
+                  "archived": false
+              },
+              "8": {
+                  "id": 8,
+                  "slug": "REGWA",
+                  "title": "Regional WA",
+                  "archived": false
+              },
+              "9": {
+                  "id": 9,
+                  "slug": "SA",
+                  "title": "Adelaide",
+                  "archived": false
+              },
+              "10": {
+                  "id": 10,
+                  "slug": "REGSA",
+                  "title": "Regional SA",
+                  "archived": false
+              },
+              "11": {
+                  "id": 11,
+                  "slug": "TAS",
+                  "title": "Hobart",
+                  "archived": false
+              },
+              "12": {
+                  "id": 12,
+                  "slug": "REGTAS",
+                  "title": "Regional TAS",
+                  "archived": false
+              },
+              "13": {
+                  "id": 13,
+                  "slug": "NT",
+                  "title": "Darwin",
+                  "archived": false
+              },
+              "14": {
+                  "id": 14,
+                  "slug": "REGNT",
+                  "title": "Regional NT",
+                  "archived": false
+              },
+              "15": {
+                  "id": 15,
+                  "slug": "ACT",
+                  "title": "Canberra & ACT",
+                  "archived": false
+              },
+              "16": {
+                  "id": 16,
+                  "slug": "AUSTRALIAWIDE",
+                  "title": "Australia-Wide",
+                  "archived": true
+              },
+              "17": {
+                  "id": 17,
+                  "slug": "INTERNATIONAL",
+                  "title": "International",
+                  "archived": false
+              }
+          },
+          "sectors": {
+              "1": {
+                  "id": 1,
+                  "slug": "Business and Private Sector",
+                  "title": "Business\/Private Sector",
+                  "archived": false
+              },
+              "2": {
+                  "id": 2,
+                  "slug": "Federal Government",
+                  "title": "Federal Government",
+                  "archived": false
+              },
+              "3": {
+                  "id": 3,
+                  "slug": "Local Government",
+                  "title": "Local Government",
+                  "archived": false
+              },
+              "4": {
+                  "id": 4,
+                  "slug": "Not For Profit (NFP)",
+                  "title": "Not For Profit (NFP)",
+                  "archived": false
+              },
+              "5": {
+                  "id": 5,
+                  "slug": "socialenterprise",
+                  "title": "Social Enterprise",
+                  "archived": false
+              },
+              "6": {
+                  "id": 6,
+                  "slug": "State Government",
+                  "title": "State Government",
+                  "archived": false
+              },
+              "7": {
+                  "id": 7,
+                  "slug": "university",
+                  "title": "University & Higher Education",
+                  "archived": false
+              }
+          },
+          "workTypes": {
+              "1": {
+                  "id": 1,
+                  "slug": "CASUAL",
+                  "title": "Casual",
+                  "archived": false
+              },
+              "2": {
+                  "id": 2,
+                  "slug": "CONTRACT",
+                  "title": "Contract",
+                  "archived": false
+              },
+              "3": {
+                  "id": 3,
+                  "slug": "FULLTIME",
+                  "title": "Full Time",
+                  "archived": false
+              },
+              "4": {
+                  "id": 4,
+                  "slug": "GRADUATE",
+                  "title": "Graduate",
+                  "archived": false
+              },
+              "5": {
+                  "id": 5,
+                  "slug": "PARTTIME",
+                  "title": "Part Time",
+                  "archived": false
+              },
+              "6": {
+                  "id": 6,
+                  "slug": "VOLUNTEER",
+                  "title": "Volunteer",
+                  "archived": false
+              },
+              "7": {
+                  "id": 7,
+                  "slug": "BOARDMEMBER",
+                  "title": "Board Member",
+                  "archived": false
+              },
+              "8": {
+                  "id": 8,
+                  "slug": "REMOTE",
+                  "title": "Remote \/ Work from Home",
+                  "archived": false
+              }
+          },
+          "orgTypes": {
+              "0cdee674-01e0-4c88-8bb5-764ea0d3f30b": {
+                  "id": "0cdee674-01e0-4c88-8bb5-764ea0d3f30b",
+                  "slug": "social-enterprise-for-profit",
+                  "title": "Social Enterprise (for-Profit)",
+                  "order": 3,
+                  "archived": false
+              },
+              "22bd4527-4fe2-47ce-85cf-d06e89631ae8": {
+                  "id": "22bd4527-4fe2-47ce-85cf-d06e89631ae8",
+                  "slug": "business-private-sector",
+                  "title": "Business \/ Private Sector",
+                  "order": 2,
+                  "archived": false
+              },
+              "23a88e5b-56b6-47f6-b0c9-071d7246ebee": {
+                  "id": "23a88e5b-56b6-47f6-b0c9-071d7246ebee",
+                  "slug": "un-multilateral-org",
+                  "title": "UN \/ Multilateral Org",
+                  "order": 13,
+                  "archived": false
+              },
+              "25406e7a-c7b4-4c42-a6d9-7790a4b16594": {
+                  "id": "25406e7a-c7b4-4c42-a6d9-7790a4b16594",
+                  "slug": "state-government",
+                  "title": "State Government",
+                  "order": 10,
+                  "archived": false
+              },
+              "642c32ff-0852-44e1-b98e-020b22f0d6d9": {
+                  "id": "642c32ff-0852-44e1-b98e-020b22f0d6d9",
+                  "slug": "recruitment-company",
+                  "title": "Recruitment Company",
+                  "order": 5,
+                  "archived": false
+              },
+              "8af76c9e-7165-45a1-966d-2908722671e0": {
+                  "id": "8af76c9e-7165-45a1-966d-2908722671e0",
+                  "slug": "university-tafe-higher-education",
+                  "title": "University \/ TAFE \/ Higher Education",
+                  "order": 7,
+                  "archived": false
+              },
+              "928d0972-d276-4905-96ec-2ceba83e1cbc": {
+                  "id": "928d0972-d276-4905-96ec-2ceba83e1cbc",
+                  "slug": "local-government-council",
+                  "title": "Local Government \/ Council",
+                  "order": 9,
+                  "archived": false
+              },
+              "ab23b076-16d1-4be3-a39b-61a8557ccc9a": {
+                  "id": "ab23b076-16d1-4be3-a39b-61a8557ccc9a",
+                  "slug": "social-enterprise-not-for-profit",
+                  "title": "Social Enterprise (Not-for-Profit)",
+                  "order": 4,
+                  "archived": false
+              },
+              "c78bbbd3-e70c-4627-906f-59ab6d6a0115": {
+                  "id": "c78bbbd3-e70c-4627-906f-59ab6d6a0115",
+                  "slug": "advertising-agency",
+                  "title": "Advertising Agency",
+                  "order": 6,
+                  "archived": false
+              },
+              "cc8e3b2c-e469-489f-b3b3-8960e05a4d88": {
+                  "id": "cc8e3b2c-e469-489f-b3b3-8960e05a4d88",
+                  "slug": "individual",
+                  "title": "Individual",
+                  "order": 14,
+                  "archived": false
+              },
+              "ed671f0f-14d6-4fdd-83bd-411cfb794e74": {
+                  "id": "ed671f0f-14d6-4fdd-83bd-411cfb794e74",
+                  "slug": "not-for-profit",
+                  "title": "Not-for-Profit",
+                  "order": 1,
+                  "archived": false
+              },
+              "eee445ee-d8b9-477a-925c-b284cbb2d204": {
+                  "id": "eee445ee-d8b9-477a-925c-b284cbb2d204",
+                  "slug": "trade-union",
+                  "title": "Trade Union",
+                  "order": 12,
+                  "archived": false
+              },
+              "f471fb21-b48e-4fa1-99c8-61fa221a296e": {
+                  "id": "f471fb21-b48e-4fa1-99c8-61fa221a296e",
+                  "slug": "federal-government",
+                  "title": "Federal Government",
+                  "order": 11,
+                  "archived": false
+              },
+              "f8f862b7-5f62-45fd-a6c2-a1d52989de84": {
+                  "id": "f8f862b7-5f62-45fd-a6c2-a1d52989de84",
+                  "slug": "kinder-primary-secondary-school",
+                  "title": "Kinder \/ Primary \/ Secondary School",
+                  "order": 8,
+                  "archived": false
+              }
+          }
       },
-      "4": {
-        "id": 4,
-        "price": 405,
-        "savings": 30,
-        "volume": 3,
-        "service_type": "MANAGED",
-        "title": "Three job ad credits",
-        "total": 445.5,
-        "gst": 40.5
-      },
-      "5": {
-        "id": 5,
-        "price": 530,
-        "savings": 70,
-        "volume": 5,
-        "service_type": "REGULAR",
-        "title": "Five job ad credits",
-        "total": 583,
-        "gst": 53
-      },
-      "6": {
-        "id": 6,
-        "price": 655,
-        "savings": 70,
-        "volume": 5,
-        "service_type": "MANAGED",
-        "title": "Five job ad credits",
-        "total": 720.5,
-        "gst": 65.5
-      },
-      "7": {
-        "id": 7,
-        "price": 1010,
-        "savings": 190,
-        "volume": 10,
-        "service_type": "REGULAR",
-        "title": "Ten job ad credits",
-        "total": 1111,
-        "gst": 101
-      },
-      "8": {
-        "id": 8,
-        "price": 1260,
-        "savings": 190,
-        "volume": 10,
-        "service_type": "MANAGED",
-        "title": "Ten job ad credits",
-        "total": 1386,
-        "gst": 126
-      },
-      "9": {
-        "id": 9,
-        "price": 2910,
-        "savings": 690,
-        "volume": 30,
-        "service_type": "REGULAR",
-        "title": "Thirty job ad credits",
-        "total": 3201,
-        "gst": 291
-      },
-      "10": {
-        "id": 10,
-        "price": 3660,
-        "savings": 690,
-        "volume": 30,
-        "service_type": "MANAGED",
-        "title": "Thirty job ad credits",
-        "total": 4026,
-        "gst": 366
+      "top-employers": [
+          {
+              "uid": "beyondblue",
+              "name": "Beyond Blue",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1553834430_deNZo_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1553834430_deNZo_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1553834430_deNZo_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1553834430_deNZo_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1553834430_deNZo_.jpeg"
+              },
+              "uri": "jobs-at-beyond-blue"
+          },
+          {
+              "uid": "TSANational",
+              "name": "The Salvation Army ",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1575435942_riOBJ_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1575435942_riOBJ_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1575435942_riOBJ_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1575435942_riOBJ_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1575435942_riOBJ_.jpeg"
+              },
+              "uri": "jobs-at-the-salvation-army"
+          },
+          {
+              "uid": "Uniting",
+              "name": "Uniting (NSW.ACT)",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1602721856_qyjpZ_.png",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1602721856_qyjpZ_.png",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1602721856_qyjpZ_.png",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1602721856_qyjpZ_.png",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1602721856_qyjpZ_.png"
+              },
+              "uri": "jobs?employer=Uniting (NSW.ACT)"
+          },
+          {
+              "uid": "LaunchHousing",
+              "name": "Launch Housing",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1543211150_JMspv_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1543211150_JMspv_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1543211150_JMspv_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1543211150_JMspv_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1543211150_JMspv_.jpeg"
+              },
+              "uri": "jobs-at-launch-housing"
+          },
+          {
+              "uid": "BeaumontConsulting",
+              "name": "Beaumont People",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1509066708_xazes_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1509066708_xazes_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1509066708_xazes_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1509066708_xazes_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1509066708_xazes_.jpeg"
+              },
+              "uri": "jobs-at-beaumont-people"
+          },
+          {
+              "uid": "WMV",
+              "name": "Uniting (Victoria and Tasmania) Limited",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1499834574_dE0gF_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1499834574_dE0gF_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1499834574_dE0gF_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1499834574_dE0gF_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1499834574_dE0gF_.jpeg"
+              },
+              "uri": "jobs-at-uniting-victoria-and-tasmania-limited"
+          },
+          {
+              "uid": "OzChild",
+              "name": "OzChild",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1580881042_5GbuF_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1580881042_5GbuF_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1580881042_5GbuF_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1580881042_5GbuF_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1580881042_5GbuF_.jpeg"
+              },
+              "uri": "jobs?employer=OzChild"
+          },
+          {
+              "uid": "VictorianPrideCentre",
+              "name": "Victorian Pride Centre",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1644375529_7rXcN_.png",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1644375529_7rXcN_.png",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1644375529_7rXcN_.png",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1644375529_7rXcN_.png",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1644375529_7rXcN_.png"
+              },
+              "uri": "jobs-at-victorian-pride-centre"
+          },
+          {
+              "uid": "TBS2021",
+              "name": "The Benevolent Society",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1490055428_XBfaW_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1490055428_XBfaW_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1490055428_XBfaW_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1490055428_XBfaW_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1490055428_XBfaW_.jpeg"
+              },
+              "uri": "jobs-at-the-benevolent-society"
+          },
+          {
+              "uid": "climatecouncil",
+              "name": "Climate Council",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1546409616_WHbpw_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1546409616_WHbpw_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1546409616_WHbpw_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1546409616_WHbpw_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1546409616_WHbpw_.jpeg"
+              },
+              "uri": "jobs-at-climate-council"
+          },
+          {
+              "uid": "NGO",
+              "name": "NGO Recruitment",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1585027582_9dhyh_.jpg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1585027582_9dhyh_.jpg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1585027582_9dhyh_.jpg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1585027582_9dhyh_.jpg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1585027582_9dhyh_.jpg"
+              },
+              "uri": "jobs-at-ngo-recruitment"
+          },
+          {
+              "uid": "neami",
+              "name": "Neami National",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1687406453_eEQ9b_.png",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1687406453_eEQ9b_.png",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1687406453_eEQ9b_.png",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1687406453_eEQ9b_.png",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1687406453_eEQ9b_.png"
+              },
+              "uri": "jobs-at-neami-national"
+          },
+          {
+              "uid": "VPTA",
+              "name": "Victorian Public Tenants Association",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1638942402_CvAQS_.png",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1638942402_CvAQS_.png",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1638942402_CvAQS_.png",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1638942402_CvAQS_.png",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1638942402_CvAQS_.png"
+              },
+              "uri": "jobs-at-victorian-public-tenants-association"
+          },
+          {
+              "uid": "thewhitelumgroup",
+              "name": "Alinea International",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1638943243_birl2_.jpg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1638943243_birl2_.jpg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1638943243_birl2_.jpg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1638943243_birl2_.jpg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1638943243_birl2_.jpg"
+              },
+              "uri": "jobs-at-alinea-international"
+          },
+          {
+              "uid": "DCJMain",
+              "name": "NSW Department of Communities and Justice",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1617952652_3HcAp_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1617952652_3HcAp_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1617952652_3HcAp_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1617952652_3HcAp_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1617952652_3HcAp_.jpeg"
+              },
+              "uri": "jobs-at-nsw-department-of-communities-and-justice"
+          },
+          {
+              "uid": "ACF",
+              "name": "Australian Conservation Foundation",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1571720539_8BkK0_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1571720539_8BkK0_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1571720539_8BkK0_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1571720539_8BkK0_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1571720539_8BkK0_.jpeg"
+              },
+              "uri": "jobs-at-australian-conservation-foundation"
+          },
+          {
+              "uid": "AlzheimersQLD",
+              "name": "Alzheimer\u2019s Queensland",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1696470289_a5uFf_.png",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1696470289_a5uFf_.png",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1696470289_a5uFf_.png",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1696470289_a5uFf_.png",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1696470289_a5uFf_.png"
+              },
+              "uri": "jobs-at-alzheimers-queensland"
+          },
+          {
+              "uid": "womenslegalvic",
+              "name": "Women's Legal Service Victoria",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1491202387_01Bw6_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1491202387_01Bw6_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1491202387_01Bw6_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1491202387_01Bw6_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1491202387_01Bw6_.jpeg"
+              },
+              "uri": "jobs-at-womens-legal-service-victoria"
+          },
+          {
+              "uid": "AusRedCross",
+              "name": "Australian Red Cross",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1654155327_3arf7_.jpg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1654155327_3arf7_.jpg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1654155327_3arf7_.jpg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1654155327_3arf7_.jpg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1654155327_3arf7_.jpg"
+              },
+              "uri": "jobs-at-australian-red-cross"
+          },
+          {
+              "uid": "AMCS",
+              "name": "Australian Marine Conservation Society",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1526019185_WYHYA_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1526019185_WYHYA_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1526019185_WYHYA_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1526019185_WYHYA_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1526019185_WYHYA_.jpeg"
+              },
+              "uri": "jobs-at-australian-marine-conservation-society"
+          },
+          {
+              "uid": "WM",
+              "name": "Wesley Mission",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1581488231_N5M1C_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1581488231_N5M1C_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1581488231_N5M1C_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1581488231_N5M1C_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1581488231_N5M1C_.jpeg"
+              },
+              "uri": "jobs-at-wesley-mission"
+          },
+          {
+              "uid": "anglicarevic",
+              "name": "Anglicare Victoria",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1578462783_xoBqd_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1578462783_xoBqd_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1578462783_xoBqd_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1578462783_xoBqd_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1578462783_xoBqd_.jpeg"
+              },
+              "uri": "jobs-at-anglicare-victoria"
+          },
+          {
+              "uid": "OAICumww",
+              "name": "Office of the Australian Information Commissioner",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1539318964_7mPHi_.jpeg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1539318964_7mPHi_.jpeg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1539318964_7mPHi_.jpeg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1539318964_7mPHi_.jpeg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1539318964_7mPHi_.jpeg"
+              },
+              "uri": "jobs-at-office-of-the-australian-information-commissioner"
+          },
+          {
+              "uid": "VACCA",
+              "name": "Victorian Aboriginal Child Care Agency",
+              "logo_variant_urls": {
+                  "social": "https:\/\/static.ethicaljobs.com.au\/media\/social\/1598589234_CWvu8_.jpg",
+                  "large": "https:\/\/static.ethicaljobs.com.au\/media\/large\/1598589234_CWvu8_.jpg",
+                  "large-x2": "https:\/\/static.ethicaljobs.com.au\/media\/large-x2\/1598589234_CWvu8_.jpg",
+                  "small": "https:\/\/static.ethicaljobs.com.au\/media\/small\/1598589234_CWvu8_.jpg",
+                  "small-x2": "https:\/\/static.ethicaljobs.com.au\/media\/small-x2\/1598589234_CWvu8_.jpg"
+              },
+              "uri": "jobs?employer=Victorian Aboriginal Child Care Agency"
+          }
+      ],
+      "top-categories": [
+          {
+              "id": 47,
+              "title": "Social Work",
+              "slug": "socialwork",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Social_Work.jpg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "69660",
+              "category_id": 47,
+              "job_count": 510
+          },
+          {
+              "id": 45,
+              "title": "Project Management",
+              "slug": "projectmanagement",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Project+Management.jpeg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "67390",
+              "category_id": 45,
+              "job_count": 312
+          },
+          {
+              "id": 36,
+              "title": "Management",
+              "slug": "management",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Management.jpeg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "66007",
+              "category_id": 36,
+              "job_count": 428
+          },
+          {
+              "id": 39,
+              "title": "Mental Health and Counselling",
+              "slug": "mentalhealthandcounselling",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Mental+Health+%26+Counselling.jpg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "53094",
+              "category_id": 39,
+              "job_count": 446
+          },
+          {
+              "id": 1,
+              "title": "Administration",
+              "slug": "administration",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Administration.jpeg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "51671",
+              "category_id": 1,
+              "job_count": 268
+          },
+          {
+              "id": 19,
+              "title": "Family Services",
+              "slug": "familyservices",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Family_Services.jpg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "45119",
+              "category_id": 19,
+              "job_count": 330
+          },
+          {
+              "id": 53,
+              "title": "Youth",
+              "slug": "youthservices",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Youth.jpeg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "39202",
+              "category_id": 53,
+              "job_count": 336
+          },
+          {
+              "id": 44,
+              "title": "Policy and Research",
+              "slug": "policyandresearch",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Policy+%26+Research.jpeg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "38677",
+              "category_id": 44,
+              "job_count": 131
+          },
+          {
+              "id": 17,
+              "title": "Environment and Sustainability",
+              "slug": "environmentandsustainability",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Environmental+Sustainability.jpeg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "38477",
+              "category_id": 17,
+              "job_count": 149
+          },
+          {
+              "id": 10,
+              "title": "Community Development",
+              "slug": "communityanddevelopment",
+              "image_url": "https:\/\/ethical-jobs.s3-ap-southeast-2.amazonaws.com\/assets\/web-responsive\/categories\/Community_Development.jpeg.jpg",
+              "created_at": null,
+              "updated_at": null,
+              "deleted_at": null,
+              "archived": false,
+              "totalViews": "37325",
+              "category_id": 10,
+              "job_count": 191
+          }
+      ],
+      "questions": [
+          {
+              "id": 24,
+              "question": "Do you have full and unrestricted rights to work in Australia?",
+              "alias": "Unrestricted rights to work in Australia",
+              "category": "Work Eligibility",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 25,
+              "question": "Do you have a current full Australian driver's licence?",
+              "alias": "Australian driver's licence",
+              "category": "Licence",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 26,
+              "question": "Do you have access to a current registered motor vehicle?",
+              "alias": "Access to a motor vehicle",
+              "category": "Travel",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 27,
+              "question": "Do you possess a current satisfactory National Police Clearance Certificate?",
+              "alias": "National Police Clearance Certificate",
+              "category": "Checks",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 28,
+              "question": "Do you possess a current satisfactory Working With Children Check?",
+              "alias": "Working With Children Check",
+              "category": "Checks",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 29,
+              "question": "Do you possess a current satisfactory NDIS Worker Screening Check?",
+              "alias": "NDIS Worker Screening Check",
+              "category": "Checks",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 30,
+              "question": "Do you have <x> year(s) of relevant professional experience?",
+              "alias": "Relevant professional experience",
+              "category": "Experience",
+              "blanks": "{\"x\": {\"type\": \"number\", \"placeholder\": \"Insert number\"}}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 31,
+              "question": "Do you have experience working with Aboriginal and\/or Torres Strait Islander Communities?",
+              "alias": "Worked with Aboriginal and\/or Torres Strait Islander Communities",
+              "category": "Experience",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 32,
+              "question": "Do you have fluent oral and written communication skills in <x>?",
+              "alias": "Possess required language skills",
+              "category": "Language",
+              "blanks": "{\"x\": {\"type\": \"text\", \"placeholder\": \"Insert language\"}}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 33,
+              "question": "Have you completed a <x> in <y> or a related field?",
+              "alias": "Completed required qualifications",
+              "category": "Qualifications",
+              "blanks": "{\"x\": {\"type\": \"text\", \"placeholder\": \"Insert qualification\"}, \"y\": {\"type\": \"text\", \"placeholder\": \"Insert field\"}}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 34,
+              "question": "Do you have a current First Aid Certificate?",
+              "alias": "First Aid Certificate",
+              "category": "Qualifications",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 35,
+              "question": "Do you have a current CPR Certificate?",
+              "alias": "CPR Certificate",
+              "category": "Qualifications",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          },
+          {
+              "id": 36,
+              "question": "Are you available to work different rostered shifts, weekends, evening shifts and split shifts?",
+              "alias": "Nonstandard shift availability",
+              "category": "Work availability",
+              "blanks": "{}",
+              "created_at": null,
+              "updated_at": null
+          }
+      ],
+      "salary-ranges": {
+          "ANNUAL": [
+              {
+                  "min": "0.00",
+                  "max": "4999.00"
+              },
+              {
+                  "min": "5000.00",
+                  "max": "9999.00"
+              },
+              {
+                  "min": "10000.00",
+                  "max": "14999.00"
+              },
+              {
+                  "min": "15000.00",
+                  "max": "19999.00"
+              },
+              {
+                  "min": "20000.00",
+                  "max": "24999.00"
+              },
+              {
+                  "min": "25000.00",
+                  "max": "29999.00"
+              },
+              {
+                  "min": "30000.00",
+                  "max": "34999.00"
+              },
+              {
+                  "min": "35000.00",
+                  "max": "39999.00"
+              },
+              {
+                  "min": "40000.00",
+                  "max": "44999.00"
+              },
+              {
+                  "min": "45000.00",
+                  "max": "49999.00"
+              },
+              {
+                  "min": "50000.00",
+                  "max": "54999.00"
+              },
+              {
+                  "min": "55000.00",
+                  "max": "59999.00"
+              },
+              {
+                  "min": "60000.00",
+                  "max": "64999.00"
+              },
+              {
+                  "min": "65000.00",
+                  "max": "69999.00"
+              },
+              {
+                  "min": "70000.00",
+                  "max": "74999.00"
+              },
+              {
+                  "min": "75000.00",
+                  "max": "79999.00"
+              },
+              {
+                  "min": "80000.00",
+                  "max": "84999.00"
+              },
+              {
+                  "min": "85000.00",
+                  "max": "89999.00"
+              },
+              {
+                  "min": "90000.00",
+                  "max": "94999.00"
+              },
+              {
+                  "min": "95000.00",
+                  "max": "99999.00"
+              },
+              {
+                  "min": "100000.00",
+                  "max": "109999.00"
+              },
+              {
+                  "min": "110000.00",
+                  "max": "119999.00"
+              },
+              {
+                  "min": "120000.00",
+                  "max": "129999.00"
+              },
+              {
+                  "min": "130000.00",
+                  "max": "139999.00"
+              },
+              {
+                  "min": "140000.00",
+                  "max": "149999.00"
+              },
+              {
+                  "min": "150000.00",
+                  "max": "159999.00"
+              },
+              {
+                  "min": "160000.00",
+                  "max": "169999.00"
+              },
+              {
+                  "min": "170000.00",
+                  "max": "179999.00"
+              },
+              {
+                  "min": "180000.00",
+                  "max": "189999.00"
+              },
+              {
+                  "min": "190000.00",
+                  "max": "199999.00"
+              },
+              {
+                  "min": "200000.00",
+                  "max": "-1"
+              }
+          ],
+          "HOURLY_RATE": [
+              {
+                  "min": "0.00",
+                  "max": "4.99"
+              },
+              {
+                  "min": "5.00",
+                  "max": "9.99"
+              },
+              {
+                  "min": "10.00",
+                  "max": "14.99"
+              },
+              {
+                  "min": "15.00",
+                  "max": "19.99"
+              },
+              {
+                  "min": "20.00",
+                  "max": "24.99"
+              },
+              {
+                  "min": "25.00",
+                  "max": "29.99"
+              },
+              {
+                  "min": "30.00",
+                  "max": "34.99"
+              },
+              {
+                  "min": "35.00",
+                  "max": "39.99"
+              },
+              {
+                  "min": "40.00",
+                  "max": "44.99"
+              },
+              {
+                  "min": "45.00",
+                  "max": "49.99"
+              },
+              {
+                  "min": "50.00",
+                  "max": "54.99"
+              },
+              {
+                  "min": "55.00",
+                  "max": "59.99"
+              },
+              {
+                  "min": "60.00",
+                  "max": "64.99"
+              },
+              {
+                  "min": "65.00",
+                  "max": "69.99"
+              },
+              {
+                  "min": "70.00",
+                  "max": "74.99"
+              },
+              {
+                  "min": "75.00",
+                  "max": "79.99"
+              },
+              {
+                  "min": "80.00",
+                  "max": "84.99"
+              },
+              {
+                  "min": "85.00",
+                  "max": "89.99"
+              },
+              {
+                  "min": "90.00",
+                  "max": "94.99"
+              },
+              {
+                  "min": "95.00",
+                  "max": "99.99"
+              },
+              {
+                  "min": "100.00",
+                  "max": "-1"
+              }
+          ]
       }
-    },
-    "enumerables": {
-      "jobStatus": {
-        "DRAFT": "Draft",
-        "PENDING": "Pending approval",
-        "APPROVED": "Approved"
-      },
-      "jobSource": {
-        "EMPLOYERS": "Employers",
-        "AUTOPOST": "Autopost",
-        "STAFF": "Staff"
-      },
-      "countries": {
-        "AF": "Afghanistan",
-        "AX": "\u00c5land Islands",
-        "AL": "Albania",
-        "DZ": "Algeria",
-        "AS": "American Samoa",
-        "AD": "Andorra",
-        "AO": "Angola",
-        "AI": "Anguilla",
-        "AQ": "Antarctica",
-        "AG": "Antigua & Barbuda",
-        "AR": "Argentina",
-        "AM": "Armenia",
-        "AW": "Aruba",
-        "AC": "Ascension Island",
-        "AU": "Australia",
-        "AT": "Austria",
-        "AZ": "Azerbaijan",
-        "BS": "Bahamas",
-        "BH": "Bahrain",
-        "BD": "Bangladesh",
-        "BB": "Barbados",
-        "BY": "Belarus",
-        "BE": "Belgium",
-        "BZ": "Belize",
-        "BJ": "Benin",
-        "BM": "Bermuda",
-        "BT": "Bhutan",
-        "BO": "Bolivia",
-        "BA": "Bosnia & Herzegovina",
-        "BW": "Botswana",
-        "BR": "Brazil",
-        "IO": "British Indian Ocean Territory",
-        "VG": "British Virgin Islands",
-        "BN": "Brunei",
-        "BG": "Bulgaria",
-        "BF": "Burkina Faso",
-        "BI": "Burundi",
-        "KH": "Cambodia",
-        "CM": "Cameroon",
-        "CA": "Canada",
-        "IC": "Canary Islands",
-        "CV": "Cape Verde",
-        "BQ": "Caribbean Netherlands",
-        "KY": "Cayman Islands",
-        "CF": "Central African Republic",
-        "EA": "Ceuta & Melilla",
-        "TD": "Chad",
-        "CL": "Chile",
-        "CN": "China",
-        "CX": "Christmas Island",
-        "CC": "Cocos (Keeling) Islands",
-        "CO": "Colombia",
-        "KM": "Comoros",
-        "CG": "Congo - Brazzaville",
-        "CD": "Congo - Kinshasa",
-        "CK": "Cook Islands",
-        "CR": "Costa Rica",
-        "CI": "C\u00f4te d\u2019Ivoire",
-        "HR": "Croatia",
-        "CU": "Cuba",
-        "CW": "Cura\u00e7ao",
-        "CY": "Cyprus",
-        "CZ": "Czech Republic",
-        "DK": "Denmark",
-        "DG": "Diego Garcia",
-        "DJ": "Djibouti",
-        "DM": "Dominica",
-        "DO": "Dominican Republic",
-        "EC": "Ecuador",
-        "EG": "Egypt",
-        "SV": "El Salvador",
-        "GQ": "Equatorial Guinea",
-        "ER": "Eritrea",
-        "EE": "Estonia",
-        "ET": "Ethiopia",
-        "FK": "Falkland Islands",
-        "FO": "Faroe Islands",
-        "FJ": "Fiji",
-        "FI": "Finland",
-        "FR": "France",
-        "GF": "French Guiana",
-        "PF": "French Polynesia",
-        "TF": "French Southern Territories",
-        "GA": "Gabon",
-        "GM": "Gambia",
-        "GE": "Georgia",
-        "DE": "Germany",
-        "GH": "Ghana",
-        "GI": "Gibraltar",
-        "GR": "Greece",
-        "GL": "Greenland",
-        "GD": "Grenada",
-        "GP": "Guadeloupe",
-        "GU": "Guam",
-        "GT": "Guatemala",
-        "GG": "Guernsey",
-        "GN": "Guinea",
-        "GW": "Guinea-Bissau",
-        "GY": "Guyana",
-        "HT": "Haiti",
-        "HN": "Honduras",
-        "HK": "Hong Kong SAR China",
-        "HU": "Hungary",
-        "IS": "Iceland",
-        "IN": "India",
-        "ID": "Indonesia",
-        "IR": "Iran",
-        "IQ": "Iraq",
-        "IE": "Ireland",
-        "IM": "Isle of Man",
-        "IL": "Israel",
-        "IT": "Italy",
-        "JM": "Jamaica",
-        "JP": "Japan",
-        "JE": "Jersey",
-        "JO": "Jordan",
-        "KZ": "Kazakhstan",
-        "KE": "Kenya",
-        "KI": "Kiribati",
-        "XK": "Kosovo",
-        "KW": "Kuwait",
-        "KG": "Kyrgyzstan",
-        "LA": "Laos",
-        "LV": "Latvia",
-        "LB": "Lebanon",
-        "LS": "Lesotho",
-        "LR": "Liberia",
-        "LY": "Libya",
-        "LI": "Liechtenstein",
-        "LT": "Lithuania",
-        "LU": "Luxembourg",
-        "MO": "Macau SAR China",
-        "MK": "Macedonia",
-        "MG": "Madagascar",
-        "MW": "Malawi",
-        "MY": "Malaysia",
-        "MV": "Maldives",
-        "ML": "Mali",
-        "MT": "Malta",
-        "MH": "Marshall Islands",
-        "MQ": "Martinique",
-        "MR": "Mauritania",
-        "MU": "Mauritius",
-        "YT": "Mayotte",
-        "MX": "Mexico",
-        "FM": "Micronesia",
-        "MD": "Moldova",
-        "MC": "Monaco",
-        "MN": "Mongolia",
-        "ME": "Montenegro",
-        "MS": "Montserrat",
-        "MA": "Morocco",
-        "MZ": "Mozambique",
-        "MM": "Myanmar (Burma)",
-        "NA": "Namibia",
-        "NR": "Nauru",
-        "NP": "Nepal",
-        "NL": "Netherlands",
-        "NC": "New Caledonia",
-        "NZ": "New Zealand",
-        "NI": "Nicaragua",
-        "NE": "Niger",
-        "NG": "Nigeria",
-        "NU": "Niue",
-        "NF": "Norfolk Island",
-        "KP": "North Korea",
-        "MP": "Northern Mariana Islands",
-        "NO": "Norway",
-        "OM": "Oman",
-        "PK": "Pakistan",
-        "PW": "Palau",
-        "PS": "Palestinian Territories",
-        "PA": "Panama",
-        "PG": "Papua New Guinea",
-        "PY": "Paraguay",
-        "PE": "Peru",
-        "PH": "Philippines",
-        "PN": "Pitcairn Islands",
-        "PL": "Poland",
-        "PT": "Portugal",
-        "PR": "Puerto Rico",
-        "QA": "Qatar",
-        "RE": "R\u00e9union",
-        "RO": "Romania",
-        "RU": "Russia",
-        "RW": "Rwanda",
-        "VC": "Saint Vincent and the Grenadines",
-        "WS": "Samoa",
-        "SM": "San Marino",
-        "ST": "S\u00e3o Tom\u00e9 & Pr\u00edncipe",
-        "SA": "Saudi Arabia",
-        "SN": "Senegal",
-        "RS": "Serbia",
-        "SC": "Seychelles",
-        "SL": "Sierra Leone",
-        "SG": "Singapore",
-        "SX": "Sint Maarten",
-        "SK": "Slovakia",
-        "SI": "Slovenia",
-        "SB": "Solomon Islands",
-        "SO": "Somalia",
-        "ZA": "South Africa",
-        "GS": "South Georgia and the South Sandwich Islands",
-        "KR": "South Korea",
-        "SS": "South Sudan",
-        "ES": "Spain",
-        "LK": "Sri Lanka",
-        "BL": "St. Barth\u00e9lemy",
-        "SH": "St. Helena",
-        "KN": "St. Kitts & Nevis",
-        "LC": "St. Lucia",
-        "MF": "St. Martin",
-        "PM": "St. Pierre & Miquelon",
-        "SD": "Sudan",
-        "SR": "Suriname",
-        "SJ": "Svalbard & Jan Mayen",
-        "SZ": "Swaziland",
-        "SE": "Sweden",
-        "CH": "Switzerland",
-        "SY": "Syria",
-        "TW": "Taiwan",
-        "TJ": "Tajikistan",
-        "TZ": "Tanzania",
-        "TH": "Thailand",
-        "TL": "Timor-Leste",
-        "TG": "Togo",
-        "TK": "Tokelau",
-        "TO": "Tonga",
-        "TT": "Trinidad & Tobago",
-        "TA": "Tristan da Cunha",
-        "TN": "Tunisia",
-        "TR": "Turkey",
-        "TM": "Turkmenistan",
-        "TC": "Turks & Caicos Islands",
-        "TV": "Tuvalu",
-        "UM": "U.S. Minor Outlying Islands",
-        "VI": "U.S. Virgin Islands",
-        "UG": "Uganda",
-        "UA": "Ukraine",
-        "AE": "United Arab Emirates",
-        "GB": "United Kingdom",
-        "US": "United States",
-        "UY": "Uruguay",
-        "UZ": "Uzbekistan",
-        "VU": "Vanuatu",
-        "VA": "Vatican City",
-        "VE": "Venezuela",
-        "VN": "Vietnam",
-        "WF": "Wallis & Futuna",
-        "EH": "Western Sahara",
-        "YE": "Yemen",
-        "ZM": "Zambia",
-        "ZW": "Zimbabwe"
-      }
-    },
-    "taxonomies": {
-      "categories": {
-        "1": {
-          "id": 1,
-          "slug": "administration",
-          "title": "Administration",
-          "job_count": 156
-        },
-        "2": {
-          "id": 2,
-          "slug": "advocacy",
-          "title": "Advocacy and Campaigns",
-          "job_count": 87
-        },
-        "3": {
-          "id": 3,
-          "slug": "agedcare",
-          "title": "Aged Care and Seniors Rights",
-          "job_count": 48
-        },
-        "4": {
-          "id": 4,
-          "slug": "alcoholandotherdrugs",
-          "title": "Alcohol and Other Drugs",
-          "job_count": 53
-        },
-        "5": {
-          "id": 5,
-          "slug": "animalwelfareandprotection",
-          "title": "Animal Welfare and Protection",
-          "job_count": 8
-        },
-        "6": {
-          "id": 6,
-          "slug": "businessdevelopment",
-          "title": "Business Development and Sales",
-          "job_count": 62
-        },
-        "7": {
-          "id": 7,
-          "slug": "careandsupportservices",
-          "title": "Care and Support Work",
-          "job_count": 75
-        },
-        "8": {
-          "id": 8,
-          "slug": "coopsandcreditunions",
-          "title": "Co-ops and Credit Unions",
-          "job_count": 1
-        },
-        "9": {
-          "id": 9,
-          "slug": "communicationsandmarketing",
-          "title": "Communications and Marketing",
-          "job_count": 129
-        },
-        "10": {
-          "id": 10,
-          "slug": "communityanddevelopment",
-          "title": "Community Development",
-          "job_count": 68
-        },
-        "11": {
-          "id": 11,
-          "slug": "conservationandmanagement",
-          "title": "Conservation and Land Management",
-          "job_count": 14
-        },
-        "12": {
-          "id": 12,
-          "slug": "corporatesocialresponsibility",
-          "title": "Corporate Social Responsibility",
-          "job_count": 15
-        },
-        "13": {
-          "id": 13,
-          "slug": "disabilityservices",
-          "title": "Disability Services",
-          "job_count": 185
-        },
-        "14": {
-          "id": 14,
-          "slug": "earlychildhood",
-          "title": "Early Childhood",
-          "job_count": 35
-        },
-        "15": {
-          "id": 15,
-          "slug": "ecotourism",
-          "title": "Eco-Tourism",
-          "job_count": 1
-        },
-        "16": {
-          "id": 16,
-          "slug": "educationandtraining",
-          "title": "Education and Training",
-          "job_count": 130
-        },
-        "17": {
-          "id": 17,
-          "slug": "environmentandsustainability",
-          "title": "Environment and Sustainability",
-          "job_count": 63
-        },
-        "18": {
-          "id": 18,
-          "slug": "executiveseniormanagement",
-          "title": "Executive and Senior Management",
-          "job_count": 81
-        },
-        "19": {
-          "id": 19,
-          "slug": "familyservices",
-          "title": "Family Services",
-          "job_count": 299
-        },
-        "20": {
-          "id": 20,
-          "slug": "fairtradeorganicandecoretail",
-          "title": "FairTrade and Organic",
-          "job_count": 3
-        },
-        "21": {
-          "id": 21,
-          "slug": "financeandaccounting",
-          "title": "Finance and Accounting",
-          "job_count": 47
-        },
-        "22": {
-          "id": 22,
-          "slug": "fundraising",
-          "title": "Fundraising",
-          "job_count": 108
-        },
-        "23": {
-          "id": 23,
-          "slug": "glbt",
-          "title": "GLBTI and Sexual Health",
-          "job_count": 15
-        },
-        "24": {
-          "id": 24,
-          "slug": "greenarchitectureandproperty",
-          "title": "Green Architecture\/Property",
-          "job_count": 7
-        },
-        "25": {
-          "id": 25,
-          "slug": "greenenergy",
-          "title": "Green Energy",
-          "job_count": 6
-        },
-        "26": {
-          "id": 26,
-          "slug": "greenproductsandservices",
-          "title": "Green Products and Services",
-          "job_count": 8
-        },
-        "27": {
-          "id": 27,
-          "slug": "healthcare",
-          "title": "Health Care and Allied Health",
-          "job_count": 112
-        },
-        "28": {
-          "id": 28,
-          "slug": "healthpromotion",
-          "title": "Health Promotion",
-          "job_count": 60
-        },
-        "29": {
-          "id": 29,
-          "slug": "housing",
-          "title": "Housing and Homelessness",
-          "job_count": 78
-        },
-        "30": {
-          "id": 30,
-          "slug": "customerservice",
-          "title": "Retail and Hospitality",
-          "job_count": 16
-        },
-        "31": {
-          "id": 31,
-          "slug": "hrandemploymentservices",
-          "title": "HR and Employment Services",
-          "job_count": 71
-        },
-        "32": {
-          "id": 32,
-          "slug": "indigenous",
-          "title": "Indigenous",
-          "job_count": 149
-        },
-        "33": {
-          "id": 33,
-          "slug": "internationalaidandevelopment",
-          "title": "International Aid and Development",
-          "job_count": 74
-        },
-        "34": {
-          "id": 34,
-          "slug": "itandcommunicationtechnology",
-          "title": "I.T. and Communication Technology",
-          "job_count": 36
-        },
-        "35": {
-          "id": 35,
-          "slug": "legalandhumanrights",
-          "title": "Legal and Human Rights",
-          "job_count": 85
-        },
-        "36": {
-          "id": 36,
-          "slug": "management",
-          "title": "Management",
-          "job_count": 303
-        },
-        "37": {
-          "id": 37,
-          "slug": "mediaartsandentertainment",
-          "title": "Media and Arts",
-          "job_count": 32
-        },
-        "38": {
-          "id": 38,
-          "slug": "medicalresearch",
-          "title": "Medical Research",
-          "job_count": 14
-        },
-        "39": {
-          "id": 39,
-          "slug": "mentalhealthandcounselling",
-          "title": "Mental Health and Counselling",
-          "job_count": 211
-        },
-        "40": {
-          "id": 40,
-          "slug": "multiculturalismdiversity",
-          "title": "Multiculturalism and Diversity",
-          "job_count": 57
-        },
-        "41": {
-          "id": 41,
-          "slug": "nursing",
-          "title": "Nursing",
-          "job_count": 34
-        },
-        "42": {
-          "id": 42,
-          "slug": "operationsriskmanagement",
-          "title": "Operations and Risk Management",
-          "job_count": 62
-        },
-        "43": {
-          "id": 43,
-          "slug": "organicfarmingandgardening",
-          "title": "Organic Farming and Gardening",
-          "job_count": 11
-        },
-        "44": {
-          "id": 44,
-          "slug": "policyandresearch",
-          "title": "Policy and Research",
-          "job_count": 55
-        },
-        "45": {
-          "id": 45,
-          "slug": "projectmanagement",
-          "title": "Project Management",
-          "job_count": 131
-        },
-        "46": {
-          "id": 46,
-          "slug": "recyclingandwastemanagement",
-          "title": "Recycling and Waste Management",
-          "job_count": 3
-        },
-        "47": {
-          "id": 47,
-          "slug": "socialwork",
-          "title": "Social Work",
-          "job_count": 391
-        },
-        "48": {
-          "id": 48,
-          "slug": "sustainabletransport",
-          "title": "Sustainable Transport",
-          "job_count": 6
-        },
-        "49": {
-          "id": 49,
-          "slug": "tradesandservices",
-          "title": "Trades and Services",
-          "job_count": 14
-        },
-        "50": {
-          "id": 50,
-          "slug": "unionsandworkersrights",
-          "title": "Unions and Workers Rights",
-          "job_count": 30
-        },
-        "51": {
-          "id": 51,
-          "slug": "volunteermanagement",
-          "title": "Volunteer Management",
-          "job_count": 22
-        },
-        "52": {
-          "id": 52,
-          "slug": "womensorganisationsandservices",
-          "title": "Womens Organisations and Services",
-          "job_count": 139
-        },
-        "53": {
-          "id": 53,
-          "slug": "youthservices",
-          "title": "Youth",
-          "job_count": 204
-        }
-      },
-      "locations": {
-        "1": {
-          "id": 1,
-          "slug": "VIC",
-          "title": "Melbourne"
-        },
-        "2": {
-          "id": 2,
-          "slug": "REGVIC",
-          "title": "Regional VIC"
-        },
-        "3": {
-          "id": 3,
-          "slug": "NSW",
-          "title": "Sydney"
-        },
-        "4": {
-          "id": 4,
-          "slug": "REGNSW",
-          "title": "Regional NSW"
-        },
-        "5": {
-          "id": 5,
-          "slug": "QLD",
-          "title": "Brisbane & Gold Coast"
-        },
-        "6": {
-          "id": 6,
-          "slug": "REGQLD",
-          "title": "Regional QLD"
-        },
-        "7": {
-          "id": 7,
-          "slug": "WA",
-          "title": "Perth"
-        },
-        "8": {
-          "id": 8,
-          "slug": "REGWA",
-          "title": "Regional WA"
-        },
-        "9": {
-          "id": 9,
-          "slug": "SA",
-          "title": "Adelaide"
-        },
-        "10": {
-          "id": 10,
-          "slug": "REGSA",
-          "title": "Regional SA"
-        },
-        "11": {
-          "id": 11,
-          "slug": "TAS",
-          "title": "Hobart"
-        },
-        "12": {
-          "id": 12,
-          "slug": "REGTAS",
-          "title": "Regional TAS"
-        },
-        "13": {
-          "id": 13,
-          "slug": "NT",
-          "title": "Darwin"
-        },
-        "14": {
-          "id": 14,
-          "slug": "REGNT",
-          "title": "Regional NT"
-        },
-        "15": {
-          "id": 15,
-          "slug": "ACT",
-          "title": "Canberra & ACT"
-        },
-        "16": {
-          "id": 16,
-          "slug": "AUSTRALIAWIDE",
-          "title": "Australia-Wide"
-        },
-        "17": {
-          "id": 17,
-          "slug": "INTERNATIONAL",
-          "title": "International"
-        }
-      },
-      "sectors": {
-        "1": {
-          "id": 1,
-          "slug": "Business and Private Sector",
-          "title": "Business\/Private Sector"
-        },
-        "2": {
-          "id": 2,
-          "slug": "Federal Government",
-          "title": "Federal Government"
-        },
-        "3": {
-          "id": 3,
-          "slug": "Local Government",
-          "title": "Local Government"
-        },
-        "4": {
-          "id": 4,
-          "slug": "Not For Profit (NFP)",
-          "title": "Not For Profit (NFP)"
-        },
-        "5": {
-          "id": 5,
-          "slug": "socialenterprise",
-          "title": "Social Enterprise"
-        },
-        "6": {
-          "id": 6,
-          "slug": "State Government",
-          "title": "State Government"
-        },
-        "7": {
-          "id": 7,
-          "slug": "university",
-          "title": "University & Higher Education"
-        }
-      },
-      "workTypes": {
-        "1": {
-          "id": 1,
-          "slug": "CASUAL",
-          "title": "Casual"
-        },
-        "2": {
-          "id": 2,
-          "slug": "CONTRACT",
-          "title": "Contract"
-        },
-        "3": {
-          "id": 3,
-          "slug": "FULLTIME",
-          "title": "Full Time"
-        },
-        "4": {
-          "id": 4,
-          "slug": "GRADUATE",
-          "title": "Graduate"
-        },
-        "5": {
-          "id": 5,
-          "slug": "PARTTIME",
-          "title": "Part Time"
-        },
-        "6": {
-          "id": 6,
-          "slug": "VOLUNTEER",
-          "title": "Volunteer"
-        }
-      }
-    }
   }
 }
