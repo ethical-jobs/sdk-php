@@ -3,7 +3,7 @@
   "description": "EthicalJobs API client and SDK",
   "license": "MIT",
   "require": {
-    "php": "~8.0",
+    "php": "^7.4",
     "ext-json": "*",
     "guzzlehttp/guzzle": "^7.4"
   },
